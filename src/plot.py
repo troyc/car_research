@@ -4,6 +4,12 @@
 Reads the CSVs written by rank.py. Does not re-fit.
 
     python3 src/plot.py
+
+On Nix (no system matplotlib):
+
+    nix-shell -p python3Packages.matplotlib python3Packages.numpy --run "python3 src/plot.py"
+
+Writes reports/figures/{comfort_ladders,comparison_graph,rank_robustness,top_matchups}.png
 """
 
 from __future__ import annotations

@@ -13,11 +13,30 @@ Open `reports/composite_ranking.md` first. That file is the result: one composit
 - `data/comparisons.csv` — coded pairwise votes
 - `src/rank.py` — Bradley–Terry fit (default + bias-adjusted + owners)
 - `data/ranking.csv` / `data/ranking_bias.csv` / `data/ranking_owners.csv` — machine-readable tables
+- `reports/figures/` — PNGs of the graph, segment ladders, rank robustness, and top matchups
 - `reports/methodology.md` — inclusion rules, weighting, generation coding, limits, and how to read Edmunds/Cars.com when the live review page is blocked
 
 ```bash
 python3 src/rank.py
 ```
+
+Then rebuild the figures from those CSVs (does not re-fit):
+
+```bash
+# matplotlib + numpy
+python3 src/plot.py
+
+# this machine (Nix):
+nix-shell -p python3Packages.matplotlib python3Packages.numpy --run "python3 src/plot.py"
+```
+
+Writes `reports/figures/comfort_ladders.png`, `comparison_graph.png`, `rank_robustness.png`, and `top_matchups.png`.
+
+## Who met whom
+
+Each line is a pair with 3+ coded votes. Height is global θ; columns are shopping segments. Most comparisons stay inside a column — that is why EQS SUV / XT6 / CX-9 sit near flagships on raw θ. Amber = the lower car won the head-to-head. Full-size image and the other charts: [`reports/figures/`](reports/figures/).
+
+![Who actually sat in whom — pairwise SUV comfort comparisons](reports/figures/comparison_graph.png)
 
 ## Composite chain
 
