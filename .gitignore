@@ -58,3 +58,6 @@ Thumbs.db
 # Temporary and log files
 *.log
 *.tmp
+
+# audit: fetched thread HTML (re-create with audit/fetch_threads.sh)
+audit/raw/
