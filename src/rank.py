@@ -52,6 +52,7 @@ SEGMENTS = {
         "Subaru Forester",
         "Cadillac XT5",
         "Lincoln Corsair",
+        "Nissan Murano",
     },
     "mid_luxury": {
         "BMW X5",
@@ -64,7 +65,6 @@ SEGMENTS = {
         "Porsche Cayenne",
         "Genesis GV80",
         "Genesis GV70",
-        "Jeep Grand Wagoneer",
         "Lincoln Aviator",
         "Acura MDX",
         "Range Rover Sport",
@@ -77,6 +77,8 @@ SEGMENTS = {
         "Tesla Model X",
         "Tesla Model Y",
         "BMW iX",
+        "Toyota Land Cruiser",
+        "Jeep Grand Cherokee",
     },
     "family_3row": {
         "Hyundai Palisade",
@@ -91,6 +93,9 @@ SEGMENTS = {
         "Ford Explorer",
         "Kia Sorento",
         "Nissan Pathfinder",
+        "Jeep Grand Cherokee L",
+        "Cadillac XT6",
+        "Buick Enclave",
     },
     "flagship": {
         "Range Rover",
@@ -102,6 +107,11 @@ SEGMENTS = {
         "Lexus LX",
         "Land Rover",
         "Chevrolet Suburban",
+        "GMC Yukon",
+        "Jeep Grand Wagoneer",
+        "Infiniti QX80",
+        "Cadillac Escalade IQ",
+        "Toyota Sequoia",
     },
 }
 
@@ -122,7 +132,10 @@ BRAND_SUB_RE = re.compile(
     r"KiaTelluride|LexusGX|LexusRX350|BMWX5|BMWX3|bmwx7|RangeRover|"
     r"VolvoXC90|VolvoXC60|AudiQ7|ToyotaHighlander|ToyotaGrandHighlander|"
     r"hondapilot|lincolnmotorco|PorscheCayenne|GenesisMotors|TeslaModelX|"
-    r"rav4club|CX5|MazdaCX90"
+    r"rav4club|CX5|MazdaCX90|LexusNX|GenesisGV70|Toyotavenza|"
+    r"AudiQ5|ModelX|BMWiX|TeslaModelY|nissanpathfinder|"
+    r"hondapassport|VWatlas|LexusGX550|4Runner|LandCruisers|"
+    r"infiniti|mercedes_benz|Acura"
     r")",
     re.I,
 )
@@ -328,6 +341,11 @@ def print_bias_comparison(default_rows: list[dict], default_scores: dict[str, fl
         "BMW X5",
         "Lincoln Aviator",
         "Range Rover",
+        "Genesis GV70",
+        "BMW iX",
+        "Nissan Pathfinder",
+        "Mercedes GLS",
+        "Lexus GX 550",
     ]
 
     print()

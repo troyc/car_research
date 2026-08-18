@@ -73,6 +73,8 @@ Most nameplates stay one node. Two changes this pass:
 - **Subaru Outback 2026** is a new generation (wagon → more upright crossover). It is coded separately from **Subaru Outback** (2020–2025, 6th gen). A same-garage 2026 vs 2020/2019 note is a vote, not a same-nameplate exclude.
 - **Lexus RX** still includes 2020–2022 AL20 (RX 350 / 350L / 450h / 450hL) and 2023+ AL30. Year is kept in the quote when the author named it. Splitting RX would orphan the older mixed-year rows.
 - **Lexus GX** here is the 2014–2023 GX 460 (J150). **Lexus GX 550** is a separate node. First-hand 460-vs-550 notes are votes, not same-nameplate excludes.
+- **Cadillac Escalade IQ** is a separate node from the ICE Escalade.
+- **Toyota Land Cruiser** here is the 2024+ 250-series (not the old 200 / LX twin).
 
 ## Bias we did not remove
 
@@ -80,7 +82,7 @@ Most nameplates stay one node. Two changes this pass:
 - Brand subreddits (`r/BMWX5`, `r/RangeRover`, `r/Lexus`) tilt toward the home team. We down-weight thin home-team comments; we do not delete them, because many owners there have also owned the rival.
 - "Comfort" is not one thing. Volvo wins seats; Lincoln / Range Rover win softness; BMW often wins "I wasn't tired" via support rather than plushness. The model averages those meanings.
 - Wheel size and air suspension flip results inside a nameplate. An XC60 on 21s loses to a Q5 on air; the same XC60 on 19s often wins. We code the specific spec when the commenter named it, otherwise the typical retail car.
-- Sample grew from ~99 to 214, then to **297** weighted votes after the Outback / Ascent / RX / GX pass. Treat ranks as a reading of this corpus, not a census of owners. One 241-upvote test-drive write-up is down-weighted by `log(1+upvotes)` so it boosts Q8/MDX/Q7 but does not own the scale. The bias-adjusted fit removes that karma term entirely.
+- Sample grew from ~99 to 214, then to 297 after the Outback / Ascent / RX / GX pass, then to **453** weighted votes after a fourth pass aimed at thin compact-luxury / midsize / flagship nameplates, missing three-row models (Pathfinder, Sorento, Passport, Atlas, Grand Wagoneer), GX 550 / Land Cruiser / 4Runner, and more Edmunds/Cars.com owner pairs. Treat ranks as a reading of this corpus, not a census of owners. One 241-upvote test-drive write-up is down-weighted by `log(1+upvotes)` so it boosts Q8/MDX/Q7 but does not own the scale. The bias-adjusted fit removes that karma term entirely.
 
 ## Date and sources
 
@@ -138,6 +140,30 @@ Third-pass threads (Outback generations, Ascent, 2020–22 RX, GX 460):
 - [2022 RX350 or 2023 Highlander](https://old.reddit.com/r/Lexus/comments/1hue8eu/)
 - [CPO GX460 vs 4Runner Limited](https://old.reddit.com/r/LexusGX/comments/177g7u9/)
 - [GX460 over 4Runner for a family](https://old.reddit.com/r/LexusGX/comments/1u23qmr/)
+
+Fourth-pass threads (thin luxury, missing three-row, trucks):
+
+- [GV70 vs SQ5 vs Macan](https://old.reddit.com/r/GenesisGV70/comments/1d1bpec/)
+- [NX vs GLC](https://old.reddit.com/r/LexusNX/comments/1tyb8s9/)
+- [NX vs XC60](https://old.reddit.com/r/LexusNX/comments/1mttqev/)
+- [CR-V vs CX-50](https://old.reddit.com/r/crv/comments/1ig8mju/)
+- [Venza vs CR-V](https://old.reddit.com/r/Toyotavenza/comments/19amr95/)
+- [Nautilus vs XT5](https://old.reddit.com/r/lincolnmotorco/comments/15bxna5/)
+- [GLE vs XC90](https://old.reddit.com/r/mercedes_benz/comments/t63dlp/)
+- [Q7 vs X5 / GLE](https://old.reddit.com/r/AudiQ7/comments/17xx4yw/)
+- [Aviator vs GV80](https://old.reddit.com/r/GenesisMotors/comments/1hleau4/)
+- [iX vs Model X](https://old.reddit.com/r/ModelX/comments/1emwzix/)
+- [iX vs X5](https://old.reddit.com/r/BMWiX/comments/1g2dc3f/)
+- [Pathfinder vs Pilot](https://old.reddit.com/r/nissanpathfinder/comments/1uyw9q3/)
+- [Palisade vs Pathfinder](https://old.reddit.com/r/HyundaiPalisade/comments/1kk9vjf/)
+- [Telluride vs Sorento](https://old.reddit.com/r/KiaTelluride/comments/1gq26u3/)
+- [Atlas vs Pilot](https://old.reddit.com/r/VWatlas/comments/1ftqorz/)
+- [Pilot vs Grand Highlander](https://old.reddit.com/r/hondapilot/comments/1bx1rm6/)
+- [Passport vs Pilot](https://old.reddit.com/r/hondapilot/comments/1nn8r97/)
+- [X7 vs Range Rover](https://old.reddit.com/r/RangeRover/comments/1p44h0d/)
+- [Navigator vs Grand Wagoneer](https://old.reddit.com/r/lincolnmotorco/comments/1eqta1w/)
+- [GX 550 vs 4Runner](https://old.reddit.com/r/LexusGX550/comments/1ikvbg1/)
+- [Land Cruiser vs 4Runner](https://old.reddit.com/r/LandCruisers/comments/1lluxml/)
 
 Owner-review pages used when the text named two SUVs and picked a comfort winner:
 

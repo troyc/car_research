@@ -39,37 +39,48 @@ Core models, default 3+ appearances. Ranks below are **global rank among every m
 
 | Model | Default θ | Default W–L | Bias θ | Default rank | Bias rank | no_home rank | owned_both rank |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| Range Rover | 6.08 | 6–0 | 3.93 | 1 | 2 | 4 | 1 |
-| Subaru Ascent | 1.34 | 22–9 | 0.32 | 20 | 28 | 35 | 19 |
-| Subaru Outback 2026 | 0.47 | 10–1 | 1.40 | 25 | 13 | 21 | 6 |
-| Lexus RX | 0.02 | 18–14 | 0.41 | 34 | 25 | 37 | 14 |
-| Lexus GX | 0.44 | 15–11 | 0.02 | 26 | 31 | 32 | 17 |
-| Hyundai Palisade | −0.98 | 38–16 | 1.38 | 40 | 14 | 19 | 11 |
-| BMW X5 | 2.15 | 15–21 | 0.34 | 12 | 27 | 23 | 22 |
-| Honda CR-V | −0.56 | 10–12 | −0.35 | 37 | 38 | 29 | 27 |
-| Subaru Outback (2020–25) | −1.93 | 19–15 | −0.37 | 44 | 39 | 31 | 24 |
-| Toyota 4Runner | −3.63 | 0–9 | −3.02 | 59 | 58 | 49 | 48 |
-| Toyota RAV4 | −5.17 | 0–15 | −4.75 | 61 | 61 | 56 | 50 |
+| Range Rover | 5.08 | 8–1 | 3.22 | 3 | 5 | 6 | 1 |
+| Mercedes GLS | 5.58 | 9–1 | 4.16 | 1 | 1 | — | — |
+| Subaru Ascent | 1.53 | 22–9 | 0.61 | 20 | 28 | 47 | 28 |
+| Subaru Outback 2026 | 0.75 | 10–1 | 1.65 | 27 | 13 | 27 | 7 |
+| Lexus RX | 0.12 | 18–16 | 0.39 | 39 | 32 | 42 | 20 |
+| Lexus GX | 0.70 | 16–11 | 0.13 | 29 | 36 | 33 | 24 |
+| Hyundai Palisade | −0.76 | 42–16 | 1.56 | 47 | 16 | 28 | 8 |
+| BMW X5 | 3.45 | 21–29 | 0.75 | 9 | 23 | 16 | 26 |
+| Honda CR-V | −0.21 | 20–14 | 0.02 | 42 | 38 | 35 | 38 |
+| Subaru Outback (2020–25) | −1.59 | 19–15 | −0.06 | 53 | 41 | 36 | 33 |
+| Nissan Pathfinder | −0.16 | 10–5 | 0.75 | 40 | 17 | — | — |
+| Genesis GV70 | 4.12 | 9–0 | 2.78 | 4 | 5 | — | — |
+| BMW iX | 3.93 | 8–1 | 1.62 | 6 | 11 | — | — |
+| Kia Telluride | −0.90 | 17–16 | 0.09 | 49 | 37 | 44 | 11 |
+| Toyota 4Runner | −4.45 | 1–17 | −3.56 | 73 | 73 | 65 | 67 |
+| Toyota RAV4 | −5.29 | 0–16 | −4.53 | 75 | 75 | 70 | 66 |
 
 ### The ceiling shrinks; the family class rises
 
-Range Rover stays first (or second to LX once karma is gone). Its θ falls from 6.08 to 3.93 because several of those 6–0 notes lived in high-upvote / brand-sub threads. The **order** at the top does not flip.
+Range Rover stays in the top handful (default 3, bias 5). Its θ falls from 5.08 to 3.22. **GLS** stays first in both numeric lists because 9–1 vs X7 is a real within-flagship pile; the shopping chain still does not put GLS over Range Rover.
 
-**Palisade** is the biggest mover. Default θ is depressed because the model plays almost entirely inside the three-row set while luxury cars collect high-engagement wins against each other. Take karma off and Palisade’s 38–16 against Pilot / Telluride / Highlander / Grand Highlander looks like what it is: the volume comfort default in that class. It is still not an X5.
+**Palisade** is still a big mover (default rank 47 → bias 16). Default θ is depressed because the model plays inside the three-row set. Take karma off and 42–16 against Pilot / Telluride / Highlander / Grand Highlander / Pathfinder looks like the class default. It is still not an X5.
 
-**Ascent** is a ride specialist (22–9). After the extra owned-both counters (Pilot seats, Palisade long-trip, Outback ride split), the bias fit **does** pull it down (θ 1.34 → 0.32; rank 20 → 28). **no_home** pulls it further (35). A lot of the Ascent sample still lives on `r/SubaruAscent`. Treat 22–9 as “won more ride loops than it lost,” not “quieter than a Palisade Calligraphy.” One Ascent-sub shopper who actually drove both said the Telluride was “much quieter.”
+**Ascent** is still pulled down (1.53 → 0.61; rank 20 → 28). **no_home** pulls it to 47. The sample is still brand-sub heavy.
 
-**X5** falls (2.15 → 0.34) once GLE/X5 brand-sub karma is stripped. That matches the older write-up: X5 is a dual-purpose luxury SUV with a losing record on plushness, and Reddit likes to argue about it.
+**Pathfinder** is the new family-class riser in the bias fit (−0.16 → 0.75; rank 40 → 17) because the Pilot-seat notes are owned-both / same-day, not karma. Palisade and Telluride still beat it on ride.
 
-### The four nameplates this pass was about
+**GV70** and **iX** stay high in both fits (9–0 and 8–1). The bias fit shrinks iX more (3.93 → 1.62) because several notes live on `r/BMWiX`. Neither car’s victims are flagship.
+
+**X5** still falls (3.45 → 0.75) once GLE/X5 brand-sub karma is stripped.
+
+**Telluride** improves in the bias fit (−0.90 → 0.09) once the new Sorento / Explorer / Pilot-split notes are not drowned by Palisade-sub volume.
+
+### The four nameplates from the previous pass (still true)
 
 **2020–2025 Outback** is stable. 19–15, still a compact. It beats RAV4 and Forester in owned-both notes; it splits CR-V. Every robustness column leaves it in the compact cluster, not next to RX.
 
 **2026 Outback** is 10–1. Default rank stays mid-pack; the bias fit *raises* it because the 10–1 record does not depend on karma. Its victims are still the old Outback, Forester, CX-50, a 4Runner, and one Ascent. Do not read 10–1 as “Nautilus class.”
 
-**2020–2022 RX** (and RX L, coded as RX) is among the more stable luxury nameplates. Default 18–14; bias 18–12 after thin opinion rows drop, and rank *improves* (34 → 25) because RX’s new Highlander / RAV4 / Q5 notes are owned-both, not brand-sub applause. vs GX 460 the unibody RX usually wins ride; some GX households prefer isolation.
+**2020–2022 RX** (and RX L, coded as RX) is among the more stable luxury nameplates. Default 18–16. vs GX 460 the unibody RX usually wins ride; some GX households prefer isolation.
 
-**2014–2023 GX 460** is no longer 0–3. It is 15–11. Almost every new win is vs 4Runner (owned-both: quieter, smoother, seats that survive a long trip). vs RX it splits. vs X5 / X7 / GLE / LX it still loses. Two first-hand notes say the **460 rides smoother than the GX 550**. **no_home** and the extra fan-sub penalty both nudge GX down a couple of ranks — `r/LexusGX` is where the 4Runner pile-on lives. The *direction* survives: GX is a comfortable 4Runner, not a soft-roader X5.
+**2014–2023 GX 460** is 16–11. Almost every win is still vs 4Runner. vs RX it splits. vs X5 / X7 / GLE / LX it still loses. GX 550 is now 6–4 vs 4Runner and still loses to the 460. The *direction* survives: GX is a comfortable 4Runner, not a soft-roader X5.
 
 ## How to read this next to the composite chain
 
@@ -83,3 +94,7 @@ Use this file for one question: **if we distrust Reddit’s applause and brand-s
 - 2020–25 Outback vs RAV4 / Forester: no.
 - 2026 Outback vs the old wagon: yes, owners who had both say quieter/smoother; the sample is small.
 - Palisade / Ascent vs luxury θ: yes, the *numeric* global list was flattering luxury-thread engagement. The chain already said that. The bias fit agrees with the chain more than with the raw θ list.
+- Pathfinder vs Pilot: no — Pathfinder still wins seats.
+- GV70 vs X3 / Q5: no — GV70 still wins that compact-luxury loop.
+- iX vs Model X: no — iX still wins quiet.
+- Telluride vs Palisade: no — Palisade still wins ride more often; Telluride is no longer 5–12.
