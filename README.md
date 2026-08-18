@@ -1,3 +1,5 @@
+> Agreed, full sized and large sedans are best. But I don't argue with people who want suvs, it's an obsession you typically can't talk them out of.
+
 # SUV Comfort Ranking from Customer Comparisons
 
 Research project that ranks SUV comfort from **customer comments that compare two or more SUVs and state a preference**. Isolated praise ("the X5 is comfy") is not used. Only relative statements are.
