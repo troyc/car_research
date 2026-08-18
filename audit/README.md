@@ -17,9 +17,18 @@ Reddit is the **worked example**: a full extractor with comment trees, scores,
 deleted-account handling, and reply chains. Other sources currently use a **generic
 whole-page text fallback** that still verifies quotes verbatim but has no structured
 context yet; per-source extractors are small and are written as needed (see
-"Adding a source"). If a site blocks curl, fetch the page with the fetch tool or a
-browser and save it under the same filename — the audit doesn't care how the HTML
-got there.
+"Adding a source"). If a site blocks curl, `fetch_pages.sh` now falls back
+automatically to (1) a **web.archive.org** snapshot (`web/2024id_/<url>`) and
+then (2) the **r.jina.ai** reader proxy (renders JS, passes most bot checks);
+either can also be run by hand, or the page can be saved from a browser under the
+same filename — the audit doesn't care how the HTML got there. The wayback leg
+failed on exactly the URLs with no archive snapshot (query-string pages,
+brand-new model pages), and jina is rate-flaky (retries built in); when both
+miss, the script prints the exact filename to save from a browser. Note that
+archived snapshots can **predate** content the coder saw (row 148's review was
+only in the live page, row 119/120's quote in neither) — a clean match on an old
+snapshot verifies the quote, but a miss should be checked against the live page
+before concluding.
 
 ## The standards being enforced
 
@@ -190,6 +199,32 @@ Notes for future audits:
   the stored `upvotes` column; treat them as informational like reddit karma
   drift. If x.com starts serving a login wall again, use the fetch tool / a
   browser and save under the same sha1 filename.
+- **Browser fallback on NixOS (this machine):** chromium is installed
+  system-wide (`/run/current-system/sw/bin/chromium`) and omp is configured to
+  use it — the headless daemon prefers a detected system Chromium on Linux, so a
+  cold daemon start (fresh broker) launches system chromium with no extra work.
+  **Caveat:** a broker that was already running when chromium was installed keeps
+  the cached Chrome-for-Testing binary in `~/.omp/puppeteer/chrome/<ver>/` —
+  that binary needs the one-time RPATH fix below (already applied on this
+  machine, harmless if system chromium later takes over). If a daemon shows
+  `exit=127` on launch, apply:
+  `nix-shell -p "nss.out" "nspr.out" "gtk3.out" ...` (explicit `.out` outputs —
+  plain `nss` resolves to the `-dev` output and ships no libs) and patch the
+  binary's RPATH:
+  `patchelf --set-rpath "$(find /nix/store -maxdepth 1 -type d -iname '*-nspr-*' -o -iname '*-nss-*' … | tr '\n' ':')" ~/.omp/puppeteer/chrome/<ver>/chrome-linux64/chrome`.
+  Note store dirs are `<hash>-<name>`, so globs must be `*<name>*`; after the
+  patch, `ldd` should report zero "not found". The browser then passes
+  Cloudflare (cars.com) where curl/jina fail (edmunds 403s the machine's IP
+  after a few hits — treat as a per-IP block, not a browser problem).
+- **Filename normalization:** non-reddit raws are `<sha1(url)[:10]>.html` of the
+  URL **with the trailing slash stripped** (`url.strip().rstrip("/")`) — the same
+  normalization `audit_rows.py` uses. Hashing the URL as-cited (with slash)
+  produces a different filename; compute hashes the same way the tool does.
+- `MODEL CHECK` now accepts plural model forms ("Palisades", "Escalades") and
+  space-inserted codes ("XC 90" for XC90, "GLE Coupe" for GLE) after the
+  101–150 pass produced false flags on both (rows 108, 142). Genuine
+  misspellings in the source ("Nautilis" for Nautilus, row 144) still flag —
+  by design, the row should quote the source verbatim anyway.
 - `MODEL CHECK` needs the `HOME_MODELS` mapping to cover new brand subs before it
   can sanity-check their `home_team`; unknown subs are skipped silently. Add the
   sub and its badge model(s) when a new brand sub shows up in the CSV.

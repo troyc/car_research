@@ -106,20 +106,28 @@ def model_in_text(model, text_norm):
     mn = norm(model)
     if not mn:
         return None
-    if mn in text_norm:
+    # Match against the passage both as written and with interior spaces
+    # removed, so a spaced code ('XC 90', 'GLE Coupe') still matches the
+    # joined model form ('xc90') and vice versa. The space-free variant is
+    # only used for substring checks (word boundaries disappear once '0xc90'
+    # merges digits and letters).
+    text_ns = re.sub(r"\s+", "", text_norm)
+    if mn in text_norm or mn in text_ns:
         return None
     if mn.startswith("range rover") and re.search(r"\brrs\b", text_norm):
         return None  # RRS is the usual shorthand for the Range Rover Sport
     norm_toks = mn.split(" ")
     orig_toks = [t for t in re.split(r"[\s\-/]+", model.strip()) if t]
     joined = "".join(norm_toks)
-    if len(joined) >= 3 and re.search(r"\b" + re.escape(joined) + r"\b",
-                                      text_norm):
+    if len(joined) >= 3 and (re.search(r"\b" + re.escape(joined) + r"s?\b",
+                                       text_norm)
+                             or joined + "s" in text_ns or joined in text_ns):
         return None
     rest = "".join(norm_toks[1:])
     rest_orig = "".join(orig_toks[1:])
-    if (len(rest) >= 2 and re.search(r"\b" + re.escape(rest) + r"\b",
-                                     text_norm)
+    if (len(rest) >= 2
+            and (re.search(r"\b" + re.escape(rest) + r"s?\b", text_norm)
+                 or rest in text_ns or rest + "s" in text_ns)
             and (len(rest_orig) > 4
                  or rest_orig.isupper()
                  or any(ch.isdigit() for ch in rest_orig))):
@@ -131,9 +139,10 @@ def model_in_text(model, text_norm):
         is_code = (len(o) <= 4
                    and (o.isupper() or any(ch.isdigit() for ch in o)))
         if len(tok) >= 5 or is_code:
-            # codes may carry a digit suffix ('gle350', 'x540i')
-            pat = r"\b" + re.escape(tok) + r"\d*\b"
-            if re.search(pat, text_norm):
+            # codes may carry a digit suffix ('gle350', 'x540i') and an
+            # optional plural 's' ('palisades', 'x7s')
+            if (re.search(r"\b" + re.escape(tok) + r"\d*s?\b", text_norm)
+                    or tok in text_ns):
                 return None
     return f"{mn!r} never appears in this passage"
 

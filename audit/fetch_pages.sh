@@ -25,6 +25,48 @@ UA_REDDIT="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, 
 UA_GENERIC="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
 mkdir -p "$RAW_DIR"
 
+# Looks like a block/empty page? (Cloudflare challenge, 403, wayback 404 page)
+suspicious() {
+    [ ! -s "$1" ] && return 0
+    [ "$(wc -c < "$1")" -lt 5000 ] && return 0
+    grep -qE "Just a moment|Attention Required|Access Denied|<title>Wayback Machine" "$1" && return 0
+    return 1
+}
+
+# Fallback chain for curl-blocked sites: archive.org snapshot -> r.jina.ai
+# reader (renders JS, passes most bot checks). Both save under the SAME target
+# filename; the audit does not care how the HTML got there.
+fetch_fallback() { # $1 = url, $2 = out file
+    echo "  curl blocked/empty; trying web.archive.org..."
+    if curl -s -L -A "$UA_GENERIC" "https://web.archive.org/web/2024id_/$1" -o "$2"; then
+        sleep 2
+        if ! suspicious "$2"; then
+            echo "  saved from web.archive.org ($(wc -c < "$2") bytes)"
+            return 0
+        fi
+    fi
+    echo "  wayback miss; trying r.jina.ai reader proxy..."
+    ok=""
+    for try in 1 2 3; do
+        if curl -s -L -A "$UA_GENERIC" "https://r.jina.ai/$1" -o "$2"; then
+            sleep 2
+            if ! suspicious "$2" && grep -qE "Title:|URL Source:" "$2"; then
+                ok=1
+                break
+            fi
+        fi
+        echo "  (jina attempt $try blocked; retrying)"
+        sleep 5
+    done
+    if [ -n "$ok" ]; then
+        echo "  saved from r.jina.ai ($(wc -c < "$2") bytes)"
+        return 0
+    fi
+    echo "  all fetchers blocked; save the page from a browser under: $2"
+    rm -f "$2"
+    return 1
+}
+
 if [ "$#" -gt 0 ]; then
     for id in "$@"; do
         url="https://old.reddit.com/comments/$id/"
@@ -65,8 +107,11 @@ PY
         curl -s -L -A "$UA_REDDIT" "$url" -o "$RAW_DIR/$file" \
             || { echo "FAILED $url"; rm -f "$RAW_DIR/$file"; }
     else
-        curl -s -L -A "$UA_GENERIC" -H "Accept: text/html" "$url" -o "$RAW_DIR/$file" \
-            || { echo "FAILED $url (try the fetch tool if the site blocks curl)"; rm -f "$RAW_DIR/$file"; }
+        if ! curl -s -L -A "$UA_GENERIC" -H "Accept: text/html" "$url" -o "$RAW_DIR/$file" \
+            || suspicious "$RAW_DIR/$file"; then
+            rm -f "$RAW_DIR/$file"
+            fetch_fallback "$url" "$RAW_DIR/$file" || true
+        fi
     fi
     sleep 1
 done
