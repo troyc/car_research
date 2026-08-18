@@ -10,15 +10,15 @@ Default ranking (owners + testers): [`composite_ranking.md`](composite_ranking.m
 
 | Evidence | Kept? | Rows in file |
 |---|---|---:|
-| `owned_both` | yes | 322 |
-| `owned_one_td_other` | yes — they own one | 90 |
+| `owned_both` | yes | 326 |
+| `owned_one_td_other` | yes — they own one | 91 |
 | `owned_one_family` | yes | 22 |
-| `owned_one_loaner` | yes | 18 |
+| `owned_one_loaner` | yes | 20 |
 | `owned_one_rode_other` | yes | 8 |
-| `test_drove_both` | **no** | 321 |
+| `test_drove_both` | **no** | 327 |
 | `opinion` / `opinion_plus_drive` / `passenger` / journalist | no | 15 |
 
-**458 weighted votes** after the usual sedan drop (Lexus ES / Audi A7). **320** of those are lived-with-both. Testers are still about 40% of the coded file; they are not a rounding error.
+**465 weighted votes** after the usual sedan drop (Lexus ES / Audi A7). **324** of those are lived-with-both. Testers are still about 40% of the coded file; they are not a rounding error.
 
 `owned_one_td_other` stays because the author is an owner comparing to a car they sat in. If you want the stricter garage-vs-garage cut, the script also prints **owned_both only** (no karma boost). That sample is 320 votes and is thinner at the flagship end.
 
@@ -28,7 +28,7 @@ Ignore raw global θ. GLS is 8–0 almost entirely vs X7. EQS SUV is 4–0 vs iX
 
 **Range Rover ≈ GLS > Range Rover Sport / iX / EQS SUV / Escalade IQ / Escalade / X7 / Yukon / Aviator / GLE / Q7 / MDX > X5 / XC90 / RX / GX 460 > XC60 / Nautilus / GLC / Venza > Palisade ≥ Telluride ≥ Pathfinder (seats vs Pilot) > Pilot / Highlander / Ascent / 2020–25 Outback / CR-V > Crosstrek / CX-5 / GX 550 > CX-50 / X3 / RAV4 / Forester / 4Runner / Model Y / X1**
 
-Owner-only Yukon is **18–3**. Same-garage air Yukon over R1S is still the owner-only truck result. Escalade IQ is **6–1** among owners. EQS SUV is **7–0** vs iX / R1S. QX80 is 4–0 on seats in a tiny sample. Defender still loses to Range Rover among people who lived with both and now beats R1S / Cayenne in that cut.
+Owner-only Yukon is **18–3**. Same-garage air Yukon over R1S is still the owner-only truck result. Escalade IQ is **6–1** among owners. EQS SUV is **7–0** vs iX / R1S. QX80 is 4–0 on seats in a tiny sample. The new Expedition owner rows split Suburban / Tahoe / Escalade / Navigator rather than lifting it into the luxury chain. Santa Fe has only Palisade owner comparisons and loses those four. Defender still loses to Range Rover among people who lived with both and now beats R1S / Cayenne in that cut.
 
 That is close to the full-sample shopping chain. The middle is not.
 

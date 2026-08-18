@@ -96,6 +96,7 @@ SEGMENTS = {
         "Jeep Grand Cherokee L",
         "Cadillac XT6",
         "Buick Enclave",
+        "Hyundai Santa Fe",
     },
     "flagship": {
         "Range Rover",
@@ -113,6 +114,7 @@ SEGMENTS = {
         "Infiniti QX80",
         "Cadillac Escalade IQ",
         "Toyota Sequoia",
+        "Ford Expedition",
     },
 }
 
@@ -139,7 +141,7 @@ BRAND_SUB_RE = re.compile(
     r"infiniti|mercedes_benz|Acura|Tiguan|CX50|NewDefender|"
     r"LandroverDefender|Rivian|toyotasequoia|LincolnNavigator|"
     r"Cadillac|kia|gmc|ChevyTahoe|GrandCherokee|Crosstrek|"
-    r"FordExplorer|MazdaCX90|NissanMurano"
+    r"FordExplorer|MazdaCX90|NissanMurano|HyundaiSantaFe|fordexpedition"
     r")",
     re.I,
 )

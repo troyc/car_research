@@ -66,7 +66,7 @@ A global ranking mixes a $30k compact with a $130k Range Rover. That is useful a
 - Midsize luxury (X5 / GLE / RX / XC90 / Q8 class)
 - Large / flagship (Range Rover, GLS, Navigator, Escalade, X7)
 
-Three-row family crossovers (Palisade, Telluride, Highlander, Grand Highlander, Pilot, CX-90, Ascent) sit between the last two and are reported separately when they appear. Lexus TX is scored with midsize luxury because that is who it is cross-shopped against, even though it shares a platform with Grand Highlander. Lexus GX 460 and Toyota 4Runner sit with midsize luxury for the same reason (that is who they meet); they are body-on-frame trucks, not X5s.
+Three-row family crossovers (Palisade, Telluride, Highlander, Grand Highlander, Pilot, CX-90, Ascent, Santa Fe) sit between the last two and are reported separately when they appear. Full-size Expedition is scored with flagship / large SUVs, but its new sample is still a family-truck split. Lexus TX is scored with midsize luxury because that is who it is cross-shopped against, even though it shares a platform with Grand Highlander. Lexus GX 460 and Toyota 4Runner sit with midsize luxury for the same reason (that is who they meet); they are body-on-frame trucks, not X5s.
 
 ## Generations we split
 
@@ -85,7 +85,7 @@ Most nameplates stay one node. Two changes this pass:
 - Brand subreddits (`r/BMWX5`, `r/RangeRover`, `r/Lexus`) tilt toward the home team. We down-weight thin home-team comments; we do not delete them, because many owners there have also owned the rival.
 - "Comfort" is not one thing. Volvo wins seats; Lincoln / Range Rover win softness; BMW often wins "I wasn't tired" via support rather than plushness. The model averages those meanings.
 - Wheel size and air suspension flip results inside a nameplate. An XC60 on 21s loses to a Q5 on air; the same XC60 on 19s often wins. We code the specific spec when the commenter named it, otherwise the typical retail car.
-- Sample grew from ~99 to 214, then to 297 after the Outback / Ascent / RX / GX pass, then to 453 after a fourth pass on thin luxury / missing three-row / trucks, then to 554 after a fifth pass on remaining thin flagship / mid-luxury / compact / three-row / truck nodes, then to 633 after a sixth pass on Yukon / Tahoe / Suburban / QX80 / Escalade IQ, EQS SUV / Defender / R1S / Cayenne / Macan, Crosstrek / Corsair / X1 / Model Y, and CX-90 / Pathfinder / Murano / Passport, then to 725 after a seventh pass on Yukon / R1S / Sequoia / QX80 / Tahoe, Defender / Cayenne / Grand Cherokee, Crosstrek / Corsair / X1 / Murano / Model Y, and CX-90 / Explorer / Enclave / GCL, then to **792** weighted votes (796 coded rows) after an eighth pass on Escalade IQ / EQS SUV / LX / Yukon / Land Cruiser, Defender / Grand Cherokee / Cayenne / R1S / Model Y, Venza / Tiguan / Corsair / X1 / Crosstrek, and leftover GCL / XT5 / Enclave owner-review lines. Treat ranks as a reading of this corpus, not a census of owners. One 241-upvote test-drive write-up is down-weighted by `log(1+upvotes)` so it boosts Q8/MDX/Q7 but does not own the scale. The bias-adjusted fit removes that karma term entirely.
+- Sample grew from ~99 to 214, then to 297 after the Outback / Ascent / RX / GX pass, then to 453 after a fourth pass on thin luxury / missing three-row / trucks, then to 554 after a fifth pass on remaining thin flagship / mid-luxury / compact / three-row / truck nodes, then to 633 after a sixth pass on Yukon / Tahoe / Suburban / QX80 / Escalade IQ, EQS SUV / Defender / R1S / Cayenne / Macan, Crosstrek / Corsair / X1 / Model Y, and CX-90 / Pathfinder / Murano / Passport, then to 725 after a seventh pass on Yukon / R1S / Sequoia / QX80 / Tahoe, Defender / Cayenne / Grand Cherokee, Crosstrek / Corsair / X1 / Murano / Model Y, and CX-90 / Explorer / Enclave / GCL, then to 792 after an eighth pass on Escalade IQ / EQS SUV / LX / Yukon / Land Cruiser, Defender / Grand Cherokee / Cayenne / R1S / Model Y, Venza / Tiguan / Corsair / X1 / Crosstrek, and leftover GCL / XT5 / Enclave owner-review lines, and finally to **805 weighted votes (809 coded rows)** after a ninth pass on Expedition / Suburban / Tahoe / Escalade / Navigator, 2026 Santa Fe / Palisade, and fresh RR / GLS / Q7 / X5 / GV80 links. Treat ranks as a reading of this corpus, not a census of owners. One 241-upvote test-drive write-up is down-weighted by `log(1+upvotes)` so it boosts Q8/MDX/Q7 but does not own the scale. The bias-adjusted fit removes that karma term entirely.
 
 ## Date and sources
 
@@ -242,6 +242,20 @@ Eighth-pass threads (Escalade IQ / EQS SUV / LX / Yukon / LC, Defender / Grand C
 - [Venza vs RAV4](https://old.reddit.com/r/Toyotavenza/comments/10nmo6u/venza_vs_rav_4/)
 - [Tiguan vs RAV4](https://old.reddit.com/r/Tiguan/comments/1qh9gy8/tiguan_vs_rav4_similar_sizes_different_priorities/)
 - [Corsair or Nautilus](https://old.reddit.com/r/lincolnmotorco/comments/1gq264h/corsair_or_nautilus/)
+
+Ninth-pass comparison threads:
+
+- [Expedition owner comparison with Suburban / Yukon](https://old.reddit.com/r/fordexpedition/comments/1rl3wmy/)
+- [Tahoe / Suburban vs 2025 Expedition](https://old.reddit.com/r/ChevyTahoe/comments/1kob8dv/)
+- [Expedition vs Escalade](https://old.reddit.com/r/fordexpedition/comments/1i3q2b9/)
+- [Tahoe / Suburban vs 2026 Expedition](https://old.reddit.com/r/fordexpedition/comments/1meko7j/)
+- [2026 Palisade vs Santa Fe](https://old.reddit.com/r/HyundaiPalisade/comments/1onsp6r/)
+- [Santa Fe vs Palisade, both owned](https://old.reddit.com/r/HyundaiPalisade/comments/1ux87px/)
+- [2026 Palisade / Santa Fe decision](https://old.reddit.com/r/HyundaiPalisade/comments/1o1qoue/)
+- [Palisade loaner vs Santa Fe Hybrid](https://old.reddit.com/r/HyundaiPalisade/comments/1u1qfhh/)
+- [Range Rover vs GLS](https://old.reddit.com/r/whatcarshouldIbuy/comments/1kemw8r/)
+- [Q7 vs X5 / RX / XC90](https://old.reddit.com/r/whatcarshouldIbuy/comments/1vd150j/)
+- [X5 vs GV80 vs Q7](https://old.reddit.com/r/whatcarshouldIbuy/comments/1j6z1bc/)
 
 Owner-review pages used when the text named two SUVs and picked a comfort winner:
 

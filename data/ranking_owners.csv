@@ -1,76 +1,78 @@
 rank,model,theta,wins,losses,appearances,segment
-1,Mercedes EQS SUV,6.3954,7,0,7,flagship
-2,Mercedes GLS,6.3104,9,0,9,flagship
-3,Range Rover,4.0701,14,2,16,flagship
-4,Range Rover Sport,3.3293,7,2,9,mid_luxury
-5,Infiniti QX80,3.3189,4,0,4,flagship
-6,BMW iX,3.0696,7,5,12,mid_luxury
-7,BMW X7,2.9865,8,9,17,flagship
-8,Cadillac Escalade IQ,2.7899,6,1,7,flagship
-9,Cadillac XT6,2.7071,5,1,6,family_3row
-10,Mercedes GLE AMG,2.5155,1,2,3,mid_luxury
-11,Mercedes GLE,2.4676,13,7,20,mid_luxury
-12,GMC Yukon,2.4406,18,3,21,flagship
-13,Subaru Outback 2026,2.2882,7,0,7,compact
-14,Acura MDX,2.2711,4,2,6,mid_luxury
-15,Lincoln Nautilus,2.2542,8,1,9,compact
-16,Lincoln Aviator,2.1909,6,2,8,mid_luxury
-17,Audi Q7,2.0923,4,2,6,mid_luxury
-18,Lexus LX,2.0237,7,2,9,flagship
-19,Jeep Grand Cherokee,2.0034,2,1,3,mid_luxury
-20,Buick Enclave,1.9454,3,2,5,family_3row
-21,Audi Q8,1.8811,2,2,4,mid_luxury
-22,Nissan Murano,1.8605,4,1,5,compact
-23,Jeep Grand Wagoneer,1.8088,3,3,6,flagship
-24,Mazda CX-9,1.7854,5,0,5,compact
-25,Cadillac Escalade,1.6694,12,11,23,flagship
-26,Lexus TX,1.5643,3,1,4,mid_luxury
-27,BMW X5,1.4328,23,29,52,mid_luxury
-28,Lincoln Navigator,1.4275,6,9,15,flagship
-29,Volvo XC90,1.0426,11,10,21,mid_luxury
-30,Hyundai Palisade,1.0240,22,7,29,family_3row
-31,Volvo XC60,0.9084,11,2,13,compact
-32,Mercedes GLC,0.8320,5,2,7,compact
-33,Volkswagen Atlas,0.8299,4,2,6,family_3row
-34,Lexus GX,0.7416,18,12,30,mid_luxury
-35,Toyota Venza,0.4259,12,2,14,compact
-36,Kia Telluride,0.3189,14,6,20,family_3row
-37,Land Rover Defender,0.1267,7,12,19,mid_luxury
-38,Lexus RX,0.0746,17,11,28,mid_luxury
-39,Nissan Pathfinder,0.0280,6,6,12,family_3row
-40,Toyota Highlander,-0.2083,6,7,13,family_3row
-41,Lexus NX,-0.2330,4,5,9,compact
-42,Genesis GV70,-0.2766,3,3,6,mid_luxury
-43,Honda Pilot,-0.2806,11,15,26,family_3row
-44,Toyota Sequoia,-0.3803,2,11,13,flagship
-45,Subaru Ascent,-0.6388,6,6,12,family_3row
-46,Lincoln Corsair,-0.6982,1,3,4,compact
-47,Audi Q5,-0.7499,6,5,11,compact
-48,Honda Passport,-0.8169,5,3,8,family_3row
-49,Subaru Outback,-0.8188,22,12,34,compact
-50,Volkswagen Tiguan,-0.8639,8,3,11,compact
-51,Honda CR-V,-1.1997,12,13,25,compact
-52,Tesla Model X,-1.2690,11,14,25,mid_luxury
-53,Ford Explorer,-1.4274,2,5,7,family_3row
-54,Rivian R1S,-1.5923,5,17,22,mid_luxury
-55,Cadillac XT5,-1.7001,1,6,7,compact
-56,Porsche Cayenne,-1.7502,1,9,10,mid_luxury
-57,Chevrolet Tahoe,-2.0036,1,4,5,flagship
-58,Toyota Grand Highlander,-2.0794,0,2,2,family_3row
-59,Genesis GV80,-2.0944,0,2,2,mid_luxury
-60,Porsche Macan,-2.1413,1,3,4,compact
-61,Mazda CX-5,-2.9738,4,8,12,compact
-62,Mazda CX-90,-3.0253,1,7,8,family_3row
-63,BMW X3,-3.0714,2,10,12,compact
-64,Kia Sorento,-3.1318,0,4,4,family_3row
-65,Subaru Forester,-3.2688,2,8,10,compact
-66,Subaru Crosstrek,-3.4147,3,11,14,compact
-67,Lexus GX 550,-3.4627,6,8,14,mid_luxury
-68,Chevrolet Suburban,-3.4809,0,2,2,flagship
-69,Toyota Land Cruiser,-3.5311,3,5,8,mid_luxury
-70,Jeep Grand Cherokee L,-3.8622,0,1,1,family_3row
-71,Mazda CX-50,-3.9011,1,9,10,compact
-72,Toyota 4Runner,-3.9877,2,20,22,mid_luxury
-73,Toyota RAV4,-4.0577,1,25,26,compact
-74,Tesla Model Y,-5.2491,0,15,15,mid_luxury
-75,BMW X1,-5.6115,0,5,5,compact
+1,Mercedes EQS SUV,6.4307,7,0,7,flagship
+2,Mercedes GLS,5.1121,9,1,10,flagship
+3,Range Rover,4.6826,15,2,17,flagship
+4,Range Rover Sport,3.5548,7,2,9,mid_luxury
+5,Infiniti QX80,3.3699,4,0,4,flagship
+6,BMW iX,3.1103,7,5,12,mid_luxury
+7,BMW X7,2.8932,8,9,17,flagship
+8,Cadillac Escalade IQ,2.8591,6,1,7,flagship
+9,Cadillac XT6,2.7675,5,1,6,family_3row
+10,Mercedes GLE AMG,2.5797,1,2,3,mid_luxury
+11,Mercedes GLE,2.5565,13,7,20,mid_luxury
+12,GMC Yukon,2.5257,18,3,21,flagship
+13,Acura MDX,2.3199,4,2,6,mid_luxury
+14,Subaru Outback 2026,2.3149,7,0,7,compact
+15,Lincoln Nautilus,2.2997,8,1,9,compact
+16,Lincoln Aviator,2.2414,6,2,8,mid_luxury
+17,Audi Q7,2.1464,4,2,6,mid_luxury
+18,Lexus LX,2.0779,7,2,9,flagship
+19,Jeep Grand Cherokee,2.0473,2,1,3,mid_luxury
+20,Buick Enclave,2.0151,3,2,5,family_3row
+21,Audi Q8,1.9894,2,2,4,mid_luxury
+22,Nissan Murano,1.9140,4,1,5,compact
+23,Jeep Grand Wagoneer,1.8841,3,3,6,flagship
+24,Mazda CX-9,1.8180,5,0,5,compact
+25,Cadillac Escalade,1.7425,13,11,24,flagship
+26,Lexus TX,1.6160,3,1,4,mid_luxury
+27,Lincoln Navigator,1.5005,6,9,15,flagship
+28,BMW X5,1.4810,23,29,52,mid_luxury
+29,Hyundai Palisade,1.1059,25,7,32,family_3row
+30,Volvo XC90,1.0910,11,10,21,mid_luxury
+31,Volvo XC60,0.9475,11,2,13,compact
+32,Volkswagen Atlas,0.8866,4,2,6,family_3row
+33,Mercedes GLC,0.8687,5,2,7,compact
+34,Lexus GX,0.7914,18,12,30,mid_luxury
+35,Toyota Venza,0.4691,12,2,14,compact
+36,Kia Telluride,0.3750,14,6,20,family_3row
+37,Land Rover Defender,0.1936,7,12,19,mid_luxury
+38,Lexus RX,0.1353,17,11,28,mid_luxury
+39,Nissan Pathfinder,0.0871,6,6,12,family_3row
+40,Toyota Highlander,-0.1481,6,7,13,family_3row
+41,Lexus NX,-0.1923,4,5,9,compact
+42,Honda Pilot,-0.2252,11,15,26,family_3row
+43,Genesis GV70,-0.2356,3,3,6,mid_luxury
+44,Toyota Sequoia,-0.3239,2,11,13,flagship
+45,Subaru Ascent,-0.5981,6,6,12,family_3row
+46,Ford Expedition,-0.6555,2,1,3,flagship
+47,Lincoln Corsair,-0.6653,1,3,4,compact
+48,Audi Q5,-0.7120,6,5,11,compact
+49,Honda Passport,-0.7659,5,3,8,family_3row
+50,Subaru Outback,-0.7806,22,12,34,compact
+51,Volkswagen Tiguan,-0.8263,8,3,11,compact
+52,Honda CR-V,-1.1597,12,13,25,compact
+53,Tesla Model X,-1.2205,11,14,25,mid_luxury
+54,Ford Explorer,-1.3766,2,5,7,family_3row
+55,Rivian R1S,-1.5437,5,17,22,mid_luxury
+56,Cadillac XT5,-1.6630,1,6,7,compact
+57,Porsche Cayenne,-1.6928,1,9,10,mid_luxury
+58,Chevrolet Tahoe,-1.9589,1,4,5,flagship
+59,Toyota Grand Highlander,-2.0253,0,2,2,family_3row
+60,Genesis GV80,-2.0578,0,2,2,mid_luxury
+61,Porsche Macan,-2.1072,1,3,4,compact
+62,Hyundai Santa Fe,-2.1396,0,3,3,family_3row
+63,Mazda CX-5,-2.9365,4,8,12,compact
+64,Mazda CX-90,-2.9800,1,7,8,family_3row
+65,BMW X3,-3.0413,2,10,12,compact
+66,Kia Sorento,-3.0897,0,4,4,family_3row
+67,Subaru Forester,-3.2321,2,8,10,compact
+68,Subaru Crosstrek,-3.3782,3,11,14,compact
+69,Lexus GX 550,-3.4208,6,8,14,mid_luxury
+70,Toyota Land Cruiser,-3.4899,3,5,8,mid_luxury
+71,Chevrolet Suburban,-3.7022,0,4,4,flagship
+72,Jeep Grand Cherokee L,-3.8331,0,1,1,family_3row
+73,Mazda CX-50,-3.8661,1,9,10,compact
+74,Toyota 4Runner,-3.9452,2,20,22,mid_luxury
+75,Toyota RAV4,-4.0190,1,25,26,compact
+76,Tesla Model Y,-5.2078,0,15,15,mid_luxury
+77,BMW X1,-5.5854,0,5,5,compact

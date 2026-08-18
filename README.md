@@ -4,7 +4,7 @@ Research project that ranks SUV comfort from **customer comments that compare tw
 
 ## What this is
 
-A Bradley–Terry ranking of current-generation SUVs on ride comfort, seats, cabin quiet, and long-trip fatigue, built from first-hand owner and test-drive comments on Reddit, X, and Edmunds/Cars.com consumer reviews. Collected 18 August 2026; expanded the same day through eight research passes, the last aimed at remaining thin flagship / EV (Escalade IQ / EQS SUV / LX / Yukon / Land Cruiser), mid-luxury (Defender / Grand Cherokee / Cayenne / R1S / Model Y), compact (Venza / Tiguan / Corsair / X1 / Crosstrek), and leftover owner-review holes (GCL / XT5 / Enclave). A second fit down-weights source bias. A third fit keeps only owners (no same-day testers).
+A Bradley–Terry ranking of current-generation SUVs on ride comfort, seats, cabin quiet, and long-trip fatigue, built from first-hand owner and test-drive comments on Reddit, X, and Edmunds/Cars.com consumer reviews. Collected 18 August 2026; expanded the same day through nine research passes, with the latest adding Expedition / Suburban / Tahoe / Escalade / Navigator, 2026 Santa Fe / Palisade, and fresh RR / GLS / Q7 / X5 / GV80 comparisons. A second fit down-weights source bias. A third fit keeps only owners (no same-day testers).
 
 ## How to read it
 
@@ -48,7 +48,7 @@ Shopping order from who actually beat whom. Later bands are generally less comfo
 | 2 | Flagship / comfort-first luxury | Range Rover Sport ≈ Escalade / Escalade IQ / Navigator / Grand Wagoneer / Yukon / X7 / BMW iX / Lincoln Aviator / EQS SUV |
 | 3 | Dual-purpose luxury | Mercedes GLE / Audi Q7 / Acura MDX / Genesis GV80 / **BMW X5** ≈ **Lexus RX** / Audi Q8 |
 | 4 | Compact luxury | Audi Q5 / Lincoln Nautilus / Mercedes GLC / Volvo XC60 / Genesis GV70 / Lincoln Corsair |
-| 5 | Comfortable three-row / near-luxury compact | **Palisade** ≥ Ascent (ride) ≥ Pathfinder (seats vs Pilot) ≥ Telluride ≥ Atlas ≥ 2026 Outback / Murano / Venza |
+| 5 | Comfortable three-row / near-luxury compact | **Palisade** ≥ Ascent (ride) ≥ Pathfinder (seats vs Pilot) ≥ Telluride ≥ Atlas ≥ Expedition (split) ≥ 2026 Outback / Murano / Venza / Santa Fe |
 | 6 | Mainstream three-row | Honda Pilot / Toyota Highlander / Toyota Grand Highlander / Mazda CX-90 |
 | 7 | Comfortable compact | Honda CR-V ≈ 2020–25 Subaru Outback |
 | 8 | Firm / fatiguing | RAV4 / CX-5 / CX-50 / BMW X3 / Crosstrek / Model Y / 4Runner / Forester / R1S / BMW X1 |

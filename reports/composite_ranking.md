@@ -1,10 +1,10 @@
 # Composite SUV comfort ranking from customer comparisons
 
-**Collected 18 August 2026; expanded seven times the same day** — Edmunds/Cars.com and three-row family SUVs; then **2020–2025 / 2026 Subaru Outback**, **Ascent**, **2020–2022 RX / RX L**, and **2014–2023 GX 460**; then thin luxury / missing three-row / trucks; then remaining thin flagship, mid-luxury, compact-luxury, three-row, and truck nodes; then Yukon / Tahoe / Suburban / QX80 / Escalade IQ, EQS SUV / Defender / R1S / Cayenne / Macan, Crosstrek / Corsair / X1 / Model Y, and CX-90 / Pathfinder / Murano / Passport; then a seventh pass on Yukon / R1S / Sequoia / QX80 / Tahoe, Defender / Cayenne / Grand Cherokee, Crosstrek / Corsair / X1 / Murano / Model Y, and CX-90 / Explorer / Enclave / GCL; then an **eighth pass** on Escalade IQ / EQS SUV / LX / Yukon / Land Cruiser, Defender / Grand Cherokee / Cayenne / R1S / Model Y, Venza / Tiguan / Corsair / X1 / Crosstrek, and leftover GCL / XT5 / Enclave owner-review lines. A second Bradley–Terry fit down-weights Reddit karma and brand-sub home cooking: [`bias_analysis.md`](bias_analysis.md).
+**Collected 18 August 2026; expanded nine times the same day** — Edmunds/Cars.com and three-row family SUVs; then **2020–2025 / 2026 Subaru Outback**, **Ascent**, **2020–2022 RX / RX L**, and **2014–2023 GX 460**; then thin luxury / missing three-row / trucks; then remaining thin flagship, mid-luxury, compact-luxury, three-row, and truck nodes; then Yukon / Tahoe / Suburban / QX80 / Escalade IQ, EQS SUV / Defender / R1S / Cayenne / Macan, Crosstrek / Corsair / X1 / Model Y, and CX-90 / Pathfinder / Murano / Passport; then a seventh pass on Yukon / R1S / Sequoia / QX80 / Tahoe, Defender / Cayenne / Grand Cherokee, Crosstrek / Corsair / X1 / Murano / Model Y, and CX-90 / Explorer / Enclave / GCL; then an **eighth pass** on Escalade IQ / EQS SUV / LX / Yukon / Land Cruiser, Defender / Grand Cherokee / Cayenne / R1S / Model Y, Venza / Tiguan / Corsair / X1 / Crosstrek, and leftover GCL / XT5 / Enclave owner-review lines; then a **ninth pass** on Expedition / Suburban / Tahoe / Escalade / Navigator, 2026 Santa Fe / Palisade, and fresh RR / GLS / Q7 / X5 / GV80 links. A second Bradley–Terry fit down-weights Reddit karma and brand-sub home cooking: [`bias_analysis.md`](bias_analysis.md).
 
 Only comments that name two or more SUVs and pick a winner on comfort (ride, seats, quiet, long-trip fatigue). Isolated praise is not used.
 
-**792 weighted pairwise votes** (796 coded rows) from Reddit owner/test-drive threads, three X posts, plus Edmunds and Cars.com consumer reviews. Combined with a Bradley–Terry model. Method: [`methodology.md`](methodology.md). Raw votes: [`../data/comparisons.csv`](../data/comparisons.csv). Owners only, testers dropped: [`owner_analysis.md`](owner_analysis.md).
+**805 weighted pairwise votes** (809 coded rows) from Reddit owner/test-drive threads, three X posts, plus Edmunds and Cars.com consumer reviews. Combined with a Bradley–Terry model. Method: [`methodology.md`](methodology.md). Raw votes: [`../data/comparisons.csv`](../data/comparisons.csv). Owners only, testers dropped: [`owner_analysis.md`](owner_analysis.md).
 
 ---
 
@@ -18,7 +18,7 @@ People almost never rank ten SUVs at once. They say “A over B.” Stack those 
 | 2 | Flagship / comfort-first luxury | Range Rover Sport ≈ Escalade / Escalade IQ / Navigator / Grand Wagoneer / Yukon / X7 / BMW iX / Lincoln Aviator / EQS SUV |
 | 3 | Dual-purpose luxury | Mercedes GLE / Audi Q7 / Acura MDX / Genesis GV80 / **BMW X5** ≈ **Lexus RX** / Audi Q8 |
 | 4 | Compact luxury | Audi Q5 / Lincoln Nautilus / Mercedes GLC / Volvo XC60 / Genesis GV70 / Lincoln Corsair |
-| 5 | Comfortable three-row / near-luxury compact | **Palisade** ≥ Ascent (ride) ≥ Pathfinder (seats vs Pilot) ≥ Telluride ≥ Atlas ≥ 2026 Outback / Murano / Venza |
+| 5 | Comfortable three-row / near-luxury compact | **Palisade** ≥ Ascent (ride) ≥ Pathfinder (seats vs Pilot) ≥ Telluride ≥ Atlas ≥ Expedition (split) ≥ 2026 Outback / Murano / Venza / Santa Fe |
 | 6 | Mainstream three-row | Honda Pilot / Toyota Highlander / Toyota Grand Highlander / Mazda CX-90 |
 | 7 | Comfortable compact | Honda CR-V ≈ 2020–25 Subaru Outback |
 | 8 | Firm / fatiguing | RAV4 / CX-5 / CX-50 / BMW X3 / Crosstrek / Model Y / 4Runner / Forester / R1S / BMW X1 |
@@ -337,6 +337,22 @@ Five research subagents pulled unused threads (flagship / EV trucks, mid-luxury 
 Snippets / listing reprints added Enclave-over-X5, GCL-over-Palisade/Telluride NVH, XT5-over-X3 long-drive seats. Dropped a pre-2018 Sequoia, an incomplete Tahoe-vs-Grand Cherokee snippet, and Explorer “driving dynamics” with no comfort axis.
 
 ---
+
+## What the ninth pass changed
+
+The ninth pass added **13 first-hand rows** and one previously missing full-size SUV. The fit now loads **805 usable comparisons / 809 coded rows** after the sedan and exclusion drops.
+
+### Expedition fills the full-size truck gap
+
+**Ford Expedition** enters at **3–3**: it beats Suburban twice on stability / interior comfort, beats Tahoe on seats and body control, and loses ride comparisons to Suburban, Escalade, and Navigator. The practical read is a split: Expedition seats and body control are strong, while GM air / magnetic-ride setups can be softer. It is not evidence that Expedition belongs beside Navigator or Escalade in the comfort chain.
+
+### 2026 Santa Fe is a Palisade counterpoint, not a luxury benchmark
+
+The new **Hyundai Santa Fe** has four direct comparisons, all against 2026 Palisade, and loses all four on ride / quiet. Owners describe it as sportier and still smooth; the Palisade is quieter, smoother, and more settled over bumps. Because Santa Fe has not met CR-V, Tiguan, RAV4, or another compact rival in this file, its **0–4** is a within-Hyundai result, not a general compact ranking.
+
+### A few luxury bridges got stronger
+
+One owner who had both preferred the full-size Range Rover to the GLS on comfort. A new Q7 test drive favored the Audi’s softer / quieter feel over X5, while a three-way test drive called the GV80 cushier than the chosen X5. These reinforce the existing split—comfort-first Audi / Genesis versus sportier BMW—without changing the ceiling or making GV80 an air-suspension flagship.
 
 ## Evidence that actually moves the ranking
 
