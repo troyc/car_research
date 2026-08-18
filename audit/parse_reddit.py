@@ -1,13 +1,23 @@
 #!/usr/bin/env python3
-"""Parse old.reddit HTML into structured comments.
+"""REDDIT-SPECIFIC extractor: old.reddit HTML -> structured page data.
 
-Handles the quirks found during the audit:
+This is one implementation of the extraction step in the audit pipeline
+(fetch -> extract -> match). Other sources (edmunds, cars.com, x) use the
+generic whole-page text fallback in audit_rows.py until a small per-source
+extractor is written — see audit/README.md, "Adding a source".
+
+The reddit-specific quirks handled here:
 - comments by deleted accounts have NO `data-author` attribute -> author falls
   back to the tagline ("[deleted]") instead of dropping the comment
 - the post body is parsed separately (some quotes come from the OP write-up,
   e.g. audit row 33)
 - deleted-comment placeholders are counted so the auditor knows coverage
 - scores are the "unvoted" (true) value; old.reddit shows three fuzzed spans
+
+Contract (what audit_rows.py consumes):
+  {"title", "post": {"author", "score", "body"},
+   "comments": {cid: {"author", "score", "body", "parent", "children"}},
+   "deleted_count", "note"}
 
 Usage:  python3 parse_reddit.py thread.html [--json]
 """
@@ -118,7 +128,7 @@ def parse_thread(fn):
                 comments[parent]["children"].append(cid)
 
     return {"title": title, "post": post, "comments": comments,
-            "deleted_count": deleted_count}
+            "deleted_count": deleted_count, "note": None}
 
 
 if __name__ == "__main__":

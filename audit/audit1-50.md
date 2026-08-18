@@ -19,7 +19,8 @@ deletion is recommended.
 | Marker / editorial row (harmless, wt=0) | 34 |
 
 Cross-cutting issues (detail at the bottom): several `upvotes` values don't match the
-current Reddit score (rows 19, 22, 32, 35, 50); row 33 quotes the **post body**, not a
+current Reddit score (rows 19, 22, 32, 35, 50 — informational only; upvotes are planned
+for removal from all data and calculations); row 33 quotes the **post body**, not a
 comment; row 21's author account is deleted; rows 16 and 19's stored quotes contain
 **coder editorial text** that is not on the page.
 
@@ -635,7 +636,7 @@ SUVs"). Suggest one fuller quote for both rows.
 
 ## Thread 7 — `1mbg5ci` "What is the most comfortable SUV or Sedan you drove/rode in your life?" (row 50)
 
-### Row 50 — BMW X5 > Mercedes GLE · ride · **test_drove_both (should be owned_both)** · wt 3.0 · up 21 → **KEEP, fix evidence + upvotes**
+### Row 50 — BMW X5 > Mercedes GLE · ride · **test_drove_both (should be owned_both)** · wt 3.0 · up 21 → **KEEP, fix evidence**
 
 Stored quote: `X5 air suspension… We had a MB GLE350 for 3 years and it was too bouncy… traded… X5 M60i`
 
@@ -650,20 +651,23 @@ Actual (u/the_robmeister_, **10 pts**):
 Pair ✓, axis ride ✓. The commenter **owned both** (GLE 3 years, traded for X5) →
 evidence `owned_both`, not `test_drove_both` (the stored wt 3.0 is right; the tag is
 wrong — matters for the owners-only fit, where `test_drove_both` is dropped).
-**Upvotes: stored 21, current score 10** — the largest discrepancy in the batch (see
+**Upvotes: stored 21, current score 10** — the largest discrepancy in the batch; a
+non-issue given the planned removal of upvotes from all data and calculations (see
 notes). Suggest the fuller quote.
 
 ---
 
 ## Cross-cutting notes
 
-1. **`upvotes` column is unreliable for several rows.** Current Reddit scores vs stored:
+1. **`upvotes` column is unreliable for several rows (non-issue — planned for removal).**
+   Current Reddit scores vs stored:
    row 19 (stored 1, now 3), row 22 (3 → 1), row 32 (0 → 3), row 35 (4 → 6), row 50
    (21 → 10). ±1 elsewhere (rows 1, 2, 3, 11, 12, 13–15, 16, 18, 20, 21, 23, 24, 25, 28,
-   31, 36, 37, 45, 47, 48, 49). Since weight = base × log(1+upvotes), a 21-vs-10 error
-   changes row 50's karma multiplier by ~25%, and 0-vs-3 changes row 32 from no boost to
-   a 1.39× boost. Recommend re-capturing upvotes for rows 19, 22, 32, 35, 50 (all these
-   threads are archived, so scores are frozen now — today's number is the definitive one).
+   31, 36, 37, 45, 47, 48, 49). Were the column still live, a 21-vs-10 error would
+   change row 50's karma multiplier by ~25%, and 0-vs-3 would change row 32 from no
+   boost to a 1.39× boost. **However, upvotes are planned to be removed from all data
+   and calculations** (the `upvotes` column and the `log(1+upvotes)` karma multiplier),
+   so these values are legacy — do not re-capture them.
 
 2. **Stored quotes contain coder editorial text in rows 16 and 19** ("(vs XC60 harsher;
    XT5 called lazy)" and the 😭 row). The `quote` column should be verbatim source text
@@ -695,4 +699,6 @@ notes). Suggest the fuller quote.
 - **Fix quotes on ~10 rows** (5/6 unify, 7/8 unify, 13–15 unify, 17, 24, 33, plus the
   full-quote suggestions in the OK rows).
 - **Fix evidence tags on 9 rows:** 2, 18, 25, 29, 36, 37, 38, 47, 50.
-- **Re-capture upvotes for rows 19, 22, 32, 35, 50.**
+- **Upvotes: no action.** The `upvotes` column and the `log(1+upvotes)` karma
+  multiplier are planned to be removed from all data and calculations; the drift
+  seen in rows 19, 22, 32, 35, 50 is a non-issue and should not be re-captured.

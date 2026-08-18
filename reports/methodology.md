@@ -39,6 +39,7 @@ Each row gets a base weight from how the person knows the cars:
 Then:
 
 - `weight *= log(1 + upvotes)` if the comment has a Reddit score, floored at 1.0. Popular comments get a modest boost; they do not dominate.
+  **Planned:** upvotes will be removed from all data and calculations — the `upvotes` column and this karma term are legacy and should not be re-captured.
 - Brand-subreddit home-team comments with thin comfort language are multiplied by 0.6.
 - If the same author states the same pair more than once, only the strongest statement is kept. Different authors on the same thread who name the same pair are separate votes.
 

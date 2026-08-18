@@ -4,7 +4,7 @@ Research project that ranks SUV comfort from **customer comments that compare tw
 
 ## What this is
 
-A Bradley–Terry ranking of current-generation SUVs on ride comfort, seats, cabin quiet, and long-trip fatigue, built from first-hand owner and test-drive comments on Reddit, X, and Edmunds/Cars.com consumer reviews. Collected 18 August 2026; expanded the same day through nine research passes, with the latest adding Expedition / Suburban / Tahoe / Escalade / Navigator, 2026 Santa Fe / Palisade, and fresh RR / GLS / Q7 / X5 / GV80 comparisons. A second fit down-weights source bias. A third fit keeps only owners (no same-day testers).
+A Bradley–Terry ranking of current-generation SUVs on ride comfort, seats, cabin quiet, and long-trip fatigue, built from first-hand owner and test-drive comments on Reddit, X, and Edmunds/Cars.com consumer reviews. Collected 18 August 2026; expanded the same day through nine research passes, with the latest adding Expedition / Suburban / Tahoe / Escalade / Navigator, 2026 Santa Fe / Palisade, and fresh RR / GLS / Q7 / X5 / GV80 comparisons. A second fit down-weights source bias. A third fit keeps only owners (no same-day testers). Upvotes are planned to be removed from all data and calculations — the `upvotes` column and the karma boost in the default fit are legacy.
 
 ## How to read it
 
@@ -14,7 +14,7 @@ Open `reports/composite_ranking.md` first. That file is the result: one composit
 - `src/rank.py` — Bradley–Terry fit (default + bias-adjusted + owners)
 - `data/ranking.csv` / `data/ranking_bias.csv` / `data/ranking_owners.csv` — machine-readable tables
 - `reports/figures/` — PNGs of the graph, segment ladders, rank robustness, and top matchups
-- `audit/` — verification kit (`fetch_threads.sh`, `parse_reddit.py`, `audit_rows.py`) plus `audit1-50.md`, an audit of the first 50 coded rows with per-row quote/evidence verdicts
+- `audit/` — verification kit for any source (reddit, Edmunds, Cars.com, X): `fetch_pages.sh`, `parse_reddit.py`, `audit_rows.py`, plus `audit1-50.md`, an audit of the first 50 coded rows with per-row quote/evidence verdicts
 - `reports/methodology.md` — inclusion rules, weighting, generation coding, limits, and how to read Edmunds/Cars.com when the live review page is blocked
 
 ```bash
