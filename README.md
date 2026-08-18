@@ -4,15 +4,15 @@ Research project that ranks SUV comfort from **customer comments that compare tw
 
 ## What this is
 
-A Bradley–Terry ranking of current-generation SUVs on ride comfort, seats, cabin quiet, and long-trip fatigue, built from first-hand owner and test-drive comments on Reddit, X, and Edmunds/Cars.com consumer reviews. Collected 18 August 2026; expanded the same day for 2020–2025 / 2026 Outback, Ascent, 2020–2022 RX / RX L, and 2014–2023 GX, then again for thin compact-luxury / midsize / flagship nameplates, missing three-row models (Pathfinder, Sorento, Passport, Atlas), and more Edmunds/Cars.com owner pairs. A second fit down-weights source bias.
+A Bradley–Terry ranking of current-generation SUVs on ride comfort, seats, cabin quiet, and long-trip fatigue, built from first-hand owner and test-drive comments on Reddit, X, and Edmunds/Cars.com consumer reviews. Collected 18 August 2026; expanded the same day for 2020–2025 / 2026 Outback, Ascent, 2020–2022 RX / RX L, and 2014–2023 GX, then again for thin compact-luxury / midsize / flagship nameplates, missing three-row models (Pathfinder, Sorento, Passport, Atlas), and more Edmunds/Cars.com owner pairs. A second fit down-weights source bias. A third fit keeps only owners (no same-day testers).
 
 ## How to read it
 
-Open `reports/composite_ranking.md` first. That file is the result: one composite chain plus segment rankings. `reports/bias_analysis.md` is the second reading — same quotes, less Reddit karma and brand-sub weight.
+Open `reports/composite_ranking.md` first. That file is the result: one composite chain plus segment rankings. `reports/bias_analysis.md` is the second reading — same quotes, less Reddit karma and brand-sub weight. `reports/owner_analysis.md` is the third — same quotes, **no test drivers**.
 
 - `data/comparisons.csv` — coded pairwise votes
-- `src/rank.py` — Bradley–Terry fit (default + bias-adjusted)
-- `data/ranking.csv` / `data/ranking_bias.csv` — machine-readable tables
+- `src/rank.py` — Bradley–Terry fit (default + bias-adjusted + owners)
+- `data/ranking.csv` / `data/ranking_bias.csv` / `data/ranking_owners.csv` — machine-readable tables
 - `reports/methodology.md` — inclusion rules, weighting, generation coding, limits, and how to read Edmunds/Cars.com when the live review page is blocked
 
 ```bash

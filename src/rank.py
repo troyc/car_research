@@ -143,6 +143,16 @@ BRAND_SUB_RE = re.compile(
 # Thin first-person-adjacent talk; dropped in the bias-adjusted fit.
 THIN_EVIDENCE = {"opinion", "opinion_plus_drive"}
 
+# Lived with at least one of the two vehicles. Excludes same-day testers,
+# passengers, and opinion rows. owned_one_td_other stays: the author owns one.
+OWNER_EVIDENCE = {
+    "owned_both",
+    "owned_one_td_other",
+    "owned_one_family",
+    "owned_one_loaner",
+    "owned_one_rode_other",
+}
+
 
 def row_weight(raw: dict, mode: str) -> float | None:
     """Return a positive weight, or None if the row is dropped for this mode."""
@@ -186,6 +196,15 @@ def row_weight(raw: dict, mode: str) -> float | None:
         if evidence != "owned_both":
             return None
         return base  # no karma boost; lived-with-both only
+
+    if mode == "owners":
+        # Same knobs as default, but drop test-drive-only / passenger / opinion.
+        if evidence not in OWNER_EVIDENCE:
+            return None
+        w = base * math.log1p(max(upvotes, 0) + 1)
+        if home:
+            w *= 0.6
+        return w
 
     raise ValueError(f"unknown weight mode {mode!r}")
 
@@ -383,6 +402,107 @@ def print_bias_comparison(default_rows: list[dict], default_scores: dict[str, fl
     write_ranking(ROOT / "data" / "ranking_bias.csv", bias_scores, bias_rows)
 
 
+def print_owners_analysis(default_rows: list[dict], default_scores: dict[str, float]) -> None:
+    owner_rows = load_comparisons("owners")
+    owner_scores = fit_bradley_terry(owner_rows)
+    both_rows = load_comparisons("owned_both")
+    both_scores = fit_bradley_terry(both_rows)
+
+    print()
+    print(f"Owner-only sample: {len(owner_rows)} votes (owned at least one); {len(both_rows)} lived-with-both")
+    print_table(
+        "Owner ranking (exclude test-drove-both / passenger / opinion; default weights)",
+        owner_scores,
+        owner_rows,
+        min_apps=2,
+    )
+    print_table(
+        "Owner core ranking (3+ appearances)",
+        owner_scores,
+        owner_rows,
+        min_apps=3,
+    )
+    order = print_table(
+        "Lived-with-both ranking (owned_both only, 2+ appearances)",
+        both_scores,
+        both_rows,
+        min_apps=2,
+    )
+    print()
+    print("Lived-with-both chain (2+ appearances):")
+    print("  " + "  >  ".join(order))
+
+    for seg, models in SEGMENTS.items():
+        sub = [r for r in owner_rows if r["winner"] in models and r["loser"] in models]
+        if len(sub) < 2:
+            continue
+        print_table(
+            f"{seg} owner ranking (within-segment owner pairs)",
+            fit_bradley_terry(sub),
+            sub,
+            min_apps=1,
+        )
+
+    focus = [
+        "Range Rover",
+        "Mercedes GLS",
+        "Lexus LX",
+        "Cadillac Escalade",
+        "Lincoln Navigator",
+        "BMW X7",
+        "Lincoln Aviator",
+        "BMW X5",
+        "Mercedes GLE",
+        "Audi Q7",
+        "Lexus RX",
+        "Genesis GV70",
+        "BMW iX",
+        "Hyundai Palisade",
+        "Kia Telluride",
+        "Honda Pilot",
+        "Nissan Pathfinder",
+        "Subaru Ascent",
+        "Toyota Highlander",
+        "Toyota Grand Highlander",
+        "Honda CR-V",
+        "Subaru Outback",
+        "Subaru Outback 2026",
+        "Lexus GX",
+        "Lexus GX 550",
+        "Toyota 4Runner",
+        "Toyota RAV4",
+        "Subaru Forester",
+        "Audi Q5",
+        "Lincoln Nautilus",
+        "Volvo XC60",
+        "Genesis GV80",
+        "Acura MDX",
+    ]
+    print()
+    print("Default vs owner vs owned-both ranks (global rank in each fit, 1+ appearances)")
+    print("-" * 78)
+    print(f"{'model':<22} {'def':>5} {'own':>5} {'own2':>5}  default W-L   owner W-L   both W-L")
+    maps = {
+        "default": rank_map(default_scores, default_rows, min_apps=1),
+        "owners": rank_map(owner_scores, owner_rows, min_apps=1),
+        "owned_both": rank_map(both_scores, both_rows, min_apps=1),
+    }
+    for m in focus:
+        cells = []
+        wls = []
+        for name in ("default", "owners", "owned_both"):
+            if m in maps[name]:
+                rk, _, w, l = maps[name][m]
+                cells.append(f"{rk:>5d}")
+                wls.append(f"{w}-{l}")
+            else:
+                cells.append(f"{'—':>5}")
+                wls.append("—")
+        print(f"{m:<22} {cells[0]} {cells[1]} {cells[2]}  {wls[0]:>10}  {wls[1]:>9}  {wls[2]:>8}")
+
+    write_ranking(ROOT / "data" / "ranking_owners.csv", owner_scores, owner_rows)
+
+
 def main() -> None:
     rows = load_comparisons("default")
     print(f"Loaded {len(rows)} weighted pairwise comparisons from {DATA}")
@@ -418,6 +538,7 @@ def main() -> None:
 
     write_ranking(ROOT / "data" / "ranking.csv", scores, rows)
     print_bias_comparison(rows, scores)
+    print_owners_analysis(rows, scores)
 
 
 if __name__ == "__main__":

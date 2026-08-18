@@ -15,10 +15,12 @@ Default `src/rank.py` already down-weights brand-subreddit home-team comments (`
 | Edmunds / Cars.com owner reviews | same as Reddit | `×1.25` |
 | X | same as Reddit | `×0.8` |
 
-Two extra robustness runs are printed by the script and are **not** the headline:
+Two extra robustness runs are printed by the script and are **not** the headline of *this* file:
 
 - **no_home** — drop every `home_team=1` row
 - **owned_both** — lived-with-both only, no karma boost
+
+Owners vs testers is a separate cut: [`owner_analysis.md`](owner_analysis.md) (`data/ranking_owners.csv`). Same default weights; `test_drove_both` dropped.
 
 Re-run: `python3 src/rank.py` writes `data/ranking.csv` (default) and `data/ranking_bias.csv`.
 

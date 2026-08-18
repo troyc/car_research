@@ -44,6 +44,8 @@ Then:
 
 `python3 src/rank.py` also writes a **bias-adjusted** fit (`data/ranking_bias.csv`). That run drops `opinion` / `opinion_plus_drive`, removes the karma multiplier, tightens the home-team penalty to 0.4 (and 0.75 more if the URL is a model fan-sub), and lifts Edmunds/Cars.com owner reviews by 1.25. Same inclusion rules; different trust in the sources. See [`bias_analysis.md`](bias_analysis.md).
 
+A third fit is **owners only** (`data/ranking_owners.csv`). It keeps `owned_both`, `owned_one_td_other`, `owned_one_family`, `owned_one_loaner`, and `owned_one_rode_other`, and drops `test_drove_both` plus passenger / opinion / journalist. Default weights otherwise. See [`owner_analysis.md`](owner_analysis.md). The script also still prints a lived-with-both-only robustness column (`owned_both`, no karma boost).
+
 ## Combining votes
 
 `src/rank.py` fits a Bradley–Terry model: each model \(i\) has a strength \(\theta_i\), and
