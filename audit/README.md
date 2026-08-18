@@ -62,6 +62,8 @@ Each coded row is judged on five things:
 
 | Spot | Example row(s) | How the kit handles it |
 |---|---|---|
+| Brand-level statement coded to a specific model ("Audi" → Q7, "Mercedes" → GLE) | 60, 62, 69–71 (51–100) | `audit_rows.py` prints `MODEL CHECK` when a coded winner/loser is never named in the matched passage — brand-only mentions are flagged separately from total absences, and reply chains are pointed to |
+| `home_team` flag disagrees with the subreddit's home badge | 67, 89, 90 (51–100); 41 (1–50) | `HOME_TEAM CHECK`: the winner is compared against the sub's badge model(s); a mismatch is printed so the row can be fixed (rank.py penalizes home wins in all fits) |
 | Comments by deleted accounts lack `data-author` | 21 | `parse_reddit.py` falls back to the tagline (`u/[deleted]`), keeps the comment |
 | Quotes from the OP's post body, not a comment | 33 | post body is parsed and searched; a post-row upvote convention is flagged |
 | Coder-editorial / spliced quotes | 16, 19, 34 | `audit_rows.py` prints `NO CLEAN MATCH` with the fragment candidates spread across comments |
@@ -93,8 +95,14 @@ python3 audit/parse_reddit.py audit/raw/1khcp25.html
 Reading `audit_rows.py` output: every row prints the stored quote, the match class
 (`VERBATIM`, `COMPRESSED`, or `NO CLEAN MATCH`), the full source passage, and up to
 three levels of reply-chain context (reddit). Judge the pair, axis, and evidence tag
-from that full text — never from the fragment alone. Then fix the CSV row, or delete
-it.
+from that full text — never from the fragment alone. Two advisory checks run per
+row on top of the quote match: `HOME_TEAM CHECK` (winner vs the subreddit's home
+badge — flags rows 67/89/90-type miscodes) and `MODEL CHECK` (a coded winner/loser
+that is never named in the matched passage — flags brand-level statements coded to
+specific models, e.g. "Audi" → Q7; a brand-only mention is printed softer than a
+total absence, and reply-chain rows get a hint). `MODEL CHECK` is advisory:
+reply chains and thread context can legitimately supply the name, but the row
+should then *say so*. Then fix the CSV row, or delete it.
 
 For non-reddit rows the same verdicts are produced against the whole page text, with
 a context window instead of a comment tree. A verbatim hit on a review page verifies
@@ -175,3 +183,13 @@ Notes for future audits:
 - Upvotes are planned to be removed from all data and calculations (the `upvotes`
   column and the karma multiplier); the drift checks in `audit_rows.py` are
   informational until that lands.
+- x.com status pages fetched fine with plain curl + a browser UA at audit time
+  (rows 87–88) — no fetch-tool workaround was needed. The generic whole-page
+  fallback verifies quotes (the text is in the page's OG/tweet markup). Note the
+  visible engagement metrics (replies / reposts / likes / views) do **not** map to
+  the stored `upvotes` column; treat them as informational like reddit karma
+  drift. If x.com starts serving a login wall again, use the fetch tool / a
+  browser and save under the same sha1 filename.
+- `MODEL CHECK` needs the `HOME_MODELS` mapping to cover new brand subs before it
+  can sanity-check their `home_team`; unknown subs are skipped silently. Add the
+  sub and its badge model(s) when a new brand sub shows up in the CSV.

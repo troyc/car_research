@@ -43,6 +43,122 @@ from pathlib import Path
 from parse_reddit import parse_thread
 
 REDDIT_ID_RE = re.compile(r"(?:old\.|www\.)?reddit\.com/.*?/comments/([a-z0-9]+)")
+REDDIT_SUB_RE = re.compile(r"reddit\.com/r/([A-Za-z0-9_]+)")
+
+# Subreddit -> home badge model(s). A row whose winner is the sub's badge is a
+# home-team win (home_team=1 in the CSV); rank.py penalizes those. The audit
+# sanity-check below flags rows where the flag disagrees with the winner.
+# Only subs that actually appear in comparisons.csv are listed; unknown subs
+# are skipped silently.
+HOME_MODELS = {
+    "whatcarshouldIbuy": [], "carbuying": [], "askcarsales": [],
+    "EnterpriseCarRental": [], "TeslaFSD": [],
+    "HyundaiPalisade": ["hyundai palisade"], "KiaTelluride": ["kia telluride"],
+    "Lexus": ["lexus"], "LexusGX": ["lexus gx"], "LexusGX550": ["lexus gx"],
+    "LexusRX350": ["lexus rx"], "LexusNX": ["lexus nx"],
+    "BMWX5": ["bmw x5"], "BMWX3": ["bmw x3"], "bmwx7": ["bmw x7"],
+    "BMWiX": ["bmw ix"], "BMW": ["bmw"],
+    "RangeRover": ["range rover", "range rover sport"],
+    "VolvoXC90": ["volvo xc90"], "VolvoXC60": ["volvo xc60"],
+    "AudiQ7": ["audi q7"], "AudiQ5": ["audi q5"], "Audi": ["audi"],
+    "ToyotaHighlander": ["toyota highlander"],
+    "ToyotaGrandHighlander": ["toyota grand highlander"],
+    "Toyotavenza": ["toyota venza"], "Toyota": ["toyota"],
+    "rav4club": ["toyota rav4"], "4Runner": ["toyota 4runner"],
+    "LandCruisers": ["toyota land cruiser"], "toyotasequoia": ["toyota sequoia"],
+    "hondapilot": ["honda pilot"], "hondapassport": ["honda passport"],
+    "crv": ["honda cr v"], "nissanpathfinder": ["nissan pathfinder"],
+    "NissanMurano": ["nissan murano"], "Nissan": ["nissan"],
+    "VWatlas": ["volkswagen atlas"], "Tiguan": ["volkswagen tiguan"],
+    "PorscheCayenne": ["porsche cayenne"], "PorscheMacan": ["porsche macan"],
+    "Porsche": ["porsche"],
+    "GenesisMotors": ["genesis"], "GenesisGV70": ["genesis gv70"],
+    "Subaru_Outback": ["subaru outback"], "SubaruAscent": ["subaru ascent"],
+    "SubaruForester": ["subaru forester"], "Crosstrek": ["subaru crosstrek"],
+    "Subaru_Crosstrek": ["subaru crosstrek"], "subaru": ["subaru"],
+    "lincolnmotorco": ["lincoln"], "LincolnNavigator": ["lincoln navigator"],
+    "Cadillac": ["cadillac"], "CadillacVistiq": ["cadillac vistiq"],
+    "gmc": ["gmc"], "kia": ["kia"], "mercedes_benz": ["mercedes"],
+    "AMG": ["mercedes"], "Acura": ["acura"], "infiniti": ["infiniti"],
+    "LandRover": ["land rover"], "NewDefender": ["land rover defender"],
+    "LandroverDefender": ["land rover defender"],
+    "Rivian": ["rivian"], "mazda": ["mazda"], "CX5": ["mazda cx 5"],
+    "CX50": ["mazda cx 50"], "MazdaCX90": ["mazda cx 90"],
+    "ModelX": ["tesla model x"], "ModelY": ["tesla model y"],
+    "TeslaModelX": ["tesla model x"], "TeslaModelY": ["tesla model y"],
+    "GrandCherokee": ["jeep grand cherokee"], "ChevyTahoe": ["chevrolet tahoe"],
+    "FordExplorer": ["ford explorer"], "fordexpedition": ["ford expedition"],
+    "HyundaiSantaFe": ["hyundai santa fe"],
+}
+
+
+def model_in_text(model, text_norm):
+    """Is a coded model name present in normalized text?
+
+    Accepts the full name ('volvo xc90'), compact forms ('crv', 'cx50'), or
+    the distinctive non-brand token as a standalone word. Short tokens
+    (<= 4 chars) only count when they look like a model code (uppercase or
+    digit-containing in the original string — RX, X5, Q7, GLE, CRV) so that
+    plain words like 'es'/'cr' don't match. The leading brand word alone
+    ('mercedes', 'audi') does NOT identify the model — the caller turns that
+    into a soft 'brand only' flag (the model-inference failure mode).
+    Returns None if found, else a reason string."""
+    mn = norm(model)
+    if not mn:
+        return None
+    if mn in text_norm:
+        return None
+    if mn.startswith("range rover") and re.search(r"\brrs\b", text_norm):
+        return None  # RRS is the usual shorthand for the Range Rover Sport
+    norm_toks = mn.split(" ")
+    orig_toks = [t for t in re.split(r"[\s\-/]+", model.strip()) if t]
+    joined = "".join(norm_toks)
+    if len(joined) >= 3 and re.search(r"\b" + re.escape(joined) + r"\b",
+                                      text_norm):
+        return None
+    rest = "".join(norm_toks[1:])
+    rest_orig = "".join(orig_toks[1:])
+    if (len(rest) >= 2 and re.search(r"\b" + re.escape(rest) + r"\b",
+                                     text_norm)
+            and (len(rest_orig) > 4
+                 or rest_orig.isupper()
+                 or any(ch.isdigit() for ch in rest_orig))):
+        return None
+    for i, tok in enumerate(norm_toks):
+        if i == 0:
+            continue  # brand word alone doesn't identify the model
+        o = orig_toks[i] if i < len(orig_toks) else tok
+        is_code = (len(o) <= 4
+                   and (o.isupper() or any(ch.isdigit() for ch in o)))
+        if len(tok) >= 5 or is_code:
+            # codes may carry a digit suffix ('gle350', 'x540i')
+            pat = r"\b" + re.escape(tok) + r"\d*\b"
+            if re.search(pat, text_norm):
+                return None
+    return f"{mn!r} never appears in this passage"
+
+
+def home_team_flag(row, url):
+    """Sanity-check home_team against the subreddit's home badge.
+
+    Returns None if OK (or the sub is unknown), else an explanation."""
+    m = REDDIT_SUB_RE.search(url)
+    if not m:
+        return None
+    homes = HOME_MODELS.get(m.group(1))
+    if not homes:
+        return None
+    w = norm(row["winner"])
+    is_home = any(h in w for h in homes)
+    coded = row["home_team"].strip() == "1"
+    if is_home and not coded:
+        return (f"home_team=0 but the winner IS the r/{m.group(1)} home badge "
+                f"(expected 1; its home-sub wins are currently unpenalized)")
+    if coded and not is_home:
+        return (f"home_team=1 but the winner is NOT the r/{m.group(1)} home "
+                f"badge (expected 0; the row is penalized in the wrong "
+                f"direction)")
+    return None
 
 
 def norm(s):
@@ -192,6 +308,12 @@ def main():
         quote = row["quote"]
         qn = norm(quote)
 
+        # ---- home_team sanity check (winner vs subreddit badge) ----
+        ht = home_team_flag(row, url)
+        if ht:
+            print(f">> HOME_TEAM CHECK: {ht}")
+            print()
+
         locs = {}  # location -> (hits, total, body, kind)
         if qn and pb and qn in pb:
             locs["POST"] = (10**9, 0, page["post"]["body"], "verbatim")
@@ -273,7 +395,37 @@ def main():
                 print(f">> UPVOTE DRIFT: stored {stored}, current frozen score "
                       f"{c['score']} — informational only; upvotes are planned for "
                       f"removal from all data and calculations, nothing to fix.")
-        print()
+
+        # ---- model-naming check: are the coded winner/loser actually named
+        # in the passage the quote came from? (brand-level statements coded
+        # to a specific model are a known failure mode: rows 60, 62, 69-71.)
+        if best and frag_ok(best[1][0], best[1][1]):
+            loc = best[0]
+            if loc == "POST":
+                body_n = pb
+                label = "the page body"
+            else:
+                body_n = norm(comments[loc]["body"])
+                label = f"comment {loc} (u/{comments[loc]['author']})"
+        else:
+            body_n = " ".join([pb] + [norm(c["body"]) for c in comments.values()])
+            label = "the whole page (no clean quote match)"
+        for side in ("winner", "loser"):
+            why = model_in_text(row[side], body_n)
+            if why:
+                brand = norm(row[side]).split(" ")[0]
+                if re.search(r"\b" + re.escape(brand) + r"\b", body_n):
+                    note = f" (brand {brand!r} only)"
+                else:
+                    note = ""
+                hint = ""
+                if best and best[0] != "POST" and comments[best[0]]["parent"]:
+                    hint = (" (the reply chain may supply it — see parent "
+                            "context above)")
+                print(f">> MODEL CHECK: {side} {row[side]!r} not named in "
+                      f"{label}{note} — pair rests on model inference{hint}")
+        if best and frag_ok(best[1][0], best[1][1]):
+            print()
 
     print("#" * 100)
     print("Same-comment rows (one comment backing several coded rows — fine, but")
