@@ -85,7 +85,7 @@ Most nameplates stay one node. Two changes this pass:
 - Brand subreddits (`r/BMWX5`, `r/RangeRover`, `r/Lexus`) tilt toward the home team. We down-weight thin home-team comments; we do not delete them, because many owners there have also owned the rival.
 - "Comfort" is not one thing. Volvo wins seats; Lincoln / Range Rover win softness; BMW often wins "I wasn't tired" via support rather than plushness. The model averages those meanings.
 - Wheel size and air suspension flip results inside a nameplate. An XC60 on 21s loses to a Q5 on air; the same XC60 on 19s often wins. We code the specific spec when the commenter named it, otherwise the typical retail car.
-- Sample grew from ~99 to 214, then to 297 after the Outback / Ascent / RX / GX pass, then to 453 after a fourth pass on thin luxury / missing three-row / trucks, then to 554 after a fifth pass on remaining thin flagship / mid-luxury / compact / three-row / truck nodes, then to **633** weighted votes (637 coded rows) after a sixth pass on Yukon / Tahoe / Suburban / QX80 / Escalade IQ, EQS SUV / Defender / R1S / Cayenne / Macan, Crosstrek / Corsair / X1 / Model Y, and CX-90 / Pathfinder / Murano / Passport. Treat ranks as a reading of this corpus, not a census of owners. One 241-upvote test-drive write-up is down-weighted by `log(1+upvotes)` so it boosts Q8/MDX/Q7 but does not own the scale. The bias-adjusted fit removes that karma term entirely.
+- Sample grew from ~99 to 214, then to 297 after the Outback / Ascent / RX / GX pass, then to 453 after a fourth pass on thin luxury / missing three-row / trucks, then to 554 after a fifth pass on remaining thin flagship / mid-luxury / compact / three-row / truck nodes, then to 633 after a sixth pass on Yukon / Tahoe / Suburban / QX80 / Escalade IQ, EQS SUV / Defender / R1S / Cayenne / Macan, Crosstrek / Corsair / X1 / Model Y, and CX-90 / Pathfinder / Murano / Passport, then to **725** weighted votes (729 coded rows) after a seventh pass on Yukon / R1S / Sequoia / QX80 / Tahoe, Defender / Cayenne / Grand Cherokee, Crosstrek / Corsair / X1 / Murano / Model Y, and CX-90 / Explorer / Enclave / GCL. Treat ranks as a reading of this corpus, not a census of owners. One 241-upvote test-drive write-up is down-weighted by `log(1+upvotes)` so it boosts Q8/MDX/Q7 but does not own the scale. The bias-adjusted fit removes that karma term entirely.
 
 ## Date and sources
 
@@ -206,6 +206,23 @@ Sixth-pass threads (thin flagship trucks, mid-luxury / EV, compact, remaining th
 - [Outback vs Crosstrek](https://old.reddit.com/r/subaru/comments/1n2i0bi/)
 - [Model X vs Y](https://old.reddit.com/r/TeslaModelX/comments/1f79pdw/)
 - [2025 Tiguan vs CR-V](https://old.reddit.com/r/Tiguan/comments/1l73h71/)
+
+Seventh-pass threads (Yukon / R1S / Sequoia, Defender / Cayenne / Grand Cherokee, remaining compact and three-row):
+
+- [Yukon Denali to R1S](https://old.reddit.com/r/Rivian/comments/1o5m69h/considering_switch_from_yukon_denali_to_r1sanyone/)
+- [R1S driving comfort vs others](https://old.reddit.com/r/Rivian/comments/12y9lsg/how_does_driving_comfort_compare_with_other/)
+- [Lexus to GMC Yukon](https://old.reddit.com/r/gmc/comments/147e881/lexus_to_gmc/)
+- [Model X to R1S](https://old.reddit.com/r/Rivian/comments/1l0h94p/switched_from_tesla_x_to_r1s_detailed_comparison/)
+- [RR vs Defender](https://old.reddit.com/r/RangeRover/comments/1lbjadj/strugglingrr_vs_defender/)
+- [Cayenne or X5](https://old.reddit.com/r/PorscheCayenne/comments/1nl126k/cayenne_or_x5/)
+- [X5 vs GLE owner feedback](https://old.reddit.com/r/BMWX5/comments/1d5xb30/bmw_x5_vs_mercedesbenz_gle_owner_feedback_needed/)
+- [Grand Cherokee vs X5 / GLE](https://old.reddit.com/r/GrandCherokee/comments/h7s402/officially_joined_the_jeep_club_its_a_2018_grand/)
+- [X1 vs X3](https://old.reddit.com/r/BMW/comments/1oaw3u6/am_i_crazy_for_preferring_the_x1_over_the_x3/)
+- [Murano vs Pathfinder](https://old.reddit.com/r/nissanpathfinder/comments/1nfzc56/)
+- [Corsair vs XC60](https://old.reddit.com/r/lincolnmotorco/comments/1evcups/)
+- [Outback vs Crosstrek seats](https://old.reddit.com/r/subaru/comments/1i4q03v/)
+- [CX-90 vs Pilot seats](https://old.reddit.com/r/MazdaCX90/comments/1sfskcv/)
+- [Explorer vs 4Runner](https://old.reddit.com/r/FordExplorer/comments/1gkxc16/)
 
 Owner-review pages used when the text named two SUVs and picked a comfort winner:
 

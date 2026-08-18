@@ -138,7 +138,8 @@ BRAND_SUB_RE = re.compile(
     r"hondapassport|VWatlas|LexusGX550|4Runner|LandCruisers|"
     r"infiniti|mercedes_benz|Acura|Tiguan|CX50|NewDefender|"
     r"LandroverDefender|Rivian|toyotasequoia|LincolnNavigator|"
-    r"Cadillac|kia"
+    r"Cadillac|kia|gmc|ChevyTahoe|GrandCherokee|Crosstrek|"
+    r"FordExplorer|MazdaCX90|NissanMurano"
     r")",
     re.I,
 )

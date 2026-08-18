@@ -10,17 +10,17 @@ Default ranking (owners + testers): [`composite_ranking.md`](composite_ranking.m
 
 | Evidence | Kept? | Rows in file |
 |---|---|---:|
-| `owned_both` | yes | 242 |
-| `owned_one_td_other` | yes — they own one | 69 |
-| `owned_one_family` | yes | 18 |
-| `owned_one_loaner` | yes | 10 |
-| `owned_one_rode_other` | yes | 6 |
-| `test_drove_both` | **no** | 277 |
-| `opinion` / `opinion_plus_drive` / `passenger` / journalist | no | 14 |
+| `owned_both` | yes | 286 |
+| `owned_one_td_other` | yes — they own one | 79 |
+| `owned_one_family` | yes | 20 |
+| `owned_one_loaner` | yes | 14 |
+| `owned_one_rode_other` | yes | 7 |
+| `test_drove_both` | **no** | 308 |
+| `opinion` / `opinion_plus_drive` / `passenger` / journalist | no | 15 |
 
-**343 weighted votes** after the usual sedan drop (Lexus ES / Audi A7). **240** of those are lived-with-both. Testers are still about 43% of the coded file; they are not a rounding error.
+**404 weighted votes** after the usual sedan drop (Lexus ES / Audi A7). **284** of those are lived-with-both. Testers are still about 42% of the coded file; they are not a rounding error.
 
-`owned_one_td_other` stays because the author is an owner comparing to a car they sat in. If you want the stricter garage-vs-garage cut, the script also prints **owned_both only** (no karma boost). That sample is 240 votes and is thinner at the flagship end.
+`owned_one_td_other` stays because the author is an owner comparing to a car they sat in. If you want the stricter garage-vs-garage cut, the script also prints **owned_both only** (no karma boost). That sample is 284 votes and is thinner at the flagship end.
 
 ## The owner chain
 
@@ -28,14 +28,16 @@ Ignore raw global θ. GLS is 8–0 almost entirely vs X7. EQS SUV is 4–0 vs iX
 
 **Range Rover ≈ GLS > Range Rover Sport / iX / EQS SUV / Escalade / X7 / Yukon / Aviator / GLE / Q7 / MDX > X5 / XC90 / RX / GX 460 > XC60 / Nautilus / GLC / Venza > Palisade ≥ Telluride ≥ Pathfinder (seats vs Pilot) > Pilot / Highlander / Ascent / 2020–25 Outback / CR-V > Crosstrek / CX-5 / GX 550 > CX-50 / X3 / RAV4 / Forester / 4Runner / Model Y / X1**
 
+Owner-only Yukon is **16–3**. Same-garage air Yukon over R1S is the new owner-only truck result. QX80 is 4–0 on seats in a tiny sample. Defender still loses to Range Rover / RRS among people who lived with both.
+
 That is close to the full-sample shopping chain. The middle is not.
 
 ## What testers were doing that owners do not
 
 | Pair | Owners | Testers | What changed |
 |---|---|---|---|
-| GLE vs X5 | **GLE 5–0** | X5 6–2 | Testers picked the sport-luxury daily. Households that ran both pick GLE for road trips. |
-| Ascent record | **6–6** | 16–3 | Ascent’s default 22–9 is a same-day pile, mostly `r/SubaruAscent`. |
+| GLE vs X5 | **GLE** still wins owner notes | X5 still wins some testers | Testers picked the sport-luxury daily. Households that ran both pick GLE for road trips. GLE is 12–6 among owners. |
+| Ascent record | **6–6** | still tester-heavy | Ascent’s default 22–9 is a same-day pile, mostly `r/SubaruAscent`. |
 | Pilot vs Ascent | **Pilot 2–0** | Ascent 3–0 | Flip. Owners who share a garage prefer Pilot seats/ride. |
 | Q5 vs XC60 | XC60 1–0 | **Q5 4–0** | Compact-luxury testers liked Q5 air. Owners keep Volvo chairs. |
 | XC60 overall | **9–2** | 5–9 | Same story at the nameplate. |
