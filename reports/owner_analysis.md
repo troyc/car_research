@@ -10,25 +10,25 @@ Default ranking (owners + testers): [`composite_ranking.md`](composite_ranking.m
 
 | Evidence | Kept? | Rows in file |
 |---|---|---:|
-| `owned_both` | yes | 286 |
-| `owned_one_td_other` | yes — they own one | 79 |
-| `owned_one_family` | yes | 20 |
-| `owned_one_loaner` | yes | 14 |
-| `owned_one_rode_other` | yes | 7 |
-| `test_drove_both` | **no** | 308 |
+| `owned_both` | yes | 322 |
+| `owned_one_td_other` | yes — they own one | 90 |
+| `owned_one_family` | yes | 22 |
+| `owned_one_loaner` | yes | 18 |
+| `owned_one_rode_other` | yes | 8 |
+| `test_drove_both` | **no** | 321 |
 | `opinion` / `opinion_plus_drive` / `passenger` / journalist | no | 15 |
 
-**404 weighted votes** after the usual sedan drop (Lexus ES / Audi A7). **284** of those are lived-with-both. Testers are still about 42% of the coded file; they are not a rounding error.
+**458 weighted votes** after the usual sedan drop (Lexus ES / Audi A7). **320** of those are lived-with-both. Testers are still about 40% of the coded file; they are not a rounding error.
 
-`owned_one_td_other` stays because the author is an owner comparing to a car they sat in. If you want the stricter garage-vs-garage cut, the script also prints **owned_both only** (no karma boost). That sample is 284 votes and is thinner at the flagship end.
+`owned_one_td_other` stays because the author is an owner comparing to a car they sat in. If you want the stricter garage-vs-garage cut, the script also prints **owned_both only** (no karma boost). That sample is 320 votes and is thinner at the flagship end.
 
 ## The owner chain
 
 Ignore raw global θ. GLS is 8–0 almost entirely vs X7. EQS SUV is 4–0 vs iX. 2026 Outback is 7–0 vs the wagon it replaced. Same graph rule as the composite: who met whom.
 
-**Range Rover ≈ GLS > Range Rover Sport / iX / EQS SUV / Escalade / X7 / Yukon / Aviator / GLE / Q7 / MDX > X5 / XC90 / RX / GX 460 > XC60 / Nautilus / GLC / Venza > Palisade ≥ Telluride ≥ Pathfinder (seats vs Pilot) > Pilot / Highlander / Ascent / 2020–25 Outback / CR-V > Crosstrek / CX-5 / GX 550 > CX-50 / X3 / RAV4 / Forester / 4Runner / Model Y / X1**
+**Range Rover ≈ GLS > Range Rover Sport / iX / EQS SUV / Escalade IQ / Escalade / X7 / Yukon / Aviator / GLE / Q7 / MDX > X5 / XC90 / RX / GX 460 > XC60 / Nautilus / GLC / Venza > Palisade ≥ Telluride ≥ Pathfinder (seats vs Pilot) > Pilot / Highlander / Ascent / 2020–25 Outback / CR-V > Crosstrek / CX-5 / GX 550 > CX-50 / X3 / RAV4 / Forester / 4Runner / Model Y / X1**
 
-Owner-only Yukon is **16–3**. Same-garage air Yukon over R1S is the new owner-only truck result. QX80 is 4–0 on seats in a tiny sample. Defender still loses to Range Rover / RRS among people who lived with both.
+Owner-only Yukon is **18–3**. Same-garage air Yukon over R1S is still the owner-only truck result. Escalade IQ is **6–1** among owners. EQS SUV is **7–0** vs iX / R1S. QX80 is 4–0 on seats in a tiny sample. Defender still loses to Range Rover among people who lived with both and now beats R1S / Cayenne in that cut.
 
 That is close to the full-sample shopping chain. The middle is not.
 
