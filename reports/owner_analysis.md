@@ -10,23 +10,23 @@ Default ranking (owners + testers): [`composite_ranking.md`](composite_ranking.m
 
 | Evidence | Kept? | Rows in file |
 |---|---|---:|
-| `owned_both` | yes | 214 |
-| `owned_one_td_other` | yes — they own one | 60 |
-| `owned_one_family` | yes | 17 |
-| `owned_one_loaner` | yes | 8 |
+| `owned_both` | yes | 242 |
+| `owned_one_td_other` | yes — they own one | 69 |
+| `owned_one_family` | yes | 18 |
+| `owned_one_loaner` | yes | 10 |
 | `owned_one_rode_other` | yes | 6 |
-| `test_drove_both` | **no** | 238 |
+| `test_drove_both` | **no** | 277 |
 | `opinion` / `opinion_plus_drive` / `passenger` / journalist | no | 14 |
 
-**303 weighted votes** after the usual sedan drop (Lexus ES / Audi A7). **212** of those are lived-with-both. Testers are still about 43% of the coded file; they are not a rounding error.
+**343 weighted votes** after the usual sedan drop (Lexus ES / Audi A7). **240** of those are lived-with-both. Testers are still about 43% of the coded file; they are not a rounding error.
 
-`owned_one_td_other` stays because the author is an owner comparing to a car they sat in. If you want the stricter garage-vs-garage cut, the script also prints **owned_both only** (no karma boost). That sample is 212 votes and is thinner at the flagship end.
+`owned_one_td_other` stays because the author is an owner comparing to a car they sat in. If you want the stricter garage-vs-garage cut, the script also prints **owned_both only** (no karma boost). That sample is 240 votes and is thinner at the flagship end.
 
 ## The owner chain
 
-Ignore raw global θ. GLS is 8–0 almost entirely vs X7. EQS SUV is 3–0 vs iX. 2026 Outback is 7–0 vs the wagon it replaced. Same graph rule as the composite: who met whom.
+Ignore raw global θ. GLS is 8–0 almost entirely vs X7. EQS SUV is 4–0 vs iX. 2026 Outback is 7–0 vs the wagon it replaced. Same graph rule as the composite: who met whom.
 
-**Range Rover ≈ GLS > Range Rover Sport / iX / EQS SUV / Escalade / X7 / Aviator / GLE / Q7 / MDX > X5 / XC90 / RX / GX 460 > XC60 / Nautilus / GLC / Venza > Palisade ≥ Telluride ≥ Pathfinder (seats vs Pilot) > Pilot / Highlander / Ascent / 2020–25 Outback / CR-V > CX-5 / GX 550 > CX-50 / X3 / RAV4 / Forester / 4Runner**
+**Range Rover ≈ GLS > Range Rover Sport / iX / EQS SUV / Escalade / X7 / Yukon / Aviator / GLE / Q7 / MDX > X5 / XC90 / RX / GX 460 > XC60 / Nautilus / GLC / Venza > Palisade ≥ Telluride ≥ Pathfinder (seats vs Pilot) > Pilot / Highlander / Ascent / 2020–25 Outback / CR-V > Crosstrek / CX-5 / GX 550 > CX-50 / X3 / RAV4 / Forester / 4Runner / Model Y / X1**
 
 That is close to the full-sample shopping chain. The middle is not.
 
@@ -40,8 +40,8 @@ That is close to the full-sample shopping chain. The middle is not.
 | Q5 vs XC60 | XC60 1–0 | **Q5 4–0** | Compact-luxury testers liked Q5 air. Owners keep Volvo chairs. |
 | XC60 overall | **9–2** | 5–9 | Same story at the nameplate. |
 | Q5 overall | 4–4 | **8–2** | Most Q5 wins were 20-minute loops. |
-| Telluride | **9–3** | 8–13 | Testers compared it to Palisade and lost. Owners compared it to Explorer / Sorento / Pathfinder and won. |
-| Palisade | 17–5 | 25–11 | Still the three-row default. Sample just shrinks. |
+| Telluride | **11–4** | 13–17 | Testers compared it to Palisade and lost. Owners compared it to Explorer / Sorento / Pathfinder and won. |
+| Palisade | 20–7 | 28–12 | Still the three-row default. Sample just shrinks. |
 | GV70 | 3–2 | **8–1** | The old 9–0 headline was testers vs Macan / SQ5 / X3. Owners now include a Nautilus and RX counter. |
 | GV80 | 0–2 | 4–5 | No owner pile. Do not rank it from this cut. |
 | Grand Highlander | 0–2 | 4–11 | Almost no owner-vs-owner GH notes. |
@@ -77,9 +77,9 @@ The 16–3 tester pile is “I drove Palisade / Telluride / Highlander / Ascent 
 
 ### Palisade and Telluride both look better without testers
 
-Palisade is **18–7** among owners. Still beats Pilot on ride (“drives much smoother and is very quite”; Cars.com “Rides better than our Honda Pilot”). Split with Ascent 1–1. An Enclave household gave Palisade the seats and the Buick the smoother ride.
+Palisade is **20–7** among owners. Still beats Pilot on ride (“drives much smoother and is very quite”; Cars.com “Rides better than our Honda Pilot”). Split with Ascent 1–1. An Enclave household gave Palisade the seats and the Buick the smoother ride. Same-garage Palisade vs CX-90: Palisade ride/luxury, CX-90 firmer.
 
-Telluride is **9–3**. That is not “beat Palisade.” It is beat Explorer (several owned-both), Sorento, Pathfinder, and split Pilot. Testers left it 8–13 because they kept matching it to Palisade. Owners who bought a Telluride after an Explorer are not the same population.
+Telluride is **11–4**. That is not “beat Palisade.” It is beat Explorer (several owned-both), Sorento, Pathfinder, and split Pilot. Testers left it 8–13 because they kept matching it to Palisade. Owners who bought a Telluride after an Explorer are not the same population.
 
 Pathfinder vs Pilot is **4–0 owned-both**. “pathfinders seats are super comfortable especially compared to the Honda Pilot.” Palisade still beats Pathfinder 2–0 on ride.
 

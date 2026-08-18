@@ -85,7 +85,7 @@ Most nameplates stay one node. Two changes this pass:
 - Brand subreddits (`r/BMWX5`, `r/RangeRover`, `r/Lexus`) tilt toward the home team. We down-weight thin home-team comments; we do not delete them, because many owners there have also owned the rival.
 - "Comfort" is not one thing. Volvo wins seats; Lincoln / Range Rover win softness; BMW often wins "I wasn't tired" via support rather than plushness. The model averages those meanings.
 - Wheel size and air suspension flip results inside a nameplate. An XC60 on 21s loses to a Q5 on air; the same XC60 on 19s often wins. We code the specific spec when the commenter named it, otherwise the typical retail car.
-- Sample grew from ~99 to 214, then to 297 after the Outback / Ascent / RX / GX pass, then to 453 after a fourth pass on thin luxury / missing three-row / trucks, then to **554** weighted votes (558 coded rows) after a fifth pass on remaining thin flagship, mid-luxury, compact-luxury, three-row, and truck nodes. Treat ranks as a reading of this corpus, not a census of owners. One 241-upvote test-drive write-up is down-weighted by `log(1+upvotes)` so it boosts Q8/MDX/Q7 but does not own the scale. The bias-adjusted fit removes that karma term entirely.
+- Sample grew from ~99 to 214, then to 297 after the Outback / Ascent / RX / GX pass, then to 453 after a fourth pass on thin luxury / missing three-row / trucks, then to 554 after a fifth pass on remaining thin flagship / mid-luxury / compact / three-row / truck nodes, then to **633** weighted votes (637 coded rows) after a sixth pass on Yukon / Tahoe / Suburban / QX80 / Escalade IQ, EQS SUV / Defender / R1S / Cayenne / Macan, Crosstrek / Corsair / X1 / Model Y, and CX-90 / Pathfinder / Murano / Passport. Treat ranks as a reading of this corpus, not a census of owners. One 241-upvote test-drive write-up is down-weighted by `log(1+upvotes)` so it boosts Q8/MDX/Q7 but does not own the scale. The bias-adjusted fit removes that karma term entirely.
 
 ## Date and sources
 
@@ -185,6 +185,27 @@ Fifth-pass threads (remaining thin flagship / mid-luxury / compact / three-row /
 - [Passport vs 4Runner](https://old.reddit.com/r/hondapassport/comments/1p7rfj1/)
 - [GX 550 vs Land Cruiser](https://old.reddit.com/r/LexusGX/comments/1htwbzj/)
 - [LX / Sequoia / TX](https://old.reddit.com/r/Lexus/comments/1s68u5o/)
+
+Sixth-pass threads (thin flagship trucks, mid-luxury / EV, compact, remaining three-row):
+
+- [Yukon Denali Ultimate vs AT4 / Escalade](https://old.reddit.com/r/gmc/comments/1qff0ms/)
+- [Grand Wagoneer vs Escalade vs Navigator](https://old.reddit.com/r/Cadillac/comments/1d2hnnw/)
+- [Wagoneer vs Tahoe / Yukon](https://old.reddit.com/r/whatcarshouldIbuy/comments/1c7ig0f/)
+- [Tahoe to GX 550](https://old.reddit.com/r/LexusGX/comments/1ighcjb/)
+- [Escalade IQ AMA](https://old.reddit.com/r/Cadillac/comments/1iczh1s/)
+- [Tahoe / Yukon / Sequoia](https://old.reddit.com/r/gmc/comments/1ilm79y/)
+- [QX80 vs Escalade](https://old.reddit.com/r/whatcarshouldIbuy/comments/1r92flo/)
+- [EQS SUV vs iX](https://old.reddit.com/r/BMWiX/comments/1dbdtul/)
+- [Macan vs GV70](https://old.reddit.com/r/GenesisGV70/comments/1jqm8fq/)
+- [Model X vs R1S](https://old.reddit.com/r/Rivian/comments/1cttrwt/)
+- [Defender seat comfort](https://old.reddit.com/r/NewDefender/comments/1oycglg/)
+- [RRS vs Defender](https://old.reddit.com/r/LandRover/comments/1n7bd1f/)
+- [Pilot vs CX-90](https://old.reddit.com/r/hondapilot/comments/1k9kymr/)
+- [2026 Murano vs Pathfinder](https://old.reddit.com/r/Nissan/comments/1vczalz/)
+- [Pathfinder vs Highlander](https://old.reddit.com/r/nissanpathfinder/comments/1se7lew/)
+- [Outback vs Crosstrek](https://old.reddit.com/r/subaru/comments/1n2i0bi/)
+- [Model X vs Y](https://old.reddit.com/r/TeslaModelX/comments/1f79pdw/)
+- [2025 Tiguan vs CR-V](https://old.reddit.com/r/Tiguan/comments/1l73h71/)
 
 Owner-review pages used when the text named two SUVs and picked a comfort winner:
 

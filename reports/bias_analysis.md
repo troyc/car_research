@@ -41,44 +41,46 @@ Core models, default 3+ appearances. Ranks below are **global rank among every m
 
 | Model | Default θ | Default W–L | Bias θ | Default rank | Bias rank | no_home rank | owned_both rank |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| Range Rover | 5.28 | 9–1 | 3.35 | 1 | 3 | 6 | 1 |
-| Mercedes GLS | 4.73 | 17–3 | 2.84 | 2 | 5 | 5 | 2 |
-| Subaru Ascent | 1.68 | 22–9 | 0.80 | 24 | 27 | 49 | 29 |
-| Subaru Outback 2026 | 0.76 | 10–1 | 1.68 | 31 | 13 | 29 | 7 |
-| Lexus RX | 2.39 | 19–16 | 0.79 | 14 | 28 | 40 | 24 |
-| Lexus GX | 0.08 | 24–12 | 0.83 | 41 | 24 | 20 | 27 |
-| Hyundai Palisade | −0.61 | 44–18 | 1.76 | 47 | 10 | 28 | 8 |
-| BMW X5 | 2.84 | 22–39 | 0.54 | 10 | 31 | 16 | 33 |
-| Honda CR-V | −0.33 | 20–15 | −0.05 | 45 | 41 | 35 | 39 |
-| Subaru Outback (2020–25) | −1.47 | 19–15 | −0.02 | 53 | 40 | 37 | 35 |
-| Nissan Pathfinder | −0.03 | 11–6 | 0.88 | 43 | 23 | 54 | 14 |
-| Genesis GV70 | 1.90 | 11–3 | 0.70 | 23 | 29 | 26 | 58 |
-| BMW iX | 3.32 | 9–3 | 1.36 | 8 | 15 | 25 | 13 |
-| Kia Telluride | −1.09 | 23–20 | 0.21 | 50 | 33 | 44 | 11 |
-| Toyota 4Runner | −4.26 | 2–21 | −3.36 | 72 | 65 | 65 | 71 |
-| Toyota RAV4 | −4.39 | 1–21 | −3.66 | 74 | 67 | 70 | 72 |
+| Range Rover | 4.98 | 9–1 | 3.17 | 2 | 3 | 5 | 3 |
+| Mercedes GLS | 4.68 | 17–3 | 2.80 | 3 | 4 | 4 | 1 |
+| Subaru Ascent | 1.73 | 22–9 | 0.87 | 22 | 30 | 47 | 33 |
+| Subaru Outback 2026 | 0.64 | 11–1 | 1.69 | 35 | 12 | 29 | 8 |
+| Lexus RX | 2.50 | 20–16 | 0.85 | 15 | 31 | 40 | 27 |
+| Lexus GX | 0.10 | 24–12 | 0.88 | 40 | 29 | 16 | 29 |
+| Hyundai Palisade | −0.55 | 48–19 | 1.81 | 47 | 11 | 28 | 5 |
+| BMW X5 | 3.07 | 24–40 | 0.51 | 9 | 33 | 14 | 34 |
+| Honda CR-V | −0.50 | 20–18 | −0.42 | 45 | 47 | 39 | 47 |
+| Subaru Outback (2020–25) | −1.72 | 23–15 | 0.08 | 57 | 43 | 36 | 38 |
+| Nissan Pathfinder | −0.44 | 14–8 | 0.37 | 44 | 38 | 62 | 21 |
+| Genesis GV70 | 2.22 | 13–3 | 0.98 | 16 | 25 | 23 | 60 |
+| BMW iX | 3.16 | 10–5 | 1.20 | 7 | 19 | 24 | 13 |
+| Kia Telluride | −1.15 | 24–21 | 0.21 | 50 | 40 | 46 | 12 |
+| Toyota 4Runner | −4.21 | 2–21 | −3.36 | 71 | 74 | 65 | 73 |
+| Toyota RAV4 | −4.28 | 1–23 | −3.74 | 73 | 75 | 71 | 74 |
 
 ### The ceiling shrinks; the family class rises
 
-Range Rover stays at the top of the default numeric list (1) and near the top of the bias list (3). Its θ falls from 5.28 to 3.35. **GLS** is 17–3 vs X7 and still does not jump Range Rover in the shopping chain.
+Range Rover is 2 on the default numeric list (EQS SUV’s 5–1 vs iX owns raw #1) and 3 on the bias list. Its θ falls from 4.98 to 3.17. **GLS** is 17–3 vs X7 and still does not jump Range Rover in the shopping chain.
 
-**Palisade** is still a big mover (default rank 47 → bias 10). Default θ is depressed because the model plays inside the three-row set. Take karma off and 44–18 against Pilot / Telluride / Highlander / Grand Highlander / Pathfinder looks like the class default. It is still not an X5.
+**Palisade** is still a big mover (default rank 47 → bias 11). Default θ is depressed because the model plays inside the three-row set. Take karma off and 48–19 against Pilot / Telluride / Highlander / Grand Highlander / Pathfinder / CX-90 looks like the class default. It is still not an X5.
 
-**Ascent** is still pulled down (1.68 → 0.80; rank 24 → 27). **no_home** pulls it to 49. The sample is still brand-sub heavy.
+**Ascent** is still pulled down (1.73 → 0.87; rank 22 → 30). **no_home** pulls it to 47. The sample is still brand-sub heavy.
 
-**Pathfinder** still rises in the bias fit (−0.03 → 0.88; rank 43 → 23) because the Pilot-seat notes are owned-both / same-day, not karma. Palisade and Telluride still beat it on ride.
+**Pathfinder** is less of a bias-fit rocket now (−0.44 → 0.37; rank 44 → 38) after Highlander notes mixed the Pilot-only seat story. Palisade and Telluride still beat it on ride.
 
-**GV70** is no longer a 9–0 spike (11–3). The bias fit parks it mid-pack (rank 29) once the X3/Q5/Macan tester pile is de-weighted. **iX** shrinks (3.32 → 1.36) because several notes live on `r/BMWiX` and two owned-both EQS SUV losses are now in the file.
+**GV70** is 13–3. The bias fit parks it mid-pack (rank 25) once the X3/Q5/Macan tester pile is de-weighted. **iX** shrinks (3.16 → 1.20) because several notes live on `r/BMWiX` and more owned-both EQS SUV losses are now in the file.
 
-**X5** still falls (2.84 → 0.54) once GLE/X5 brand-sub karma is stripped.
+**X5** still falls (3.07 → 0.51) once GLE/X5 brand-sub karma is stripped.
 
-**Telluride** improves in the bias fit (−1.09 → 0.21) once the new Sorento / Explorer / CX-90 / Pilot-split notes are not drowned by Palisade-sub volume.
+**Telluride** still looks better in the bias fit (−1.15 → 0.21) once the Sorento / Explorer / CX-90 / Pilot-split notes are not drowned by Palisade-sub volume.
+
+**EQS SUV** and **XT6** stay high in both fits for the same graph reason as before: they mostly beat the cars they actually met (iX; X5/Highlander/Yukon). The shopping chain still refuses to promote them.
 
 ### The four nameplates from the previous pass (still true)
 
 **2020–2025 Outback** is stable. 19–15, still a compact. It beats RAV4 and Forester in owned-both notes; it splits CR-V. Every robustness column leaves it in the compact cluster, not next to RX.
 
-**2026 Outback** is 10–1. Default rank stays mid-pack; the bias fit *raises* it because the 10–1 record does not depend on karma. Its victims are still the old Outback, Forester, CX-50, a 4Runner, and one Ascent. Do not read 10–1 as “Nautilus class.”
+**2026 Outback** is 11–1. Default rank stays mid-pack; the bias fit *raises* it because the 11–1 record does not depend on karma. Its victims are still the old Outback, Forester, CX-50, a 4Runner, and one Ascent. Do not read 11–1 as “Nautilus class.”
 
 **2020–2022 RX** (and RX L, coded as RX) is among the more stable luxury nameplates. Default 18–16. vs GX 460 the unibody RX usually wins ride; some GX households prefer isolation.
 

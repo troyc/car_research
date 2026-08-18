@@ -1,10 +1,10 @@
 # Composite SUV comfort ranking from customer comparisons
 
-**Collected 18 August 2026; expanded four times the same day** — Edmunds/Cars.com and three-row family SUVs; then **2020–2025 / 2026 Subaru Outback**, **Ascent**, **2020–2022 RX / RX L**, and **2014–2023 GX 460**; then thin luxury / missing three-row / trucks; then a fifth pass on remaining thin flagship, mid-luxury, compact-luxury, three-row, and truck nodes. A second Bradley–Terry fit down-weights Reddit karma and brand-sub home cooking: [`bias_analysis.md`](bias_analysis.md).
+**Collected 18 August 2026; expanded five times the same day** — Edmunds/Cars.com and three-row family SUVs; then **2020–2025 / 2026 Subaru Outback**, **Ascent**, **2020–2022 RX / RX L**, and **2014–2023 GX 460**; then thin luxury / missing three-row / trucks; then remaining thin flagship, mid-luxury, compact-luxury, three-row, and truck nodes; then a **sixth pass** on Yukon / Tahoe / Suburban / QX80 / Escalade IQ, EQS SUV / Defender / R1S / Cayenne / Macan, Crosstrek / Corsair / X1 / Model Y, and CX-90 / Pathfinder / Murano / Passport. A second Bradley–Terry fit down-weights Reddit karma and brand-sub home cooking: [`bias_analysis.md`](bias_analysis.md).
 
 Only comments that name two or more SUVs and pick a winner on comfort (ride, seats, quiet, long-trip fatigue). Isolated praise is not used.
 
-**554 weighted pairwise votes** (558 coded rows) from Reddit owner/test-drive threads, two X posts, plus Edmunds and Cars.com consumer reviews. Combined with a Bradley–Terry model. Method: [`methodology.md`](methodology.md). Raw votes: [`../data/comparisons.csv`](../data/comparisons.csv). Owners only, testers dropped: [`owner_analysis.md`](owner_analysis.md).
+**633 weighted pairwise votes** (637 coded rows) from Reddit owner/test-drive threads, three X posts, plus Edmunds and Cars.com consumer reviews. Combined with a Bradley–Terry model. Method: [`methodology.md`](methodology.md). Raw votes: [`../data/comparisons.csv`](../data/comparisons.csv). Owners only, testers dropped: [`owner_analysis.md`](owner_analysis.md).
 
 ---
 
@@ -12,15 +12,15 @@ Only comments that name two or more SUVs and pick a winner on comfort (ride, sea
 
 People almost never rank ten SUVs at once. They say “A over B.” Stack those statements and this is the order that falls out:
 
-**Range Rover (full-size) ≈ GLS ≈ LX > Range Rover Sport ≈ Escalade / Navigator / Grand Wagoneer / X7 / BMW iX / Lincoln Aviator / EQS SUV > Mercedes GLE / Audi Q7 / Acura MDX / Genesis GV80 / BMW X5 ≈ Lexus RX / Audi Q8 > Audi Q5 / Lincoln Nautilus / Mercedes GLC / Volvo XC60 / Genesis GV70 > Hyundai Palisade ≥ Subaru Ascent (ride) ≥ Nissan Pathfinder (seats vs Pilot) ≥ Kia Telluride ≥ Volkswagen Atlas ≥ 2026 Outback > Honda Pilot / Toyota Highlander / Toyota Grand Highlander / Mazda CX-90 > Honda CR-V ≈ 2020–25 Subaru Outback > Toyota RAV4 / Mazda CX-5 / Mazda CX-50 / BMW X3 / Tesla Model Y / Toyota 4Runner / Subaru Forester / Rivian R1S**
+**Range Rover (full-size) ≈ GLS ≈ LX > Range Rover Sport ≈ Escalade / Navigator / Grand Wagoneer / Yukon / X7 / BMW iX / Lincoln Aviator / EQS SUV > Mercedes GLE / Audi Q7 / Acura MDX / Genesis GV80 / BMW X5 ≈ Lexus RX / Audi Q8 > Audi Q5 / Lincoln Nautilus / Mercedes GLC / Volvo XC60 / Genesis GV70 / Lincoln Corsair > Hyundai Palisade ≥ Subaru Ascent (ride) ≥ Nissan Pathfinder (seats vs Pilot) ≥ Kia Telluride ≥ Volkswagen Atlas ≥ 2026 Outback > Honda Pilot / Toyota Highlander / Toyota Grand Highlander / Mazda CX-90 > Honda CR-V ≈ 2020–25 Subaru Outback > Toyota RAV4 / Mazda CX-5 / Mazda CX-50 / BMW X3 / Subaru Crosstrek / Tesla Model Y / Toyota 4Runner / Subaru Forester / Rivian R1S / BMW X1**
 
-**GX 460** still sits off that ladder: it beats **4Runner**, splits with **RX**, and usually loses to the Germans — one tester did prefer the 460’s ride to GLS / X5 / QX80 / MDX. **GX 550** usually beats **Land Cruiser** and **4Runner** and still loses to the 460. **Sequoia** loses ride/NVH to **LX** and beats **Tahoe**.
+**GX 460** still sits off that ladder: it beats **4Runner**, splits with **RX**, and usually loses to the Germans — one tester did prefer the 460’s ride to GLS / X5 / QX80 / MDX. **GX 550** usually beats **Land Cruiser** and **4Runner** and still loses to the 460. **Sequoia** loses ride/NVH to **LX**, **Yukon**, and **Navigator**. **Tahoe** beats GX 550 on air-ride comfort and loses to Grand Wagoneer. **Defender** splits Range Rover Sport and loses seats to XC90.
 
 Read that as “generally preferred,” not “always preferred.” Spec matters: air suspension and 19-inch wheels move a nameplate a full tier; 22-inch wheels and sport packs drop it a tier.
 
 ### Why this is not a single numeric list
 
-The mechanical Bradley–Terry fit still inflates cars that only played (and beat) weaker or same-class rivals. **EQS SUV** is 3–1 vs iX and parks near the raw global top. **Enclave** is 3–1 vs Palisade/TX. **GV70** is 11–3 (no longer undefeated) and still has not met a Range Rover. **GLS** is 17–3 almost entirely vs X7. **iX** is 9–3 vs Model X / X5 / EQS SUV. **Ascent** is 22–9 and **2026 Outback** is 10–1 for the same reason as before. **Palisade** is 44–18 because it crushed Pilot / Telluride / Highlander / Grand Highlander / Pathfinder. The chain above respects who actually met whom.
+The mechanical Bradley–Terry fit still inflates cars that only played (and beat) weaker or same-class rivals. **EQS SUV** is 5–1 vs iX and now sits at the raw global top — still not a Range Rover. **XT6** is 5–2 after one Edmunds shopper preferred it to an X5; do not shop XT6 as mid-luxury furniture. **CX-9** is 5–0 vs Highlander / RAV4 / CX-50. **Enclave** is 4–2 vs Palisade/TX (and now has a Palisade NVH loss). **GV70** is 13–3 and still has not met a Range Rover. **GLS** is 17–3 almost entirely vs X7. **iX** is 10–5 vs Model X / X5 / EQS SUV / Model Y. **Ascent** is 22–9 and **2026 Outback** is 11–1 for the same reason as before. **Palisade** is 48–19 because it crushed Pilot / Telluride / Highlander / Grand Highlander / Pathfinder / CX-90. The chain above respects who actually met whom.
 
 ---
 
@@ -201,6 +201,51 @@ Five research subagents pulled unused threads (flagship, midsize luxury, compact
 
 - **GX 550** is **9–11**. Back-to-back and owned-both notes prefer it to 2024+ Land Cruiser on wind noise (“LC wind noise was comparable to my gladiator”). Overtrail still loses isolation to GLS. One 4Runner owner called 550 ride worse than the Toyota.
 - **GX 460** is **24–12**. Another owned-both 460 > 550 ride note; Edmunds owner: 2023 GX 460 KDSS “much smoother” than a 2025 Land Cruiser.
+
+---
+
+## What the sixth pass changed
+
+Five research subagents pulled unused threads (flagship trucks, mid-luxury / EV, family three-row holes, compact / compact-luxury, Edmunds/Cars.com snippets). Coded **79** new first-hand rows after dropping a 2019 Explorer (prior generation), one shopper’s “we shopped X5/Q7/GLE/XC90/MDX” exploded into four extra XT6 wins, and a Pilot-vs-GH note that was handling/body-roll. Same inclusion rules. Same-author restatements of the same pair were not added twice.
+
+### Flagship trucks are finally in the graph
+
+- **GMC Yukon** is **8–5**. Escalade vs Yukon is a real split: Escalade usually quieter; one Denali Ultimate tester preferred Yukon ride; an owned-both garage said Escalade road noise is better. Yukon beat similarly spec’d Suburban (MagneRide) on ride and seats. Sequoia Capstone lost NVH to Yukon and ride to Navigator.
+- **Grand Wagoneer** is **7–6**. A same-day loop of all three full-sizers put Navigator most comfortable and Wagoneer last; a household that rented a gas Yukon for a week was glad to return to the Jeep; a car-show tester said Wagoneer “shat on the Tahoe” for ride.
+- **Tahoe** is **1–2**: air Tahoe beats GX 550; loses to Wagoneer. **Suburban** is **0–5**.
+- **Escalade IQ** picked up its first win: an owner coming from a 2018 Navigator called the IQ “miles above… in terms of feel.” Still 1–1.
+- **QX80** is **2–1**. A shopper who test-drove Escalade bought QX80 because Cadillac seats felt “very grandma.”
+- **XT6** is **5–2**. Keep this off the shopping chain. One Edmunds owner preferred XT6 ride to the X5 they almost bought; another called Highlander a “tin can.” That is not XT6-over-GLE.
+
+### Mid-luxury / EV: EQS SUV piled on; R1S finally won; Defender is a split
+
+- **EQS SUV** is **5–1**. Two more first-hand notes pick it over iX (owned-both seats “vastly more comfortable”; 2024 EQS 450 tester “more comfortable, smooth”). Victims are still iX / XC90. Raw θ now parks it #1. Do not shop it as the magic-carpet winner.
+- **iX** is **10–5**. New owned-both vs Model Y: the Tesla (even on aftermarket coils) was “sitting on a skateboard.”
+- **R1S** is **2–9**. First coded wins: owned-both Soft mode “eats up bumps much better than X”; Adventure seats “WAY more comfortable” than a 2024 Model X. Counters: Model X loaner quieter/smoother; another owned-both “model x is much quieter and smoother”; XC60 seats 10/10 vs Rivian 7.5–8.
+- **Defender** is **4–5**. Owned-both long-trip comfort over a prior Cayenne; ride split vs Range Rover Sport (2025 RRS loaner won; SVR→Defender 110 went the other way). XC90 seats still beat a 2020 Defender HSE.
+- **Cayenne** is **2–8**. Two more X5 testers preferred multi-contour seats and smoothness. **Macan** is **3–5**: GV70 quieter/softer; SQ5 more comfortable on long trips.
+- **GLE** picked up a same-day ride win vs Range Rover Sport (GLE580 “MUCH smoother”).
+
+### Three-row: CX-90 is a firm Mazda; Pathfinder vs Highlander is in; Murano is quiet
+
+- **CX-90** is **2–11**. Pilot testers called it “too stiff of a ride for a 3 row suv” / “best ride” went to Pilot. Same-garage Palisade vs CX-90: Palisade ride/luxury, CX-90 firmer over bumps. One CX-90 PHEV tester did prefer Mazda smoothness to a 2026 Palisade.
+- **Pathfinder vs Highlander** is new and mostly Pathfinder: seats and cabin quiet. One tester flipped it — Highlander “more refined… smooth,” Pathfinder “like a truck.”
+- **Murano** (2026) is quieter and smoother than a 2025 Pathfinder the same owner put 23k miles on. Still 1–1 overall.
+- **Pilot vs Passport**: 2025/2026 back-to-back — Pilot quieter on the highway; Passport seat shorter.
+- **Palisade vs Enclave**: Palisade Hybrid won 3rd-row comfort; new Enclave turbo “loud… at high rpm.” Enclave is **4–2**, not undefeated.
+- **Telluride** is **24–21**. Another owned-both road-trip note vs Sorento (6'2" twins called the Sorento “child abuse”). **Atlas** picked up Palisade comfort (Palisade) and an owned-both seat win vs Pilot.
+
+### Compact: Crosstrek is a small-car ride; Corsair is real; Tiguan vs CR-V flipped
+
+- **Crosstrek** is **2–5**. Four first-hand Outback notes: quieter, “silky smooth,” PA–FL trip fatigue. Consumer-review counters: smoother than an X1; quieter than one CR-V.
+- **Corsair** is **5–3**. Beats NX on quiet/ride (two testers). Loses to Q5 on a long-distance ranking and to Nautilus in an owned-both upgrade (“comfortable, quiet ride”).
+- **Tiguan** is **6–4**. Two new CR-V notes on `r/Tiguan` (owned-both ’23 CR-V → ’25 Tiguan “much less road/wind noise”; same-day CR-V “felt every bump”).
+- **CX-9** is **5–0** (Highlander 3rd-row seats; RAV4 highway quiet). Last-gen Mazda, not a current three-row pick.
+- **X1** is **0–5**. **Model Y** is **0–7**. **Model X** is **7–10** after two more Y losses and the R1S split.
+
+### Edmunds / Cars.com (no bot-wall bypass)
+
+Wayback / search snippets added XT6-over-X5 ride, XT6-over-Highlander NVH, XT6-over-Yukon (prior 2019), XT6-over-XT5, Yukon XL seats over a 2025 Escalade, Venza-over-RAV4, Highlander-over-Venza, Crosstrek-over-X1 / CR-V, CX-9-over-RAV4. Dropped a 2019 Explorer vs Highlander (wrong Explorer generation) and four extra luxury losses from one “we shopped” sentence.
 
 ---
 
