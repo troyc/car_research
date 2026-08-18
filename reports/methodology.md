@@ -77,6 +77,7 @@ Most nameplates stay one node. Two changes this pass:
 - **Lexus GX** here is the 2014–2023 GX 460 (J150). **Lexus GX 550** is a separate node. First-hand 460-vs-550 notes are votes, not same-nameplate excludes.
 - **Cadillac Escalade IQ** is a separate node from the ICE Escalade.
 - **Toyota Land Cruiser** here is the 2024+ 250-series (not the old 200 / LX twin).
+- **Chevrolet Tahoe** is a separate node from Suburban when the author named Tahoe.
 
 ## Bias we did not remove
 
@@ -84,7 +85,7 @@ Most nameplates stay one node. Two changes this pass:
 - Brand subreddits (`r/BMWX5`, `r/RangeRover`, `r/Lexus`) tilt toward the home team. We down-weight thin home-team comments; we do not delete them, because many owners there have also owned the rival.
 - "Comfort" is not one thing. Volvo wins seats; Lincoln / Range Rover win softness; BMW often wins "I wasn't tired" via support rather than plushness. The model averages those meanings.
 - Wheel size and air suspension flip results inside a nameplate. An XC60 on 21s loses to a Q5 on air; the same XC60 on 19s often wins. We code the specific spec when the commenter named it, otherwise the typical retail car.
-- Sample grew from ~99 to 214, then to 297 after the Outback / Ascent / RX / GX pass, then to **453** weighted votes after a fourth pass aimed at thin compact-luxury / midsize / flagship nameplates, missing three-row models (Pathfinder, Sorento, Passport, Atlas, Grand Wagoneer), GX 550 / Land Cruiser / 4Runner, and more Edmunds/Cars.com owner pairs. Treat ranks as a reading of this corpus, not a census of owners. One 241-upvote test-drive write-up is down-weighted by `log(1+upvotes)` so it boosts Q8/MDX/Q7 but does not own the scale. The bias-adjusted fit removes that karma term entirely.
+- Sample grew from ~99 to 214, then to 297 after the Outback / Ascent / RX / GX pass, then to 453 after a fourth pass on thin luxury / missing three-row / trucks, then to **554** weighted votes (558 coded rows) after a fifth pass on remaining thin flagship, mid-luxury, compact-luxury, three-row, and truck nodes. Treat ranks as a reading of this corpus, not a census of owners. One 241-upvote test-drive write-up is down-weighted by `log(1+upvotes)` so it boosts Q8/MDX/Q7 but does not own the scale. The bias-adjusted fit removes that karma term entirely.
 
 ## Date and sources
 
@@ -166,6 +167,24 @@ Fourth-pass threads (thin luxury, missing three-row, trucks):
 - [Navigator vs Grand Wagoneer](https://old.reddit.com/r/lincolnmotorco/comments/1eqta1w/)
 - [GX 550 vs 4Runner](https://old.reddit.com/r/LexusGX550/comments/1ikvbg1/)
 - [Land Cruiser vs 4Runner](https://old.reddit.com/r/LandCruisers/comments/1lluxml/)
+
+Fifth-pass threads (remaining thin flagship / mid-luxury / compact / three-row / truck):
+
+- [GLS vs X7 (r/mercedes_benz)](https://old.reddit.com/r/mercedes_benz/comments/1tb4gtd/)
+- [X7 vs GLS / Escalade](https://old.reddit.com/r/bmwx7/comments/1vdka3x/)
+- [Escalade vs rental X7](https://old.reddit.com/r/bmwx7/comments/1q2bau6/)
+- [EQS SUV vs iX owned both](https://old.reddit.com/r/BMWiX/comments/1n7z1m4/)
+- [Q8 vs X5](https://old.reddit.com/r/BMWX5/comments/1qoeyi1/)
+- [R1S vs XC90 / MDX / GV80](https://old.reddit.com/r/Rivian/comments/1d717bt/)
+- [Defender vs GX 550](https://old.reddit.com/r/LexusGX550/comments/1qsxj0w/)
+- [GV70 vs Nautilus](https://old.reddit.com/r/GenesisGV70/comments/1fpluz2/)
+- [GV70 vs NX](https://old.reddit.com/r/LexusNX/comments/1oyu0kp/)
+- [Tiguan vs RAV4 / CR-V](https://old.reddit.com/r/Tiguan/comments/1izzwia/)
+- [Enclave vs Palisade](https://old.reddit.com/r/HyundaiPalisade/comments/1i2w104/)
+- [Atlas vs Telluride](https://old.reddit.com/r/VWatlas/comments/1rpc4fb/)
+- [Passport vs 4Runner](https://old.reddit.com/r/hondapassport/comments/1p7rfj1/)
+- [GX 550 vs Land Cruiser](https://old.reddit.com/r/LexusGX/comments/1htwbzj/)
+- [LX / Sequoia / TX](https://old.reddit.com/r/Lexus/comments/1s68u5o/)
 
 Owner-review pages used when the text named two SUVs and picked a comfort winner:
 

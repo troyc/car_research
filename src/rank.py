@@ -107,6 +107,7 @@ SEGMENTS = {
         "Lexus LX",
         "Land Rover",
         "Chevrolet Suburban",
+        "Chevrolet Tahoe",
         "GMC Yukon",
         "Jeep Grand Wagoneer",
         "Infiniti QX80",
@@ -135,7 +136,9 @@ BRAND_SUB_RE = re.compile(
     r"rav4club|CX5|MazdaCX90|LexusNX|GenesisGV70|Toyotavenza|"
     r"AudiQ5|ModelX|BMWiX|TeslaModelY|nissanpathfinder|"
     r"hondapassport|VWatlas|LexusGX550|4Runner|LandCruisers|"
-    r"infiniti|mercedes_benz|Acura"
+    r"infiniti|mercedes_benz|Acura|Tiguan|CX50|NewDefender|"
+    r"LandroverDefender|Rivian|toyotasequoia|LincolnNavigator|"
+    r"Cadillac|kia"
     r")",
     re.I,
 )
