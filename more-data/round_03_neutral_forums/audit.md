@@ -9,9 +9,9 @@ Collection date: 2026-08-19. Scope was ordinary, public, browser-readable thread
 
 ## Discovery and inclusion
 
-Targeted searches were reviewed in small batches (well below 25 threads per source). The round retains one current-era BITOG row from a November 2025 thread: Crosstrek over CX-5 on ride. Two CR-V rear-seat-fit rows were rejected because the post did not establish a test drive or another existing first-hand evidence category. Five Edmunds passages were historical 2000–08 generations incompatible with the contemporary model scopes in the current graph. The BITOG Explorer/Palisade passage distinguishes handling (“athletic” versus “mushy”) rather than a comfort/ride-compliance winner and was rejected. Additional shopping, equipment, reliability, or unsupported opinions are recorded in `rejections.csv`.
+Targeted searches were reviewed in small batches (well below 25 threads per source). The round retains two current-era BITOG rows: Crosstrek over CX-5 on ride and Atlas over Grand Cherokee L on ride. The latter is a same-day direct drive of both Atlas engine offerings and a Grand Cherokee L; the poster explicitly called the Jeep's ride much firmer and preferred the six-cylinder Atlas. Two CR-V rear-seat-fit rows were rejected because the post did not establish a test drive or another existing first-hand evidence category. Five Edmunds passages were historical 2000–08 generations incompatible with the contemporary model scopes in the current graph. The BITOG Explorer/Palisade passage distinguishes handling (“athletic” versus “mushy”) rather than a comfort/ride-compliance winner and was rejected. A Traverse-versus-Grand Cherokee L seat passage was rejected because Traverse is outside the canonical model map. Additional shopping, equipment, reliability, or unsupported opinions are recorded in `rejections.csv`.
 
-The required comparisons/context files contain one included row with aligned ID and populated audit context. No generated parent data or ranking output was changed.
+The required comparisons/context files contain two included rows with aligned IDs and populated audit context. No generated parent data or ranking output was changed.
 
 ## Open gaps
 

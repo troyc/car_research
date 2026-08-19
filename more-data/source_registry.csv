@@ -7,3 +7,5 @@ audizine,audizine.com,round_02_owner_forums,brand,xenforo,direct_public_html,tar
 subaruforums,thesubaruforums.com,round_02_owner_forums,brand,xenforo,direct_public_html,targeted_only,1,2026-08-19,"Respect crawl delay and avoid disallowed search, member, and login paths"
 bobistheoilguy,bobistheoilguy.com,round_03_neutral_forums,general,xenforo,browser_reader,browser_only,1,2026-08-19,"Direct requests may return 403; do not bypass the block"
 edmunds_forum,forums.edmunds.com,round_03_neutral_forums,general,custom,browser_reader,browser_only,1,2026-08-19,"Use public browser-readable discussions only; direct requests may return 403"
+x,x.com,round_04_x,general,x_api,official_x_search,targeted_only,1,2026-08-19,"Public posts via official X search and thread interfaces only; do not scrape HTML. robots.txt User-agent * Disallows /; ToS prohibit scraping outside published interfaces."
+reddit,reddit.com,round_04_reddit_brand,brand,custom,browser_reader,browser_only,1,2026-08-19,"Targeted ordinary brand-subreddit HTML only; no JSON, API, search, member/profile, deep comment-permalink, or bulk collection"

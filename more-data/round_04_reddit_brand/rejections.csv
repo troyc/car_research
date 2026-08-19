@@ -1,0 +1,7 @@
+source,url,source_record_id,reason,notes
+reddit,https://www.reddit.com/r/LexusGX550/comments/1li30nj/land_cruiser_w_premium_package_vs_gx_550/,stmt_0483f31a3ad37d7a,evidence_not_classifiable,"A separate poster rented both vehicles for a week and preferred the GX driving experience, but rental-both has no existing evidence category and was not recoded as a test drive."
+reddit,https://www.reddit.com/r/VolvoXC90/comments/1k10oqw/how_does_your_xc90_compare_to_other_lux_brands/,reddit_1k10oqw_duplicate,parent_duplicate,"The strongest XC90-versus-Defender comfort statement is already present in the parent dataset."
+reddit,https://www.reddit.com/r/lincolnmotorco/comments/1gq264h/corsair_or_nautilus/,reddit_1gq264h_duplicate,parent_duplicate,"Two strong Nautilus-versus-Corsair ride statements are already present in the parent dataset."
+reddit,https://www.reddit.com/r/lincolnmotorco/comments/1mkx7ix/2025_lincoln_aviator_vs_similar_trim_lexus_tx/,reddit_1mkx7ix_duplicate,parent_duplicate,"The Aviator-versus-TX ride statement is already present in the parent dataset."
+reddit,https://www.reddit.com/r/GenesisGV70/comments/1pkbbhx/gv70_23_25t_vs_23_macan_s/,reddit_1pkbbhx_duplicate,parent_duplicate,"The strongest GV70-versus-Macan NVH statement is already present in the parent dataset."
+reddit,https://www.reddit.com/r/WhatCarShouldIBuyGULF/comments/1l34eot/advise_on_new_car_buy_santa_fe_sorento/,reddit_1l34eot,regional_generation_scope,"UAE-market Santa Fe 2.5 DCT and Sorento 3.5 EX comparison was not mixed into the North American contemporary nodes."
