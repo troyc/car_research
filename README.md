@@ -4,7 +4,7 @@ Research project that ranks SUV comfort from **customer comments that compare tw
 
 ## What this is
 
-A Bradley–Terry ranking of current-generation SUVs on ride comfort, seats, cabin quiet, and long-trip fatigue, built from first-hand owner and test-drive comments on Reddit, X, and Edmunds/Cars.com consumer reviews. Collected 18 August 2026; expanded the same day through nine research passes, with the latest adding Expedition / Suburban / Tahoe / Escalade / Navigator, 2026 Santa Fe / Palisade, and fresh RR / GLS / Q7 / X5 / GV80 comparisons. A second fit down-weights source bias. A third fit keeps only owners (no same-day testers). Upvotes are planned to be removed from all data and calculations — the `upvotes` column and the karma boost in the default fit are legacy.
+A Bradley–Terry ranking of current-generation SUVs on ride comfort, seats, cabin quiet, and long-trip fatigue, built from first-hand owner and test-drive comments on Reddit, X, and Edmunds/Cars.com consumer reviews. Collected 18 August 2026; expanded the same day through nine research passes, then audited (19 unsupported rows removed; evidence tags, quotes, and `home_team` recoded). A second fit down-weights source bias. A third fit keeps only owners (no same-day testers). Upvotes are planned to be removed from all data and calculations — the `upvotes` column and the karma boost in the default fit are legacy.
 
 ## How to read it
 
@@ -58,82 +58,84 @@ Off the ladder: **GX 460** beats 4Runner and splits RX (not an X5). **GX 550** b
 
 ## Mechanical ranking
 
-Core models with **three or more** coded appearances. Bradley–Terry θ and win–loss from the default fit (`python3 src/rank.py`). Raw θ still inflates cars that only beat same-class rivals (EQS SUV 9–1 vs iX/R1S, Escalade IQ 6–1 vs Model X, XT6 7–2, CX-9 8–0 vs Highlander/Pilot/RAV4). Use the chain above, not this numeric list, as a shopping order.
+Core models with **three or more** coded appearances. Bradley–Terry θ and win–loss from the default fit (`python3 src/rank.py`). Raw θ still inflates cars that only beat same-class rivals (EQS SUV 9–1 vs iX/R1S, Escalade IQ 6–1 vs Model X, XT6 7–2, CX-9 7–0 vs Highlander/Pilot/RAV4). Use the chain above, not this numeric list, as a shopping order.
 
 | Rank | Model | θ | W–L |
 |---:|---|---:|---:|
-| 1 | Mercedes EQS SUV | 5.43 | 9–1 |
-| 2 | Mercedes GLS | 5.10 | 18–3 |
-| 3 | Range Rover | 5.08 | 17–2 |
-| 4 | Range Rover Sport | 3.97 | 12–3 |
-| 5 | Lexus LX | 3.76 | 10–2 |
-| 6 | Lincoln Aviator | 3.70 | 15–4 |
-| 7 | Buick Enclave | 3.70 | 7–3 |
-| 8 | Audi Q8 | 3.22 | 5–3 |
-| 9 | Lincoln Nautilus | 3.21 | 15–3 |
-| 10 | Cadillac Escalade IQ | 3.17 | 6–1 |
-| 11 | BMW X5 | 3.13 | 36–50 |
-| 12 | BMW iX | 3.12 | 11–7 |
-| 13 | Cadillac XT6 | 3.12 | 7–2 |
-| 14 | Cadillac Escalade | 2.70 | 17–15 |
-| 15 | Mazda CX-9 | 2.66 | 8–0 |
-| 16 | Genesis GV80 | 2.60 | 7–7 |
-| 17 | Jeep Grand Cherokee | 2.53 | 3–2 |
-| 18 | BMW X7 | 2.52 | 10–20 |
-| 19 | Genesis GV70 | 2.32 | 14–4 |
-| 20 | Lincoln Navigator | 2.21 | 12–12 |
-| 21 | Lexus GX | 2.20 | 25–14 |
-| 22 | Acura MDX | 2.20 | 9–4 |
-| 23 | GMC Yukon | 2.19 | 21–5 |
-| 24 | Jeep Grand Wagoneer | 2.19 | 7–6 |
-| 25 | Mercedes GLE | 2.02 | 22–17 |
-| 26 | Honda Pilot | 1.70 | 33–37 |
-| 27 | Infiniti QX80 | 1.62 | 4–1 |
-| 28 | Audi Q7 | 1.51 | 8–6 |
-| 29 | Subaru Ascent | 1.48 | 22–9 |
-| 30 | Lexus TX | 1.45 | 6–7 |
-| 31 | Mercedes GLE AMG | 1.28 | 1–3 |
-| 32 | Lincoln Corsair | 1.00 | 6–5 |
-| 33 | Audi Q5 | 0.91 | 15–9 |
-| 34 | Volvo XC90 | 0.85 | 16–13 |
-| 35 | Lexus RX | 0.69 | 21–16 |
-| 36 | Nissan Murano | 0.67 | 4–2 |
-| 37 | Volkswagen Atlas | 0.65 | 11–5 |
-| 38 | Subaru Outback 2026 | 0.55 | 12–1 |
-| 39 | Volvo XC60 | 0.31 | 17–14 |
-| 40 | Porsche Macan | 0.21 | 5–6 |
-| 41 | Mercedes GLC | −0.06 | 7–6 |
-| 42 | Toyota Sequoia | −0.09 | 3–13 |
-| 43 | Lexus NX | −0.17 | 8–11 |
-| 44 | Toyota Venza | −0.29 | 14–3 |
-| 45 | Land Rover Defender | −0.29 | 10–13 |
-| 46 | Honda CR-V | −0.58 | 22–19 |
-| 47 | Nissan Pathfinder | −0.78 | 15–11 |
-| 48 | Jeep Grand Cherokee L | −0.81 | 2–4 |
-| 49 | Volkswagen Tiguan | −0.95 | 11–4 |
-| 50 | Hyundai Palisade | −1.18 | 53–23 |
-| 51 | Chevrolet Tahoe | −1.31 | 2–6 |
-| 52 | Kia Telluride | −1.32 | 28–26 |
-| 53 | Toyota Highlander | −1.60 | 9–23 |
-| 54 | Toyota Grand Highlander | −1.66 | 5–14 |
-| 55 | Cadillac XT5 | −1.96 | 1–9 |
-| 56 | Subaru Outback (2020–25) | −2.02 | 31–16 |
-| 57 | Ford Explorer | −2.11 | 4–6 |
-| 58 | Honda Passport | −2.52 | 6–8 |
-| 59 | Mazda CX-5 | −3.20 | 5–9 |
-| 60 | Porsche Cayenne | −3.39 | 4–17 |
-| 61 | Lexus GX 550 | −3.46 | 9–15 |
-| 62 | Mazda CX-90 | −3.88 | 3–15 |
-| 63 | Subaru Crosstrek | −3.95 | 4–14 |
-| 64 | Tesla Model X | −4.06 | 11–16 |
-| 65 | BMW X3 | −4.17 | 3–20 |
-| 66 | Kia Sorento | −4.21 | 0–6 |
-| 67 | Subaru Forester | −4.22 | 2–14 |
-| 68 | Toyota Land Cruiser | −4.27 | 4–7 |
-| 69 | Toyota 4Runner | −4.36 | 3–24 |
-| 70 | Mazda CX-50 | −4.41 | 1–14 |
-| 71 | Rivian R1S | −4.55 | 5–21 |
-| 72 | Chevrolet Suburban | −4.89 | 0–6 |
-| 73 | Toyota RAV4 | −5.04 | 1–32 |
-| 74 | BMW X1 | −5.59 | 1–7 |
-| 75 | Tesla Model Y | −8.01 | 0–16 |
+| 1 | Mercedes EQS SUV | 5.71 | 9–1 |
+| 2 | Mercedes GLS | 4.55 | 17–4 |
+| 3 | Range Rover | 4.51 | 15–2 |
+| 4 | Lexus LX | 4.08 | 10–2 |
+| 5 | Audi Q8 | 3.37 | 5–3 |
+| 6 | BMW iX | 3.29 | 11–7 |
+| 7 | Cadillac Escalade IQ | 3.28 | 6–1 |
+| 8 | Buick Enclave | 3.26 | 7–3 |
+| 9 | Lincoln Nautilus | 3.21 | 14–3 |
+| 10 | Range Rover Sport | 3.02 | 12–3 |
+| 11 | BMW X5 | 2.98 | 35–50 |
+| 12 | Cadillac Escalade | 2.97 | 18–15 |
+| 13 | Lincoln Aviator | 2.83 | 14–4 |
+| 14 | Cadillac XT6 | 2.81 | 7–2 |
+| 15 | Mazda CX-9 | 2.63 | 7–0 |
+| 16 | Jeep Grand Wagoneer | 2.37 | 7–6 |
+| 17 | Genesis GV70 | 2.31 | 14–4 |
+| 18 | GMC Yukon | 2.23 | 21–5 |
+| 19 | BMW X7 | 2.21 | 10–20 |
+| 20 | Genesis GV80 | 2.20 | 8–7 |
+| 21 | Lincoln Navigator | 2.16 | 13–11 |
+| 22 | Jeep Grand Cherokee | 1.97 | 3–2 |
+| 23 | Infiniti QX80 | 1.69 | 4–1 |
+| 24 | Acura MDX | 1.64 | 8–4 |
+| 25 | Lexus RX | 1.60 | 19–14 |
+| 26 | Mercedes GLE | 1.58 | 21–14 |
+| 27 | Lexus GX | 1.54 | 25–14 |
+| 28 | Subaru Ascent | 1.54 | 22–9 |
+| 29 | Lexus TX | 1.49 | 6–6 |
+| 30 | Honda Pilot | 1.40 | 33–37 |
+| 31 | Audi Q7 | 1.30 | 9–5 |
+| 32 | Audi Q5 | 0.97 | 15–9 |
+| 33 | Lincoln Corsair | 0.97 | 6–5 |
+| 34 | Nissan Murano | 0.92 | 4–2 |
+| 35 | Volkswagen Atlas | 0.87 | 11–5 |
+| 36 | Volvo XC60 | 0.73 | 17–12 |
+| 37 | Volvo XC90 | 0.48 | 15–13 |
+| 38 | Porsche Macan | 0.37 | 5–6 |
+| 39 | Subaru Outback 2026 | 0.31 | 12–1 |
+| 40 | Toyota Venza | 0.25 | 14–3 |
+| 41 | Honda CR-V | −0.07 | 21–18 |
+| 42 | Mercedes GLE AMG | −0.11 | 1–4 |
+| 43 | Lexus NX | −0.16 | 8–11 |
+| 44 | Nissan Pathfinder | −0.30 | 15–11 |
+| 45 | Hyundai Palisade | −0.33 | 54–22 |
+| 46 | Land Rover Defender | −0.43 | 10–13 |
+| 47 | Toyota Sequoia | −0.50 | 3–13 |
+| 48 | Volkswagen Tiguan | −0.66 | 11–4 |
+| 49 | Jeep Grand Cherokee L | −0.80 | 2–4 |
+| 50 | Toyota Highlander | −0.82 | 8–23 |
+| 51 | Kia Telluride | −0.89 | 28–26 |
+| 52 | Toyota Grand Highlander | −1.06 | 5–12 |
+| 53 | Mercedes GLC | −1.17 | 6–6 |
+| 54 | Cadillac XT5 | −1.52 | 1–8 |
+| 55 | Ford Explorer | −1.70 | 4–6 |
+| 56 | Ford Expedition | −1.79 | 3–3 |
+| 57 | Subaru Outback (2020–25) | −1.84 | 31–16 |
+| 58 | Honda Passport | −1.86 | 6–8 |
+| 59 | Chevrolet Tahoe | −2.02 | 2–7 |
+| 60 | Hyundai Santa Fe | −2.69 | 0–4 |
+| 61 | Mazda CX-5 | −2.77 | 5–8 |
+| 62 | Lexus GX 550 | −2.99 | 9–15 |
+| 63 | Porsche Cayenne | −3.36 | 4–17 |
+| 64 | Subaru Forester | −3.47 | 2–14 |
+| 65 | Mazda CX-90 | −3.47 | 3–15 |
+| 66 | Subaru Crosstrek | −3.49 | 4–14 |
+| 67 | Kia Sorento | −3.70 | 0–6 |
+| 68 | Chevrolet Suburban | −3.72 | 1–8 |
+| 69 | Toyota Land Cruiser | −3.82 | 4–7 |
+| 70 | Mazda CX-50 | −3.83 | 1–13 |
+| 71 | Toyota 4Runner | −3.91 | 3–24 |
+| 72 | BMW X3 | −3.93 | 3–20 |
+| 73 | Tesla Model X | −4.23 | 11–16 |
+| 74 | Rivian R1S | −4.52 | 5–21 |
+| 75 | Toyota RAV4 | −4.53 | 1–31 |
+| 76 | BMW X1 | −5.51 | 1–7 |
+| 77 | Tesla Model Y | −7.99 | 0–16 |

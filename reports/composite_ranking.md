@@ -1,10 +1,10 @@
 # Composite SUV comfort ranking from customer comparisons
 
-**Collected 18 August 2026; expanded nine times the same day** — Edmunds/Cars.com and three-row family SUVs; then **2020–2025 / 2026 Subaru Outback**, **Ascent**, **2020–2022 RX / RX L**, and **2014–2023 GX 460**; then thin luxury / missing three-row / trucks; then remaining thin flagship, mid-luxury, compact-luxury, three-row, and truck nodes; then Yukon / Tahoe / Suburban / QX80 / Escalade IQ, EQS SUV / Defender / R1S / Cayenne / Macan, Crosstrek / Corsair / X1 / Model Y, and CX-90 / Pathfinder / Murano / Passport; then a seventh pass on Yukon / R1S / Sequoia / QX80 / Tahoe, Defender / Cayenne / Grand Cherokee, Crosstrek / Corsair / X1 / Murano / Model Y, and CX-90 / Explorer / Enclave / GCL; then an **eighth pass** on Escalade IQ / EQS SUV / LX / Yukon / Land Cruiser, Defender / Grand Cherokee / Cayenne / R1S / Model Y, Venza / Tiguan / Corsair / X1 / Crosstrek, and leftover GCL / XT5 / Enclave owner-review lines; then a **ninth pass** on Expedition / Suburban / Tahoe / Escalade / Navigator, 2026 Santa Fe / Palisade, and fresh RR / GLS / Q7 / X5 / GV80 links. A second Bradley–Terry fit down-weights Reddit karma and brand-sub home cooking: [`bias_analysis.md`](bias_analysis.md).
+**Collected 18 August 2026; expanded nine times the same day** — Edmunds/Cars.com and three-row family SUVs; then **2020–2025 / 2026 Subaru Outback**, **Ascent**, **2020–2022 RX / RX L**, and **2014–2023 GX 460**; then thin luxury / missing three-row / trucks; then remaining thin flagship, mid-luxury, compact-luxury, three-row, and truck nodes; then Yukon / Tahoe / Suburban / QX80 / Escalade IQ, EQS SUV / Defender / R1S / Cayenne / Macan, Crosstrek / Corsair / X1 / Model Y, and CX-90 / Pathfinder / Murano / Passport; then a seventh pass on Yukon / R1S / Sequoia / QX80 / Tahoe, Defender / Cayenne / Grand Cherokee, Crosstrek / Corsair / X1 / Murano / Model Y, and CX-90 / Explorer / Enclave / GCL; then an **eighth pass** on Escalade IQ / EQS SUV / LX / Yukon / Land Cruiser, Defender / Grand Cherokee / Cayenne / R1S / Model Y, Venza / Tiguan / Corsair / X1 / Crosstrek, and leftover GCL / XT5 / Enclave owner-review lines; then a **ninth pass** on Expedition / Suburban / Tahoe / Escalade / Navigator, 2026 Santa Fe / Palisade, and fresh RR / GLS / Q7 / X5 / GV80 links. Then a full-file **audit** removed 19 unsupported rows and recoded evidence / quotes / `home_team`. A second Bradley–Terry fit down-weights Reddit karma and brand-sub home cooking: [`bias_analysis.md`](bias_analysis.md).
 
 Only comments that name two or more SUVs and pick a winner on comfort (ride, seats, quiet, long-trip fatigue). Isolated praise is not used.
 
-**805 weighted pairwise votes** (809 coded rows) from Reddit owner/test-drive threads, three X posts, plus Edmunds and Cars.com consumer reviews. Combined with a Bradley–Terry model. Method: [`methodology.md`](methodology.md). Raw votes: [`../data/comparisons.csv`](../data/comparisons.csv). Owners only, testers dropped: [`owner_analysis.md`](owner_analysis.md).
+**786 weighted pairwise votes** (790 coded rows) from Reddit owner/test-drive threads, three X posts, plus Edmunds and Cars.com consumer reviews. Combined with a Bradley–Terry model. Method: [`methodology.md`](methodology.md). Raw votes: [`../data/comparisons.csv`](../data/comparisons.csv). Owners only, testers dropped: [`owner_analysis.md`](owner_analysis.md). Audit record: [`../audit/compiled.md`](../audit/compiled.md).
 
 ---
 
@@ -37,7 +37,7 @@ Read that as “generally preferred,” not “always preferred.” Spec matters
 
 ### Why this is not a single numeric list
 
-The mechanical Bradley–Terry fit still inflates cars that only played (and beat) weaker or same-class rivals. **EQS SUV** is 9–1 vs iX / R1S and now sits #1 on raw θ — still not a Range Rover. **Escalade IQ** is 6–1 vs Model X / gas Escalade. **XT6** is 7–2 after one Edmunds shopper preferred it to an X5; do not shop XT6 as mid-luxury furniture. **CX-9** is 8–0 vs Highlander / Pilot / RAV4. **Enclave** is 7–3 vs Palisade/Telluride/TX/X5. **Yukon** is 21–5 mostly vs R1S / Sequoia / GX / Tahoe — that is a real truck sample, not Yukon-over-GLS. **GV70** is 14–4 and still has not met a Range Rover. **GLS** is 18–3 almost entirely vs X7. **iX** is 11–7 vs Model X / X5 / EQS SUV / Model Y / R1S. **Ascent** is 22–9 and **2026 Outback** is 12–1 for the same reason as before. **Palisade** is 53–23 because it crushed Pilot / Telluride / Highlander / Grand Highlander / Pathfinder / CX-90. The chain above respects who actually met whom.
+The mechanical Bradley–Terry fit still inflates cars that only played (and beat) weaker or same-class rivals. **EQS SUV** is 9–1 vs iX / R1S and now sits #1 on raw θ — still not a Range Rover. **Escalade IQ** is 6–1 vs Model X / gas Escalade. **XT6** is 7–2 after one Edmunds shopper preferred it to an X5; do not shop XT6 as mid-luxury furniture. **CX-9** is 7–0 vs Highlander / Pilot / RAV4. **Enclave** is 7–3 vs Palisade/Telluride/TX/X5. **Yukon** is 21–5 mostly vs R1S / Sequoia / GX / Tahoe — that is a real truck sample, not Yukon-over-GLS. **GV70** is 14–4 and still has not met a Range Rover. **GLS** is 17–4 almost entirely vs X7. **iX** is 11–7 vs Model X / X5 / EQS SUV / Model Y / R1S. **Ascent** is 22–9 and **2026 Outback** is 12–1 for the same reason as before. **Palisade** is 54–22 because it crushed Pilot / Telluride / Highlander / Grand Highlander / Pathfinder / CX-90. The chain above respects who actually met whom.
 
 ---
 
@@ -340,7 +340,7 @@ Snippets / listing reprints added Enclave-over-X5, GCL-over-Palisade/Telluride N
 
 ## What the ninth pass changed
 
-The ninth pass added **13 first-hand rows** and one previously missing full-size SUV. The fit now loads **805 usable comparisons / 809 coded rows** after the sedan and exclusion drops.
+The ninth pass added **13 first-hand rows** and one previously missing full-size SUV. After the later audit (below) the fit loads **786 usable comparisons / 790 coded rows** after the sedan and exclusion drops.
 
 ### Expedition fills the full-size truck gap
 
@@ -354,11 +354,21 @@ The new **Hyundai Santa Fe** has four direct comparisons, all against 2026 Palis
 
 One owner who had both preferred the full-size Range Rover to the GLS on comfort. A new Q7 test drive favored the Audi’s softer / quieter feel over X5, while a three-way test drive called the GV80 cushier than the chosen X5. These reinforce the existing split—comfort-first Audi / Genesis versus sportier BMW—without changing the ceiling or making GV80 an air-suspension flagship.
 
+## What the audit changed
+
+The compiled audit ([`../audit/compiled.md`](../audit/compiled.md)) was applied to `data/comparisons.csv`. It did not add new comparisons. It cleaned the ones already coded.
+
+- **19 rows deleted** — no single passage supported the pair (isolated praise, spliced quotes, brand-level statements coded to a specific rival). Range Rover lost three unsupported wins (GLE / X5 / Palisade). GLS lost a Navigator row. Aviator lost an RX recommendation. Palisade lost three thin three-row rows. GLE/X5 each lost a weak head-to-head.
+- **Evidence recodes** — 181 tags moved, mostly `test_drove_both` → `owned_one_td_other` (owns one, sat in the other) or down to `opinion` / `opinion_plus_drive`. `rank.py` reads the tag, so those rows now sit in the owner fit instead of the tester pile, or drop out of the bias fit.
+- **Quote / axis / `home_team` / loser** — misleading fragments replaced; six axis fixes; ~97 home-badge flags flipped; one GLE row recoded to GLE AMG.
+
+The shopping chain above did not move. Raw θ compressed at the top (GLS 4.55, Range Rover 4.51; both were above 5.0). Palisade is 54–22. Ascent is still 22–9. The owner cut is the bigger shift: testers fell from about 40% of the file to 176 / 786, because many “test-drove both” tags were really owner-plus-sit.
+
 ## Evidence that actually moves the ranking
 
 ### Range Rover is still the ceiling
 
-Full-size Range Rover remains **14–2**. The new losses are still not a flagship rival winning isolation — they are the older X7 window-noise note, plus a Yukon owner comparing unspecified-year Range Rovers. Defender notes go the other way.
+Full-size Range Rover remains **15–2**. The losses are still not a flagship rival winning isolation — they are the older X7 window-noise note, plus a Yukon owner comparing unspecified-year Range Rovers. Three brand-only RR wins were deleted in the audit. Defender notes go the other way.
 
 ### Flagship is a three-way, not Escalade by default
 
@@ -447,85 +457,87 @@ Core models with **three or more** coded appearances, Bradley–Terry θ, and wi
 
 | Rank | Model | θ | W–L |
 |---:|---|---:|---:|
-| 1 | Mercedes EQS SUV | 5.43 | 9–1 |
-| 2 | Mercedes GLS | 5.10 | 18–3 |
-| 3 | Range Rover | 5.08 | 17–2 |
-| 4 | Range Rover Sport | 3.97 | 12–3 |
-| 5 | Lexus LX | 3.76 | 10–2 |
-| 6 | Lincoln Aviator | 3.70 | 15–4 |
-| 7 | Buick Enclave | 3.70 | 7–3 |
-| 8 | Audi Q8 | 3.22 | 5–3 |
-| 9 | Lincoln Nautilus | 3.21 | 15–3 |
-| 10 | Cadillac Escalade IQ | 3.17 | 6–1 |
-| 11 | BMW X5 | 3.13 | 36–50 |
-| 12 | BMW iX | 3.12 | 11–7 |
-| 13 | Cadillac XT6 | 3.12 | 7–2 |
-| 14 | Cadillac Escalade | 2.70 | 17–15 |
-| 15 | Mazda CX-9 | 2.66 | 8–0 |
-| 16 | Genesis GV80 | 2.60 | 7–7 |
-| 17 | Jeep Grand Cherokee | 2.53 | 3–2 |
-| 18 | BMW X7 | 2.52 | 10–20 |
-| 19 | Genesis GV70 | 2.32 | 14–4 |
-| 20 | Lincoln Navigator | 2.21 | 12–12 |
-| 21 | Lexus GX | 2.20 | 25–14 |
-| 22 | Acura MDX | 2.20 | 9–4 |
-| 23 | GMC Yukon | 2.19 | 21–5 |
-| 24 | Jeep Grand Wagoneer | 2.19 | 7–6 |
-| 25 | Mercedes GLE | 2.02 | 22–17 |
-| 26 | Honda Pilot | 1.70 | 33–37 |
-| 27 | Infiniti QX80 | 1.62 | 4–1 |
-| 28 | Audi Q7 | 1.51 | 8–6 |
-| 29 | Subaru Ascent | 1.48 | 22–9 |
-| 30 | Lexus TX | 1.45 | 6–7 |
-| 31 | Mercedes GLE AMG | 1.28 | 1–3 |
-| 32 | Lincoln Corsair | 1.00 | 6–5 |
-| 33 | Audi Q5 | 0.91 | 15–9 |
-| 34 | Volvo XC90 | 0.85 | 16–13 |
-| 35 | Lexus RX | 0.69 | 21–16 |
-| 36 | Nissan Murano | 0.67 | 4–2 |
-| 37 | Volkswagen Atlas | 0.65 | 11–5 |
-| 38 | Subaru Outback 2026 | 0.55 | 12–1 |
-| 39 | Volvo XC60 | 0.31 | 17–14 |
-| 40 | Porsche Macan | 0.21 | 5–6 |
-| 41 | Mercedes GLC | −0.06 | 7–6 |
-| 42 | Toyota Sequoia | −0.09 | 3–13 |
-| 43 | Lexus NX | −0.17 | 8–11 |
-| 44 | Toyota Venza | −0.29 | 14–3 |
-| 45 | Land Rover Defender | −0.29 | 10–13 |
-| 46 | Honda CR-V | −0.58 | 22–19 |
-| 47 | Nissan Pathfinder | −0.78 | 15–11 |
-| 48 | Jeep Grand Cherokee L | −0.81 | 2–4 |
-| 49 | Volkswagen Tiguan | −0.95 | 11–4 |
-| 50 | Hyundai Palisade | −1.18 | 53–23 |
-| 51 | Chevrolet Tahoe | −1.31 | 2–6 |
-| 52 | Kia Telluride | −1.32 | 28–26 |
-| 53 | Toyota Highlander | −1.60 | 9–23 |
-| 54 | Toyota Grand Highlander | −1.66 | 5–14 |
-| 55 | Cadillac XT5 | −1.96 | 1–9 |
-| 56 | Subaru Outback (2020–25) | −2.02 | 31–16 |
-| 57 | Ford Explorer | −2.11 | 4–6 |
-| 58 | Honda Passport | −2.52 | 6–8 |
-| 59 | Mazda CX-5 | −3.20 | 5–9 |
-| 60 | Porsche Cayenne | −3.39 | 4–17 |
-| 61 | Lexus GX 550 | −3.46 | 9–15 |
-| 62 | Mazda CX-90 | −3.88 | 3–15 |
-| 63 | Subaru Crosstrek | −3.95 | 4–14 |
-| 64 | Tesla Model X | −4.06 | 11–16 |
-| 65 | BMW X3 | −4.17 | 3–20 |
-| 66 | Kia Sorento | −4.21 | 0–6 |
-| 67 | Subaru Forester | −4.22 | 2–14 |
-| 68 | Toyota Land Cruiser | −4.27 | 4–7 |
-| 69 | Toyota 4Runner | −4.36 | 3–24 |
-| 70 | Mazda CX-50 | −4.41 | 1–14 |
-| 71 | Rivian R1S | −4.55 | 5–21 |
-| 72 | Chevrolet Suburban | −4.89 | 0–6 |
-| 73 | Toyota RAV4 | −5.04 | 1–32 |
-| 74 | BMW X1 | −5.59 | 1–7 |
-| 75 | Tesla Model Y | −8.01 | 0–16 |
+| 1 | Mercedes EQS SUV | 5.71 | 9–1 |
+| 2 | Mercedes GLS | 4.55 | 17–4 |
+| 3 | Range Rover | 4.51 | 15–2 |
+| 4 | Lexus LX | 4.08 | 10–2 |
+| 5 | Audi Q8 | 3.37 | 5–3 |
+| 6 | BMW iX | 3.29 | 11–7 |
+| 7 | Cadillac Escalade IQ | 3.28 | 6–1 |
+| 8 | Buick Enclave | 3.26 | 7–3 |
+| 9 | Lincoln Nautilus | 3.21 | 14–3 |
+| 10 | Range Rover Sport | 3.02 | 12–3 |
+| 11 | BMW X5 | 2.98 | 35–50 |
+| 12 | Cadillac Escalade | 2.97 | 18–15 |
+| 13 | Lincoln Aviator | 2.83 | 14–4 |
+| 14 | Cadillac XT6 | 2.81 | 7–2 |
+| 15 | Mazda CX-9 | 2.63 | 7–0 |
+| 16 | Jeep Grand Wagoneer | 2.37 | 7–6 |
+| 17 | Genesis GV70 | 2.31 | 14–4 |
+| 18 | GMC Yukon | 2.23 | 21–5 |
+| 19 | BMW X7 | 2.21 | 10–20 |
+| 20 | Genesis GV80 | 2.20 | 8–7 |
+| 21 | Lincoln Navigator | 2.16 | 13–11 |
+| 22 | Jeep Grand Cherokee | 1.97 | 3–2 |
+| 23 | Infiniti QX80 | 1.69 | 4–1 |
+| 24 | Acura MDX | 1.64 | 8–4 |
+| 25 | Lexus RX | 1.60 | 19–14 |
+| 26 | Mercedes GLE | 1.58 | 21–14 |
+| 27 | Lexus GX | 1.54 | 25–14 |
+| 28 | Subaru Ascent | 1.54 | 22–9 |
+| 29 | Lexus TX | 1.49 | 6–6 |
+| 30 | Honda Pilot | 1.40 | 33–37 |
+| 31 | Audi Q7 | 1.30 | 9–5 |
+| 32 | Audi Q5 | 0.97 | 15–9 |
+| 33 | Lincoln Corsair | 0.97 | 6–5 |
+| 34 | Nissan Murano | 0.92 | 4–2 |
+| 35 | Volkswagen Atlas | 0.87 | 11–5 |
+| 36 | Volvo XC60 | 0.73 | 17–12 |
+| 37 | Volvo XC90 | 0.48 | 15–13 |
+| 38 | Porsche Macan | 0.37 | 5–6 |
+| 39 | Subaru Outback 2026 | 0.31 | 12–1 |
+| 40 | Toyota Venza | 0.25 | 14–3 |
+| 41 | Honda CR-V | −0.07 | 21–18 |
+| 42 | Mercedes GLE AMG | −0.11 | 1–4 |
+| 43 | Lexus NX | −0.16 | 8–11 |
+| 44 | Nissan Pathfinder | −0.30 | 15–11 |
+| 45 | Hyundai Palisade | −0.33 | 54–22 |
+| 46 | Land Rover Defender | −0.43 | 10–13 |
+| 47 | Toyota Sequoia | −0.50 | 3–13 |
+| 48 | Volkswagen Tiguan | −0.66 | 11–4 |
+| 49 | Jeep Grand Cherokee L | −0.80 | 2–4 |
+| 50 | Toyota Highlander | −0.82 | 8–23 |
+| 51 | Kia Telluride | −0.89 | 28–26 |
+| 52 | Toyota Grand Highlander | −1.06 | 5–12 |
+| 53 | Mercedes GLC | −1.17 | 6–6 |
+| 54 | Cadillac XT5 | −1.52 | 1–8 |
+| 55 | Ford Explorer | −1.70 | 4–6 |
+| 56 | Ford Expedition | −1.79 | 3–3 |
+| 57 | Subaru Outback (2020–25) | −1.84 | 31–16 |
+| 58 | Honda Passport | −1.86 | 6–8 |
+| 59 | Chevrolet Tahoe | −2.02 | 2–7 |
+| 60 | Hyundai Santa Fe | −2.69 | 0–4 |
+| 61 | Mazda CX-5 | −2.77 | 5–8 |
+| 62 | Lexus GX 550 | −2.99 | 9–15 |
+| 63 | Porsche Cayenne | −3.36 | 4–17 |
+| 64 | Subaru Forester | −3.47 | 2–14 |
+| 65 | Mazda CX-90 | −3.47 | 3–15 |
+| 66 | Subaru Crosstrek | −3.49 | 4–14 |
+| 67 | Kia Sorento | −3.70 | 0–6 |
+| 68 | Chevrolet Suburban | −3.72 | 1–8 |
+| 69 | Toyota Land Cruiser | −3.82 | 4–7 |
+| 70 | Mazda CX-50 | −3.83 | 1–13 |
+| 71 | Toyota 4Runner | −3.91 | 3–24 |
+| 72 | BMW X3 | −3.93 | 3–20 |
+| 73 | Tesla Model X | −4.23 | 11–16 |
+| 74 | Rivian R1S | −4.52 | 5–21 |
+| 75 | Toyota RAV4 | −4.53 | 1–31 |
+| 76 | BMW X1 | −5.51 | 1–7 |
+| 77 | Tesla Model Y | −7.99 | 0–16 |
 
-**EQS SUV** at 5.43 / 9–1, **Escalade IQ** at 3.17 / 6–1, **XT6** at 3.12 / 7–2, and **CX-9** at 2.66 / 8–0 are this pass’s sparse-graph inflations. EQS beat iX / R1S. IQ beat Model X / gas Escalade. XT6 beat X5/Highlander/XT5. CX-9 beat Highlander/Pilot/RAV4. None of them met a Range Rover.
+**EQS SUV** at 5.71 / 9–1, **Escalade IQ** at 3.28 / 6–1, **XT6** at 2.81 / 7–2, and **CX-9** at 2.63 / 7–0 are this pass’s sparse-graph inflations. EQS beat iX / R1S. IQ beat Model X / gas Escalade. XT6 beat X5/Highlander/XT5. CX-9 beat Highlander/Pilot/RAV4. None of them met a Range Rover.
 
-**GLS** 18–3 is still almost all vs X7 on plushness. Raw θ next to Range Rover is the same artifact as before. Range Rover is **17–2** after more Defender notes.
+**GLS** 17–4 is still almost all vs X7 on plushness. Raw θ next to Range Rover is the same artifact as before. Range Rover is **15–2** after the audit dropped three unsupported wins.
 
 **Yukon** 21–5 is the flagship-truck sample, not a magic-carpet result — the victims are R1S / Sequoia / GX / Tahoe. **R1S** is 5–21. **Defender** is 10–13.
 
@@ -536,13 +548,13 @@ The [bias-adjusted table](bias_analysis.md) still shrinks luxury θ, **raises Pa
 ## Within-class order (safer for shopping)
 
 **Compact / small-mid**  
-Genesis GV70 (14–4) ≈ Audi Q5 (air) ≈ Lincoln Nautilus (15–3) ≈ Mercedes GLC ≈ **Toyota Venza** (14–3 vs RAV4) > Volvo XC60 (seats; ride depends on wheels; splits NX) > **2026 Outback** > Honda CR-V ≈ **2020–25 Outback** > Volkswagen Tiguan (11–4 vs RAV4/CX-5) > Mazda CX-5 ≈ Toyota RAV4 ≈ Mazda CX-50 ≈ Forester ≈ **BMW X3** (3–20). CR-V vs 2020–25 Outback is still split. CR-V vs CX-50 is not.
+Genesis GV70 (14–4) ≈ Audi Q5 (air) ≈ Lincoln Nautilus (14–3) ≈ Mercedes GLC ≈ **Toyota Venza** (14–3 vs RAV4) > Volvo XC60 (seats; ride depends on wheels; splits NX) > **2026 Outback** > Honda CR-V ≈ **2020–25 Outback** > Volkswagen Tiguan (11–4 vs RAV4/CX-5) > Mazda CX-5 ≈ Toyota RAV4 ≈ Mazda CX-50 ≈ Forester ≈ **BMW X3** (3–20). CR-V vs 2020–25 Outback is still split. CR-V vs CX-50 is not.
 
 **Midsize luxury**  
 Range Rover Sport ≈ Lincoln Aviator > BMW iX (quiet EV vs Model X / X5 / R1S; loses comfort to EQS SUV) ≈ Mercedes GLE ≈ Audi Q7 (quiet / air) ≈ Acura MDX Type S (seats) ≈ Genesis GV80 > BMW X5 ≈ Lexus RX > Audi Q8 (air ride vs X5 seats) ≈ Porsche Cayenne *with air* > **GX 460** > **Defender** (loses to RR; beats Cayenne / R1S / GX 550) > **GX 550** (beats Land Cruiser / usually 4Runner; loses to 460 / Defender air) > **Land Cruiser** 250 > **Rivian R1S** (5–21; loses Yukon air / Defender / X5 / EQS) > **4Runner** / **Model Y** (0–16)
 
 **Flagship / large**  
-Range Rover (17–2; Defender pile plus the older X7 NVH counter) ≈ GLS (still beats X7) ≈ LX > Escalade (ride vs Navigator) ≈ **Escalade IQ** (6–1 vs Model X / gas Escalade) ≈ Navigator (seats) ≈ Grand Wagoneer ≈ **Yukon** (21–5 vs R1S / Sequoia / GX / Tahoe) ≈ X7 air > QX80 (seats vs Escalade/Tahoe; thin) > Tahoe / Sequoia / Suburban
+Range Rover (15–2; Defender pile plus the older X7 NVH counter) ≈ GLS (still beats X7) ≈ LX > Escalade (ride vs Navigator) ≈ **Escalade IQ** (6–1 vs Model X / gas Escalade) ≈ Navigator (seats) ≈ Grand Wagoneer ≈ **Yukon** (21–5 vs R1S / Sequoia / GX / Tahoe) ≈ X7 air > QX80 (seats vs Escalade/Tahoe; thin) > Tahoe / Sequoia / Suburban
 
 **Three-row family**  
 Palisade ≥ Ascent (ride) ≥ **Pathfinder** (seats vs Pilot; loses ride to Palisade/Telluride; loses NVH to 2020 Murano) ≥ Telluride (28–26: beats Sorento/Explorer/4Runner, splits Pilot) ≥ Pilot ≥ Atlas (quiet vs Pilot) > Highlander > Grand Highlander ≈ CX-90 (3–15, still firm) > Passport (driver-seat counter) > Explorer (4–6 vs trucks, not Palisade) / Sorento / **GCL** (2–4; first NVH wins vs Palisade/Telluride). Palisade is still the comfort default. Pathfinder is the Pilot-seat alternative. Telluride is no longer just “loses to Palisade.”
