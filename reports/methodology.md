@@ -26,6 +26,7 @@ The raw CSV is not a file of independent people. A single post can rank several 
 - `statement_id` — source post, comment, or review unit;
 - `respondent_id` — deterministic, privacy-preserving author cluster;
 - `thread_id` — conversation/source-page cluster;
+- `home_team` — `1` when the winner is the community's home brand and the loser is a different brand; `0` otherwise, including same-brand matchups;
 - `community_affinity` — whether a brand community favors the winner, loser, another model, or neither;
 - `collection_batch` — the historical collection pass.
 
@@ -92,7 +93,7 @@ An additional 1,000 refits resample whole threads. These measure sensitivity to 
 
 - owners only and lived-with-both only;
 - neutral/non-brand communities only;
-- `home_team=1` observations excluded (same-team wins);
+- `home_team=1` observations excluded: wins for a community's home brand over a different brand; same-brand matchups remain;
 - Reddit only and consumer-review sites only;
 - the former evidence/home-team weights, labeled `legacy_weights`;
 - prior scales 1.5 and 5.0;

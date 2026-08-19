@@ -990,7 +990,7 @@ def rankings_markdown(
         "",
         "## Sensitivity and diagnostics",
         "",
-        "The machine-readable [sensitivity table](../data/ranking_sensitivity.csv) contains owners-only, lived-with-both, neutral-forum, same-team-win exclusion, source, prior, comfort-axis, collection-batch, legacy-weight, and thread-cluster scenarios. Use [model diagnostics](model_diagnostics.md) for connectivity, grouped predictive performance, influential threads, and pair residuals.",
+        "The machine-readable [sensitivity table](../data/ranking_sensitivity.csv) contains owners-only, lived-with-both, neutral-forum, home-team wins over a different brand excluded (same-brand matchups retained), source, prior, comfort-axis, collection-batch, legacy-weight, and thread-cluster scenarios. Use [model diagnostics](model_diagnostics.md) for connectivity, grouped predictive performance, influential threads, and pair residuals.",
         "",
     ])
     return "\n".join(lines)
