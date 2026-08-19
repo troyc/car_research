@@ -1,10 +1,14 @@
 # Audit kit for `data/comparisons.csv`
 
+Each comparison has a stable 4-character `id` in `data/comparisons.csv`. Audit
+verdicts (and `audit_compiled.md` / `audit_deletions.md`) refer to that id, not
+the CSV line number — deleting rows does not invalidate earlier comments.
+
 Verification kit used for `audit1-50.md` (the first 50 coded rows). It fetches the
 cited pages, re-locates every stored quote in the raw page, prints the full source
 text with context, and flags quotes that cannot be recovered.
 
-The CSV mixes sources — reddit (723 rows), edmunds (51), cars.com (32), x (3) — and
+The CSV mixes sources — reddit (c2sv rows), edmunds (51), cars.com (32), x (3) — and
 new ones may appear. The pipeline is deliberately source-agnostic:
 
 ```
@@ -25,8 +29,8 @@ same filename — the audit doesn't care how the HTML got there. The wayback leg
 failed on exactly the URLs with no archive snapshot (query-string pages,
 brand-new model pages), and jina is rate-flaky (retries built in); when both
 miss, the script prints the exact filename to save from a browser. Note that
-archived snapshots can **predate** content the coder saw (row 148's review was
-only in the live page, row 119/120's quote in neither) — a clean match on an old
+archived snapshots can **predate** content the coder saw (row dh9m's review was
+only in the live page, row wu48/pq3c's quote in neither) — a clean match on an old
 snapshot verifies the quote, but a miss should be checked against the live page
 before concluding.
 
@@ -37,50 +41,50 @@ Each coded row is judged on five things:
 1. **Quote verbatim-ness.** The `quote` cell must be recoverable text from the cited
    page — a comment, a review, a post body. `…` compression inside one passage is
    fine; editorial text is not. Two violations seen in rows 1–50:
-   - row 16's quote contained a coder parenthetical — "(vs XC60 harsher; XT5 called
+   - row b5p5's quote contained a coder parenthetical — "(vs XC60 harsher; XT5 called
      lazy)" — and spliced two different commenters' statements into one row;
-   - row 19's quote is a fragment of a comment that never names the coded winner.
+   - row ex4q's quote is a fragment of a comment that never names the coded winner.
    A quote that can't be matched verbatim is a red flag, not a style choice.
 
 2. **Pair support.** The `winner > loser` pair must be statable from a single passage
-   (one comment, one review, one post body — row 33). If the passage names only one
-   model, the reply chain must supply the other *and* the row should say so (rows 2,
-   9, 32, 36). If no single passage supports the pair, the row is deleted (rows 1, 10,
-   16, 19, 28, 31, 45). Deleting is preferred over stitching two strangers'
+   (one comment, one review, one post body — row v8ax). If the passage names only one
+   model, the reply chain must supply the other *and* the row should say so (rows qur7,
+   w4g9, ec3t, ft57). If no single passage supports the pair, the row is deleted (rows w6cq, r9vk,
+   b5p5, ex4q, uh8k, t4w2, s787). Deleting is preferred over stitching two strangers'
    statements together.
 
 3. **Axis.** `comfort_axis` (ride / seats / nvh / overall) must be stated or directly
-   implied. Row 9 coded `seats` from a comment that never mentions seats.
+   implied. Row w4g9 coded `seats` from a comment that never mentions seats.
 
 4. **Evidence tag = weight.** `rank.py` derives weight from the evidence tag:
    `owned_both` 3.0, `test_drove_both` 2.0, `owned_one_*` / `opinion_plus_drive`
    1.2–1.5, `opinion` 0.7. The tag must match first-person claims in the passage:
    "I own/had both", "test drove both", "own one, drove the other", or plain opinion.
-   Nine of the first 50 rows had unsupported tags (2, 18, 25, 29, 36, 37, 38, 47,
-   50) — row 50 even says "We had a MB GLE350 for 3 years and we traded it for the
+   Nine of the first 50 rows had unsupported tags (qur7, z4c2, yd7s, kz3s, ft57, m3cu, y452, b98s,
+   bfa4) — row bfa4 even says "We had a MB GLE350 for 3 years and we traded it for the
    X5" yet is tagged `test_drove_both`, which the owners-only fit drops.
 
 5. **Upvotes (legacy).** Upvotes are planned to be **removed from all data and
    calculations** — the `upvotes` column and the `log(1+upvotes)` karma multiplier
    will go away, so drift is not a concern and nothing needs re-capturing. Until the
    removal lands, treat the column as informational: ±1 vs the current score is
-   Reddit fuzzing, larger deltas are old snapshots (rows 19, 22, 32, 35, 50; row 50
+   Reddit fuzzing, larger deltas are old snapshots (rows ex4q, v4ar, ec3t, ww3m, bfa4; row bfa4
    was stored 21, actual 10). Do not spend effort fixing them.
 
 ## The problem spots the tools are built for
 
 | Spot | Example row(s) | How the kit handles it |
 |---|---|---|
-| Brand-level statement coded to a specific model ("Audi" → Q7, "Mercedes" → GLE) | 60, 62, 69–71 (51–100) | `audit_rows.py` prints `MODEL CHECK` when a coded winner/loser is never named in the matched passage — brand-only mentions are flagged separately from total absences, and reply chains are pointed to |
-| `home_team` flag disagrees with the subreddit's home badge | 67, 89, 90 (51–100); 41 (1–50) | `HOME_TEAM CHECK`: the winner is compared against the sub's badge model(s); a mismatch is printed so the row can be fixed (rank.py penalizes home wins in all fits) |
-| Comments by deleted accounts lack `data-author` | 21 | `parse_reddit.py` falls back to the tagline (`u/[deleted]`), keeps the comment |
-| Quotes from the OP's post body, not a comment | 33 | post body is parsed and searched; a post-row upvote convention is flagged |
-| Coder-editorial / spliced quotes | 16, 19, 34 | `audit_rows.py` prints `NO CLEAN MATCH` with the fragment candidates spread across comments |
-| Ellipsis-compressed but legitimate quotes | 4, 20, 24, 41… | fragment-coverage check: all distinctive fragments in one place ⇒ `COMPRESSED MATCH` |
-| Tiny / ambiguous comments | 45 | the *entire* comment is printed; nothing is hidden behind a fragment |
-| `…` hiding a different model | 28 ("Volvo wagon") | the full comment is always printed, so the hidden word is visible |
-| Upvote drift | 19, 22, 32, 35, 50 | printed for information only — upvotes are planned to be removed from all data and calculations, so no re-capture is needed |
-| One comment backing several rows | 5/6, 7/8, 13–15, 26/27, 48/49 | same-comment summary at the end — quotes across those rows should be consistent |
+| Brand-level statement coded to a specific model ("Audi" → Q7, "Mercedes" → GLE) | fg67, cg84, zt5h–b3qj (51–100) | `audit_rows.py` prints `MODEL CHECK` when a coded winner/loser is never named in the matched passage — brand-only mentions are flagged separately from total absences, and reply chains are pointed to |
+| `home_team` flag disagrees with the subreddit's home badge | rc5y, bbb7, zhy4 (51–100); h8an (1–50) | `HOME_TEAM CHECK`: the winner is compared against the sub's badge model(s); a mismatch is printed so the row can be fixed (rank.py penalizes home wins in all fits) |
+| Comments by deleted accounts lack `data-author` | x453 | `parse_reddit.py` falls back to the tagline (`u/[deleted]`), keeps the comment |
+| Quotes from the OP's post body, not a comment | v8ax | post body is parsed and searched; a post-row upvote convention is flagged |
+| Coder-editorial / spliced quotes | b5p5, ex4q, edp9 | `audit_rows.py` prints `NO CLEAN MATCH` with the fragment candidates spread across comments |
+| Ellipsis-compressed but legitimate quotes | dsu7, zd4y, cv8b, h8an… | fragment-coverage check: all distinctive fragments in one place ⇒ `COMPRESSED MATCH` |
+| Tiny / ambiguous comments | s787 | the *entire* comment is printed; nothing is hidden behind a fragment |
+| `…` hiding a different model | uh8k ("Volvo wagon") | the full comment is always printed, so the hidden word is visible |
+| Upvote drift | ex4q, v4ar, ec3t, ww3m, bfa4 | printed for information only — upvotes are planned to be removed from all data and calculations, so no re-capture is needed |
+| One comment backing several rows | b2mz/cfj8, m25u/j6ae, vhc5–bg6j, mwu2/nn8d, y3yk/b6zb | same-comment summary at the end — quotes across those rows should be consistent |
 | Deleted comments in a thread | — | per-thread deleted-placeholder count printed (coverage warning) |
 | Non-reddit sources (edmunds, cars.com, x) | — | generic whole-page text fallback verifies quotes; structured context needs a per-source extractor (below) |
 | Sites that block curl | edmunds/cars.com often | fetch with the fetch tool / a browser, save under the same filename, re-run |
@@ -106,7 +110,7 @@ Reading `audit_rows.py` output: every row prints the stored quote, the match cla
 three levels of reply-chain context (reddit). Judge the pair, axis, and evidence tag
 from that full text — never from the fragment alone. Two advisory checks run per
 row on top of the quote match: `HOME_TEAM CHECK` (winner vs the subreddit's home
-badge — flags rows 67/89/90-type miscodes) and `MODEL CHECK` (a coded winner/loser
+badge — flags rows rc5y/bbb7/zhy4-type miscodes) and `MODEL CHECK` (a coded winner/loser
 that is never named in the matched passage — flags brand-level statements coded to
 specific models, e.g. "Audi" → Q7; a brand-only mention is printed softer than a
 total absence, and reply-chain rows get a hint). `MODEL CHECK` is advisory:
@@ -160,8 +164,8 @@ page is already on disk.
 ## Verdict taxonomy (used in `audit1-50.md`)
 
 - **OK** — quote verified verbatim; a fuller quote is often still suggested.
-- **QUOTE FIX** — quote is misleading as stored (e.g. row 24 quotes a clause that
-  contradicts the coded winner and omits the decisive one; row 6 duplicates row 5
+- **QUOTE FIX** — quote is misleading as stored (e.g. row cv8b quotes a clause that
+  contradicts the coded winner and omits the decisive one; row cfj8 duplicates row b2mz
   with a truncated quote).
 - **RECODE** — pair is right but the evidence tag / axis / weight is wrong.
 - **DELETE** — no single passage supports the pair; the passage is not a relative
@@ -193,7 +197,7 @@ Notes for future audits:
   column and the karma multiplier); the drift checks in `audit_rows.py` are
   informational until that lands.
 - x.com status pages fetched fine with plain curl + a browser UA at audit time
-  (rows 87–88) — no fetch-tool workaround was needed. The generic whole-page
+  (rows mh6d–jf27) — no fetch-tool workaround was needed. The generic whole-page
   fallback verifies quotes (the text is in the page's OG/tweet markup). Note the
   visible engagement metrics (replies / reposts / likes / views) do **not** map to
   the stored `upvotes` column; treat them as informational like reddit karma
@@ -222,8 +226,8 @@ Notes for future audits:
   produces a different filename; compute hashes the same way the tool does.
 - `MODEL CHECK` now accepts plural model forms ("Palisades", "Escalades") and
   space-inserted codes ("XC 90" for XC90, "GLE Coupe" for GLE) after the
-  101–150 pass produced false flags on both (rows 108, 142). Genuine
-  misspellings in the source ("Nautilis" for Nautilus, row 144) still flag —
+  101–150 pass produced false flags on both (rows xe8m, wwj2). Genuine
+  misspellings in the source ("Nautilis" for Nautilus, row ebe6) still flag —
   by design, the row should quote the source verbatim anyway.
 - `MODEL CHECK` needs the `HOME_MODELS` mapping to cover new brand subs before it
   can sanity-check their `home_team`; unknown subs are skipped silently. Add the

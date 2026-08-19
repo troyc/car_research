@@ -10,7 +10,7 @@ A Bradley–Terry ranking of current-generation SUVs on ride comfort, seats, cab
 
 Open `reports/composite_ranking.md` first. That file is the result: one composite chain plus segment rankings. `reports/bias_analysis.md` is the second reading — same quotes, less Reddit karma and brand-sub weight. `reports/owner_analysis.md` is the third — same quotes, **no test drivers**.
 
-- `data/comparisons.csv` — coded pairwise votes
+- `data/comparisons.csv` — coded pairwise votes (each row has a stable 4-character `id`)
 - `src/rank.py` — Bradley–Terry fit (default + bias-adjusted + owners)
 - `data/ranking.csv` / `data/ranking_bias.csv` / `data/ranking_owners.csv` — machine-readable tables
 - `reports/figures/` — PNGs of the graph, segment ladders, rank robustness, and top matchups

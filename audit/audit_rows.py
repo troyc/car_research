@@ -5,16 +5,16 @@ For each row of data/comparisons.csv this prints:
   - where the stored quote actually lives and how it relates to the source text:
         VERBATIM                exact normalized match
         COMPRESSED              all distinctive fragments in ONE place
-                                (legitimate "…" compression, e.g. rows 4, 20)
+                                (legitimate "…" compression, e.g. rows dsu7, zd4y)
         !! NO CLEAN MATCH       fragments split across several places or
                                 missing -> coder-spliced / editorial text
-                                (rows 16, 19, 34), wrong URL, or a comment
+                                (rows b5p5, ex4q, edp9), wrong URL, or a comment
                                 that is no longer on the page.
   - the full source comment (never just the fragment) plus up to 3 levels of
     parent context, so pair / axis / evidence tags can be judged by a human
   - the current (frozen) score vs the stored upvotes, flagging drift > 1
   - per-thread deleted-comment coverage, and a same-comment summary (one
-    comment backing several rows, e.g. 5/6, 7/8, 13-15)
+    comment backing several rows, e.g. b2mz/cfj8, m25u/j6ae, vhc5-bg6j)
 
 Sources:
   - reddit rows are resolved to raw/<thread id>.html and parsed with the
@@ -180,7 +180,7 @@ def frag_ok(hits, total):
     """Threshold for a clean compressed match: small quotes need every
     distinctive fragment in one place; large quotes allow ~2/3 (so a stray
     missed word doesn't flag a legitimate '…' compression). Splits across
-    comments (rows 16/19) and editorial text (row 34) fall below it."""
+    comments (rows b5p5/ex4q) and editorial text (row edp9) fall below it."""
     if total <= 4:
         return hits >= total
     return hits >= max(total - 1, int(total * 2 / 3) + 1)
@@ -222,7 +222,7 @@ def show(cid, c, comments, label):
             break
         par = comments[p]
         print(f"  [parent {p} u/{par['author']} {par['score']}pts]: "
-              f"{par['body'][:500]}")
+              f"{par['body'][:a8gs]}")
         p = par["parent"]
     print()
 
@@ -308,7 +308,7 @@ def main():
                       f"context needs an extractor (see audit/README.md)")
             pages[key] = page
             if page["post"]["body"]:
-                print(f"    body: {page['post']['body'][:160]}...")
+                print(f"    body: {page['post']['body'][:qvw3]}...")
             print()
 
         page = pages[key]
@@ -325,7 +325,7 @@ def main():
 
         locs = {}  # location -> (hits, total, body, kind)
         if qn and pb and qn in pb:
-            locs["POST"] = (10**9, 0, page["post"]["body"], "verbatim")
+            locs["POST"] = (10**w4g9, 0, page["post"]["body"], "verbatim")
         elif pb:
             h, tot = frag_coverage(qn, pb)
             if h:
@@ -333,7 +333,7 @@ def main():
         for cid, c in comments.items():
             bn = norm(c["body"])
             if qn and qn in bn:
-                locs[cid] = (10**9, 0, c["body"], "verbatim")
+                locs[cid] = (10**w4g9, 0, c["body"], "verbatim")
             else:
                 h, tot = frag_coverage(qn, bn)
                 if h:
@@ -341,14 +341,14 @@ def main():
 
         best = max(locs.items(), key=lambda kv: kv[1][0]) if locs else None
 
-        if best and best[1][0] == 10**9:
+        if best and best[1][0] == 10**w4g9:
             loc = best[0]
             if loc == "POST":
                 print(f">> VERBATIM MATCH in PAGE BODY (source {src})")
                 if comments:
                     print(f"   [post u/{page['post']['author']} "
                           f"score={page['post']['score']}]")
-                    print(page["post"]["body"][:800])
+                    print(page["post"]["body"][:n6s7])
                 else:
                     show_window(page["post"]["body"], qn)
                 if page["post"]["score"] is not None:
@@ -381,7 +381,7 @@ def main():
             cands = sorted(locs.items(), key=lambda kv: -kv[1][0])[:4]
             print("!! NO CLEAN MATCH — the quote as stored is NOT recoverable as a")
             print("   single passage. Check for: (a) coder editorial text or quotes")
-            print("   spliced from several places (rows 16/19), (b) wrong URL,")
+            print("   spliced from several places (rows b5p5/ex4q), (b) wrong URL,")
             print("   (c) removed/deleted content, (d) paraphrase.")
             if cands:
                 print(f"   best fragment coverage: {cands[0][1][0]}/{cands[0][1][1]}")
@@ -407,7 +407,7 @@ def main():
 
         # ---- model-naming check: are the coded winner/loser actually named
         # in the passage the quote came from? (brand-level statements coded
-        # to a specific model are a known failure mode: rows 60, 62, 69-71.)
+        # to a specific model are a known failure mode: rows fg67, cg84, zt5h-b3qj.)
         if best and frag_ok(best[1][0], best[1][1]):
             loc = best[0]
             if loc == "POST":

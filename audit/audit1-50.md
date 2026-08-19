@@ -12,23 +12,23 @@ deletion is recommended.
 
 | Verdict | Rows |
 |---|---|
-| OK — quote verified; fuller quote suggested | 3, 4, 5, 6, 7, 8, 11, 12, 13, 14, 15, 20, 21, 22, 23, 26, 27, 30, 33, 35, 37, 39, 40, 41, 42, 43, 44, 46, 48, 49 |
-| OK pair, but evidence tag (weight) is wrong | 2, 18, 25, 29, 36, 38, 47, 50 |
-| Quote misleading / pair not stated in the quote | 9, 17, 24 |
-| **Delete** — pair unsupported by any single comment | **1, 10, 16, 19, 28, 31, 45** |
-| Marker / editorial row (harmless, wt=0) | 34 |
+| OK — quote verified; fuller quote suggested | p42y, dsu7, b2mz, cfj8, m25u, j6ae, v24d, hk2s, vhc5, ntp4, bg6j, zd4y, x453, v4ar, jzk5, mwu2, nn8d, y4yc, v8ax, ww3m, m3cu, y23c, q6gh, h8an, mu7c, tk8a, mu2m, jv5t, y3yk, b6zb |
+| OK pair, but evidence tag (weight) is wrong | qur7, z4c2, yd7s, kz3s, ft57, y452, b98s, bfa4 |
+| Quote misleading / pair not stated in the quote | w4g9, s2qn, cv8b |
+| **Delete** — pair unsupported by any single comment | **w6cq, r9vk, b5p5, ex4q, uh8k, t4w2, s787** |
+| Marker / editorial row (harmless, wt=0) | edp9 |
 
 Cross-cutting issues (detail at the bottom): several `upvotes` values don't match the
-current Reddit score (rows 19, 22, 32, 35, 50 — informational only; upvotes are planned
-for removal from all data and calculations); row 33 quotes the **post body**, not a
-comment; row 21's author account is deleted; rows 16 and 19's stored quotes contain
+current Reddit score (rows ex4q, v4ar, ec3t, ww3m, bfa4 — informational only; upvotes are planned
+for removal from all data and calculations); row v8ax quotes the **post body**, not a
+comment; row x453's author account is deleted; rows b5p5 and ex4q's stored quotes contain
 **coder editorial text** that is not on the page.
 
 ---
 
-## Thread 1 — `1gi84ub` "The most 'comfortable' SUV under 55k" (rows 1–3)
+## Thread 1 — `1gi84ub` "The most 'comfortable' SUV under 55k" (rows w6cq–p42y)
 
-### Row 1 — Lincoln Aviator > Lexus RX · ride · owned_one_td_other · wt 1.5 · up 69 → **DELETE** (or recode)
+### Row w6cq — Lincoln Aviator > Lexus RX · ride · owned_one_td_other · wt 1.5 · up 69 → **DELETE** (or recode)
 
 Stored quote: `genuine perfect vehicle… Lincoln still makes cars that are luxury only, not sporty at all`
 
@@ -50,7 +50,7 @@ Problems:
 Recommendation: **delete**. Fallback if kept: full quote above, evidence `opinion`,
 axis `overall`.
 
-### Row 2 — Lincoln Aviator > Lincoln Corsair · ride · owned_one_td_other · wt 1.5 · up 2 → **KEEP, fix quote + evidence**
+### Row qur7 — Lincoln Aviator > Lincoln Corsair · ride · owned_one_td_other · wt 1.5 · up 2 → **KEEP, fix quote + evidence**
 
 Stored quote: `They don't ride as nice, and aren't built as well though`
 
@@ -70,7 +70,7 @@ Recommendation: keep, quote = parent + reply combined:
 
 Recode evidence to `opinion`. (Upvotes: stored 2, current 1 — fuzz.)
 
-### Row 3 — Lexus RX > Audi A7 · nvh · owned_both · wt 3.0 · up 3 → **OK**
+### Row p42y — Lexus RX > Audi A7 · nvh · owned_both · wt 3.0 · up 3 → **OK**
 
 Stored quote: `I've had a current gen RX and a last gen Audi A7, the Lexus was quieter and more softly sprung`
 
@@ -85,9 +85,9 @@ Suggest the full quote ending at "bank vault."
 
 ---
 
-## Thread 2 — `1opp4z4` "Most comfortable SUV for long drives — CR-V, Outback, or CX-50?" (rows 4–15)
+## Thread 2 — `1opp4z4` "Most comfortable SUV for long drives — CR-V, Outback, or CX-50?" (rows dsu7–bg6j)
 
-### Row 4 — Volvo XC60 > Mazda CX-5 · seats · owned_both · wt 3.0 · up 9 → **OK**
+### Row dsu7 — Volvo XC60 > Mazda CX-5 · seats · owned_both · wt 3.0 · up 9 → **OK**
 
 Stored quote: `Love my CX5, but got a XC-60 last year and that wins hands down… Most comfortable seats I've tried`
 
@@ -99,10 +99,10 @@ Actual (u/Wanderlustification, 9 pts):
 Pair ✓, axis ✓, `owned_both` ✓. Suggest full quote (the ellipsis drops "if you can
 stretch the budget" and "of any brand").
 
-### Rows 5 & 6 — Honda CR-V > Subaru Outback / Mazda CX-50 · overall · test_drove_both · wt 2.0 · up 24 → **OK**
+### Rows b2mz & cfj8 — Honda CR-V > Subaru Outback / Mazda CX-50 · overall · test_drove_both · wt 2.0 · up 24 → **OK**
 
-Stored quote (row 5): `It's the CR-V, hands down. We test drove all of these and went with a 2025 CR-V Hybrid`
-Stored quote (row 6): `It's the CR-V, hands down. We test drove all of these` ← truncated duplicate
+Stored quote (b2mz): `It's the CR-V, hands down. We test drove all of these and went with a 2025 CR-V Hybrid`
+Stored quote (cfj8): `It's the CR-V, hands down. We test drove all of these` ← truncated duplicate
 
 Actual (u/AI_Talking_Practice, 24 pts):
 
@@ -110,12 +110,12 @@ Actual (u/AI_Talking_Practice, 24 pts):
 > Hybrid, and we've been thrilled."
 
 Both rows derive from this one comment ("all of these" = the three title cars + CX-5).
-✓ test_drove_both ✓. **Fix row 6's quote to the same full quote as row 5.**
+✓ test_drove_both ✓. **Fix row cfj8's quote to the same full quote as row b2mz.**
 
-### Rows 7 & 8 — Subaru Outback > Honda CR-V / Mazda CX-5 · ride · opinion_plus_drive · wt 1.5 · up 2 → **OK**
+### Rows m25u & j6ae — Subaru Outback > Honda CR-V / Mazda CX-5 · ride · opinion_plus_drive · wt 1.5 · up 2 → **OK**
 
-Stored quote (row 7): `Outback is much more comfortable. Drive the others over a bad road with potholes`
-Stored quote (row 8): `Avoid Crv and Mazda. There are plenty of much more comfortable options.`
+Stored quote (m25u): `Outback is much more comfortable. Drive the others over a bad road with potholes`
+Stored quote (j6ae): `Avoid Crv and Mazda. There are plenty of much more comfortable options.`
 
 Actual (u/mgobla, 2 pts):
 
@@ -123,12 +123,12 @@ Actual (u/mgobla, 2 pts):
 > you will feel the difference. Avoid Crv and Mazda. There are plenty of much more
 > comfortable options."
 
-Both rows come from the same comment. Row 8's stored quote is dangling without row 7's
+Both rows come from the same comment. Row j6ae's stored quote is dangling without row m25u's
 first sentence ("much more comfortable" than what?). Recommendation: **one full quote for
 both rows**: the two sentences above. Axis ride ✓ (potholes/bad road). "Mazda" = the
 thread's CX-5/CX-50 ✓.
 
-### Row 9 — Subaru Outback 2026 > Mazda CX-50 · seats · test_drove_both · wt 3.0 · up 1 → **KEEP with fixes, or DELETE**
+### Row w4g9 — Subaru Outback 2026 > Mazda CX-50 · seats · test_drove_both · wt 3.0 · up 1 → **KEEP with fixes, or DELETE**
 
 Stored quote: `I tried all the Mazda options and none of them were any better than the Mazda 3 I had I ended up with the 2026 out back and I love it`
 
@@ -148,7 +148,7 @@ Problems:
 Recommendation: keep with quote + parent context, recode axis → `overall`, evidence →
 `owned_one_td_other`. Or delete under a strict "both models named" rule.
 
-### Row 10 — Honda CR-V > Mazda CX-5 · overall · owned_one_td_other · wt 1.5 · up 1 → **DELETE**
+### Row r9vk — Honda CR-V > Mazda CX-5 · overall · owned_one_td_other · wt 1.5 · up 1 → **DELETE**
 
 Stored quote: `I say all this as a cx5 owner (i'll be selling it soon)… CRV… is for sure comfy and smooth`
 
@@ -163,10 +163,10 @@ owns a CX-5. There is **no relative statement** CR-V vs CX-5 anywhere — exactl
 methodology says to exclude. The stored quote even omits "My mom has one," which is the
 tell. **Delete.**
 
-### Rows 11 & 12 — Toyota Venza > Subaru Outback / Honda CR-V · nvh · owned_one_td_other · wt 1.5 · up 7 → **OK**
+### Rows v24d & hk2s — Toyota Venza > Subaru Outback / Honda CR-V · nvh · owned_one_td_other · wt 1.5 · up 7 → **OK**
 
-Stored quote (row 11): `Venza is a nice blend… seats and road noise are a world of difference if you don't need the trunk space`
-Stored quote (row 12): `seats and road noise are a world of difference if you don't need the trunk space of the Outback or crv`
+Stored quote (v24d): `Venza is a nice blend… seats and road noise are a world of difference if you don't need the trunk space`
+Stored quote (hk2s): `seats and road noise are a world of difference if you don't need the trunk space of the Outback or crv`
 
 Actual (u/KindTap, 8 pts), reply to "Have a look at the Toyota Venza":
 
@@ -177,7 +177,7 @@ Pair ✓ for both rows, axis nvh ✓ (also seats — fine as one vote). Suggest 
 for both rows. Note: no ownership claim by the author → evidence is really `opinion`/
 `opinion_plus_drive`; `owned_one_td_other` is not supported. (Upvotes: stored 7, current 8.)
 
-### Rows 13, 14, 15 — BMW X5 > Honda CR-V / Lexus RX / Toyota RAV4 · overall · owned_one_family · wt 1.5 · up 7 → **OK**
+### Rows vhc5, ntp4, bg6j — BMW X5 > Honda CR-V / Lexus RX / Toyota RAV4 · overall · owned_one_family · wt 1.5 · up 7 → **OK**
 
 Stored quotes: `All of them prefer the X5 if we're together and doing… a longer road trip` /
 `My brother has a 2022 RX350… prefer the X5… longer road trip` / `My neighbor has the 2024 RAV4… prefer the X5`
@@ -189,24 +189,24 @@ Actual (u/Duckysawus, 6 pts):
 > together and doing a bigger grocery haul, a longer road trip (2+ hours one way), or are
 > going out together with 3 in the backseat."
 
-All three pairs ✓ from one comment. Suggest **one full quote for rows 13–15** (the final
+All three pairs ✓ from one comment. Suggest **one full quote for rows vhc5–bg6j** (the final
 paragraph above). `owned_one_family` is defensible (the author's X5 + family/neighbor
 cars).
 
 ---
 
-## Thread 3 — `1kipn8g` "Most comfortable small to midsize SUV for a retired grandma…" (rows 16–19)
+## Thread 3 — `1kipn8g` "Most comfortable small to midsize SUV for a retired grandma…" (rows b5p5–ex4q)
 
 OP's post lists the actual candidates: **Cadillac XT5 (mom leaning), Lexus RX, Genesis
 GV70/GV80, Lincoln Corsair, Lincoln Nautilus**. RAV4 is not a candidate.
 
-### Row 16 — Lexus RX > Cadillac XT5 · ride · owned_one_td_other · wt 1.5 · up 5 → **DELETE**
+### Row b5p5 — Lexus RX > Cadillac XT5 · ride · owned_one_td_other · wt 1.5 · up 5 → **DELETE**
 
 Stored quote: `for your mom, I think the RX would be better (vs XC60 harsher; XT5 called lazy)`
 
 This quote **does not exist on the page**. It is a coder composite: the first part is from
 u/hotdogspicklechip's comment, and "(XT5 called lazy)" is an editorial note referring to a
-*different* commenter's remark (mgobla's, used in row 17). The actual comment chain:
+*different* commenter's remark (mgobla's, used in row s2qn). The actual comment chain:
 
 > u/Glarmj: "Volvo XC40/XC60. Most comfortable seats on the market."
 > → u/rao-blackwell-ized: "…don't Volvos have harsher suspensions these days…?"
@@ -218,7 +218,7 @@ u/hotdogspicklechip's comment, and "(XT5 called lazy)" is an editorial note refe
   unsupported by any single source. **Delete.** (If the RX-vs-XC60 signal is wanted, that
   would be a *new* row, not this one.)
 
-### Row 17 — Lincoln Nautilus > Cadillac XT5 · ride · opinion_plus_drive · wt 1.5 · up 18 → **KEEP, fuller quote**
+### Row s2qn — Lincoln Nautilus > Cadillac XT5 · ride · opinion_plus_drive · wt 1.5 · up 18 → **KEEP, fuller quote**
 
 Stored quote: `XT5 is a lazy money grab… Look for… Lincoln NAUTILUS - Nautilus has a soft suspension tune`
 
@@ -233,7 +233,7 @@ ride as well as you might expect" vs Nautilus "soft suspension tune"), though it
 implied comparison, not a single sentence. Suggest the fuller quote above. (Upvotes:
 stored 18, current 19.)
 
-### Row 18 — Lexus RX > Lexus NX · ride · owned_one_td_other · wt 1.5 · up 2 → **KEEP, fix evidence**
+### Row z4c2 — Lexus RX > Lexus NX · ride · owned_one_td_other · wt 1.5 · up 2 → **KEEP, fix evidence**
 
 Stored quote: `RX definitely has a better ride. Longer wheelbase… NX suffers from being the luxury version of a RAV4`
 
@@ -245,7 +245,7 @@ Actual (u/Calm_Strawberry_3478, 3 pts):
 Pair ✓, axis ride ✓. But no ownership or drive claim by this author (the parent only says
 "I owned a Mercedes at one point") → evidence should be `opinion`. Suggest the full quote.
 
-### Row 19 — Lexus RX > Toyota RAV4 · overall · owned_one_td_other · wt 1.5 · up 1 → **DELETE**
+### Row ex4q — Lexus RX > Toyota RAV4 · overall · owned_one_td_other · wt 1.5 · up 1 → **DELETE**
 
 Stored quote: `She only cares about comfort so you recommend one of the least comfortable… 😭`
 
@@ -260,9 +260,9 @@ among the OP's candidates. The pair RX > RAV4 is the coder's invention. **Delete
 
 ---
 
-## Thread 4 — `1nejfj3` "Absolute MOST comfortable crossover SUV? Is an xc60 the answer?" (rows 20–32)
+## Thread 4 — `1nejfj3` "Absolute MOST comfortable crossover SUV? Is an xc60 the answer?" (rows zd4y–ec3t)
 
-### Row 20 — Volvo XC60 > Toyota RAV4 · seats · owned_both · wt 3.0 · up 31 → **OK**
+### Row zd4y — Volvo XC60 > Toyota RAV4 · seats · owned_both · wt 3.0 · up 31 → **OK**
 
 Stored quote: `I went from rav4 to an xc60. I could never get comfortable in the rav… Can drive the volvo all day`
 
@@ -275,7 +275,7 @@ Actual (u/NothingLift, 32 pts):
 
 Pair ✓, `owned_both` ✓. Suggest the full quote (up to "no discomfort" is enough).
 
-### Row 21 — Volvo XC60 > Toyota RAV4 · seats · owned_both · wt 3.0 · up 9 → **OK** (author deleted)
+### Row x453 — Volvo XC60 > Toyota RAV4 · seats · owned_both · wt 3.0 · up 9 → **OK** (author deleted)
 
 Stored quote: `Have had a RAV4 for 7 years… XC60… most comfortable car I have driven… she drives it far more than her Rav4 now`
 
@@ -290,7 +290,7 @@ Found in the page (author account now deleted, u/ndph1jj, 10 pts):
 Quote verified as a faithful compression ✓; pair ✓, `owned_both` ✓. Suggest the fuller
 quote. (Upvotes: stored 9, current 10.)
 
-### Row 22 — Volvo XC60 > Mazda CX-50 · seats · owned_one_rode_other · wt 1.5 · up 3 → **OK**
+### Row v4ar — Volvo XC60 > Mazda CX-50 · seats · owned_one_rode_other · wt 1.5 · up 3 → **OK**
 
 Stored quote: `they weren't bad imo. Not as comfortable as our xc60 Volvos`
 
@@ -302,7 +302,7 @@ Actual (u/BulkyBoy808, 1 pt):
 Pair ✓, axis ✓, `owned_one_rode_other` ✓ (owns XC60s, rode friends' CX-50s). Suggest the
 full sentence incl. "or GMC Sierra". (Upvotes: stored 3, current 1.)
 
-### Row 23 — Volvo XC60 > BMW X3 · seats · test_drove_both · wt 1.5 · up 5 → **OK**
+### Row jzk5 — Volvo XC60 > BMW X3 · seats · test_drove_both · wt 1.5 · up 5 → **OK**
 
 Stored quote: `The Volvo is more comfortable but the BMW infotainment was much better`
 
@@ -315,7 +315,7 @@ Actual (u/YouMeAndReneDupree, 6 pts):
 Pair ✓ (XC60 vs X1/X3; X3 coded), axis seats ✓ (thread context), evidence plausible.
 Suggest the fuller quote, which is what makes "the Volvo" = XC60 and "the BMW" = X3.
 
-### Row 24 — Audi Q5 > Volvo XC60 · ride · test_drove_both · wt 2.0 · up 4 → **KEEP, fix quote (currently misleading)**
+### Row cv8b — Audi Q5 > Volvo XC60 · ride · test_drove_both · wt 2.0 · up 4 → **KEEP, fix quote (currently misleading)**
 
 Stored quote: `When I test drove the XC60… it rode like shit… The Q5 is definitely firmer than I think a crossover should be`
 
@@ -332,7 +332,7 @@ coded winner and the decisive clause ("feels much better to drive than the XC60"
 omitted. The vote is defensible but the quote must be honest: use the full text above and
 note the caveats (XC60 ride complaint tied to wheel spec; Volvo seats judged better).
 
-### Row 25 — Audi Q5 > Volvo XC60 · seats · test_drove_both · wt 2.0 · up 11 → **KEEP, fix evidence**
+### Row yd7s — Audi Q5 > Volvo XC60 · seats · test_drove_both · wt 2.0 · up 11 → **KEEP, fix evidence**
 
 Stored quote: `I have friends that have both the Q5 and the Volvo and the Q5 seats are really, really comfortable, more so in my opinion than the XC60`
 
@@ -345,7 +345,7 @@ Actual (u/stonewall993, 12 pts):
 Pair ✓, axis seats ✓ — but the author **never drove either car**; friends own them.
 `test_drove_both` (2.0) is wrong → `opinion` (0.7) or `opinion_plus_drive` (1.2).
 
-### Rows 26 & 27 — Porsche Macan > Volvo XC60 / Audi Q5 > Volvo XC60 · ride · test_drove_both · wt 2.0 · up 2 → **OK**
+### Rows mwu2 & nn8d — Porsche Macan > Volvo XC60 / Audi Q5 > Volvo XC60 · ride · test_drove_both · wt 2.0 · up 2 → **OK**
 
 Stored quote (both rows): `air suspension optioned Macan and Q5 were way more comfortable ride wise than the XC60`
 
@@ -359,7 +359,7 @@ Both pairs ✓ from one comment. Suggest the full quote for both rows. Note the 
 is **air-suspension-optioned** Macan/Q5 vs (presumably standard) XC60 — a spec caveat
 worth keeping in the quote.
 
-### Row 28 — Mercedes GLC > Volvo XC60 · overall · owned_both · wt 1.5 · up 3 → **DELETE**
+### Row uh8k — Mercedes GLC > Volvo XC60 · overall · owned_both · wt 1.5 · up 3 → **DELETE**
 
 Stored quote: `For me, Mercedes GLC is the most comfortable. I had a Volvo wagon… Mercedes is better`
 
@@ -371,9 +371,9 @@ Actual (u/First-County-4667, 4 pts):
 The comment compares the GLC with a **Volvo wagon (V60/V90)** — the XC60 is never named.
 The ellipsis in the stored quote hides exactly that. Coding this as GLC > XC60
 misidentifies the rival model; `owned_both` is also wrong (the author never owned an
-XC60). **Delete** (row 29 already covers GLC vs XC60 from a direct statement).
+XC60). **Delete** (row kz3s already covers GLC vs XC60 from a direct statement).
 
-### Row 29 — Mercedes GLC > Volvo XC60 · overall · opinion_plus_drive · wt 1.5 · up 2 → **KEEP, fix evidence**
+### Row kz3s — Mercedes GLC > Volvo XC60 · overall · opinion_plus_drive · wt 1.5 · up 2 → **KEEP, fix evidence**
 
 Stored quote: `Benz GLC > XC60 at that price range every day of the week`
 
@@ -385,7 +385,7 @@ Actual (u/Beef_Candy, 2 pts):
 Direct pair ✓, direction unambiguous. No test-drive claim → evidence `opinion`, not
 `opinion_plus_drive`.
 
-### Row 30 — Volkswagen Tiguan > Toyota RAV4 · overall · test_drove_both · wt 2.0 · up 4 → **OK**
+### Row y4yc — Volkswagen Tiguan > Toyota RAV4 · overall · test_drove_both · wt 2.0 · up 4 → **OK**
 
 Stored quote: `test drove 8 different vehicles in the RAV4 size category… Tiguan to be the most comfortable by far`
 
@@ -397,7 +397,7 @@ Actual (u/HavelkaHome, 4 pts):
 
 Pair ✓ (Tiguan best of 8 incl. RAV4-class cars), evidence ✓. Suggest the full quote.
 
-### Row 31 — Lincoln Nautilus > Volvo XC60 · ride · opinion_plus_drive · wt 1.5 · up 10 → **DELETE** (or keep as implied, with context)
+### Row t4w2 — Lincoln Nautilus > Volvo XC60 · ride · opinion_plus_drive · wt 1.5 · up 10 → **DELETE** (or keep as implied, with context)
 
 Stored quote: `If you want comfort in a RAV4 sized vehicle I'd test drive a Lincoln Nautilus. Lincoln suspensions… softness over handling`
 
@@ -411,7 +411,7 @@ vs XC60 comparison is entirely implicit — no relative statement exists. Under 
 project's inclusion rule this should be **deleted**. Fallback: keep with the full quote +
 the parent (u/OgreMk5's XC60 praise) noted as context, evidence `opinion`.
 
-### Row 32 — Volvo XC60 > Lexus RX · overall · opinion · wt 1.0 · up 0 → **OK**
+### Row ec3t — Volvo XC60 > Lexus RX · overall · opinion · wt 1.0 · up 0 → **OK**
 
 Stored quote: `The rx is not even on the same spectrum as the Volvo`
 
@@ -425,9 +425,9 @@ current 3 — see notes.)
 
 ---
 
-## Thread 5 — `1fxpil5` "Most Comfortable Luxury SUV? Mercedes or No?" (rows 33–38)
+## Thread 5 — `1fxpil5` "Most Comfortable Luxury SUV? Mercedes or No?" (rows v8ax–y452)
 
-### Row 33 — Range Rover Sport > Porsche Cayenne · ride · test_drove_both · wt 2.0 · up 0 → **OK — but it quotes the POST BODY, not a comment**
+### Row v8ax — Range Rover Sport > Porsche Cayenne · ride · test_drove_both · wt 2.0 · up 0 → **OK — but it quotes the POST BODY, not a comment**
 
 Stored quote: `2024-Range Rover Sport - … the SUV drives like a dream vs Cayenne too sporty`
 
@@ -440,10 +440,10 @@ Actual source — the OP's (u/Firegrlnikki) post body, "I've test drove a few ca
 
 Pair ✓ (OP test-drove both), axis ride ✓. The stored quote splices two lines of the post;
 suggest the full two-line quote above. Note the OP's final picks (Cayenne **with air
-suspension**, Q8) — see row 34. `upvotes` is stored as 0 although the post scores 32; if
+suspension**, Q8) — see row edp9. `upvotes` is stored as 0 although the post scores 32; if
 post-body rows carry a karma field it should be the post score.
 
-### Row 34 — Porsche Cayenne > Porsche Cayenne · exclude · wt 0 · up 0 → **OK as a marker; not a quote**
+### Row edp9 — Porsche Cayenne > Porsche Cayenne · exclude · wt 0 · up 0 → **OK as a marker; not a quote**
 
 Stored "quote": `dropped: Cayenne-with-air vs Cayenne-without-air is the same nameplate`
 
@@ -451,7 +451,7 @@ This is an editorial exclusion marker (winner == loser), not page text. It's har
 (wt=0, evidence=exclude, dropped by rank.py). Suggestion: move this text out of the
 `quote` column into a notes field so quote columns stay verbatim-only.
 
-### Row 35 — Mercedes GLE > Lexus GX · ride · owned_both · wt 3.0 · up 4 → **OK**
+### Row ww3m — Mercedes GLE > Lexus GX · ride · owned_both · wt 3.0 · up 4 → **OK**
 
 Stored quote: `I have a 19 Lexus GX and my wife has a 14 mercedes ml350, and the benz wins in the luxury ride and comfort hands down`
 
@@ -465,7 +465,7 @@ Actual (u/Mountain_Cucumber_88, 6 pts):
 Pair ✓ (ML350 = GLE predecessor), `owned_both` ✓. Suggest the full quote. (Upvotes:
 stored 4, current 6.)
 
-### Row 36 — Lincoln Aviator > BMW X5 · seats · opinion_plus_drive · wt 1.5 · up 3 → **KEEP, fix evidence + add chain**
+### Row ft57 — Lincoln Aviator > BMW X5 · seats · opinion_plus_drive · wt 1.5 · up 3 → **KEEP, fix evidence + add chain**
 
 Stored quote: `Lincoln would like a word. Their seats absolutely blow the BMW seats away`
 
@@ -480,7 +480,7 @@ Pair ✓ — "the BMW" is the X5 via the grandparent chain — but that chain is
 "Lincoln" = Aviator comes from the thread's Aviator recommendations. No drive/ownership
 claim → evidence `opinion`, not `opinion_plus_drive`.
 
-### Row 37 — BMW X7 > BMW X5 · ride · owned_both · wt 3.0 · up 3 → **KEEP, fix evidence**
+### Row m3cu — BMW X7 > BMW X5 · ride · owned_both · wt 3.0 · up 3 → **KEEP, fix evidence**
 
 Stored quote: `The longer wheel base and air suspension made the X7 feel like you were driving on a cloud, but the X5 was plenty good enough`
 
@@ -494,7 +494,7 @@ Pair ✓, axis ride ✓. But ownership: X7 is the wife's; the commenter drives a
 X5's ownership/test-drive basis is unclear → `owned_both` is shaky; `owned_one_td_other`
 or `opinion_plus_drive` is safer. Suggest the full quote.
 
-### Row 38 — Audi Q7 > Audi Q8 · ride · test_drove_both · wt 1.5 · up 1 → **KEEP, fix evidence**
+### Row y452 — Audi Q7 > Audi Q8 · ride · test_drove_both · wt 1.5 · up 1 → **KEEP, fix evidence**
 
 Stored quote: `If sticking with gas, I think the Q7 rides better than the gas Q8`
 
@@ -508,9 +508,9 @@ full quote.
 
 ---
 
-## Thread 6 — `1khcp25` r/BMWX5 "How do you feel about the GLE compared to the X5?" (rows 39–49)
+## Thread 6 — `1khcp25` r/BMWX5 "How do you feel about the GLE compared to the X5?" (rows y23c–b6zb)
 
-### Row 39 — Mercedes GLE > BMW X5 · ride · owned_both · wt 3.0 · up 1 → **OK**
+### Row y23c — Mercedes GLE > BMW X5 · ride · owned_both · wt 3.0 · up 1 → **OK**
 
 Stored quote: `The GLE is a dramatically smoother ride and is my choice for a road trip`
 
@@ -522,7 +522,7 @@ Actual (u/txtbook, 1 pt):
 
 Pair ✓, `owned_both` ✓. Suggest the fuller quote.
 
-### Row 40 — Mercedes GLE > BMW X5 · ride · owned_both · wt 3.0 · up 1 → **OK**
+### Row q6gh — Mercedes GLE > BMW X5 · ride · owned_both · wt 3.0 · up 1 → **OK**
 
 Stored quote: `Mercedes is larger and more comfortable on longer trips`
 
@@ -534,7 +534,7 @@ Actual (u/Petetarga, 1 pt):
 
 ✓ ✓ ✓. Suggest the fuller quote.
 
-### Row 41 — Mercedes GLE > BMW X5 · ride · owned_both · **wt 1.5 (should be 3.0)** · up 1 → **OK, flag weight**
+### Row h8an — Mercedes GLE > BMW X5 · ride · owned_both · **wt 1.5 (should be 3.0)** · up 1 → **OK, flag weight**
 
 Stored quote: `The X5 is more fun to drive… the Benz has… plusher and smoother drive for road trips`
 
@@ -549,14 +549,14 @@ Pair ✓, `owned_both` ✓ — but `weight_base` is 1.5 while every other `owned
 3.0. rank.py recomputes from the evidence tag, so this only matters if `weight_base` is
 used anywhere; still, fix for consistency.
 
-### Row 42 — Mercedes GLE > BMW X5 · ride · owned_both · wt 3.0 · up 1 → **OK**
+### Row mu7c — Mercedes GLE > BMW X5 · ride · owned_both · wt 3.0 · up 1 → **OK**
 
 Stored quote: `GLE is better for road-trips ngl and the x5 better to daily`
 
 Actual (u/atxtony23, 1 pt): "Have both, GLE is better for road-trips ngl and the x5 better
 to daily and drive harder." ✓ verbatim, `owned_both` ✓ ("Have both").
 
-### Row 43 — Mercedes GLE > BMW X5 · nvh · test_drove_both · wt 2.0 · up 1 → **OK**
+### Row tk8a — Mercedes GLE > BMW X5 · nvh · test_drove_both · wt 2.0 · up 1 → **OK**
 
 Stored quote: `the merc seemed quieter and smoother to drive`
 
@@ -569,14 +569,14 @@ Actual (u/muchtoes, 1 pt):
 Pair ✓, axis nvh ✓ ("quieter"), evidence ✓. Suggest the fuller quote; note the 350-engine
 caveat.
 
-### Row 44 — BMW X5 > Mercedes GLE · ride · test_drove_both · wt 2.0 · up 1 → **OK**
+### Row mu2m — BMW X5 > Mercedes GLE · ride · test_drove_both · wt 2.0 · up 1 → **OK**
 
 Stored quote: `X5 is still a smoother ride… the seats in the GLE were uncomfortable`
 
 Actual (u/Marre313, 1 pt): "Test drive both. X5 is still a smoother ride. Not sure what
 the exact problem was, but the seats in the GLE were uncomfortable. …" ✓ verbatim.
 
-### Row 45 — BMW X5 > Mercedes GLE · overall · test_drove_both · wt 1.0 · up 1 → **DELETE**
+### Row s787 — BMW X5 > Mercedes GLE · overall · test_drove_both · wt 1.0 · up 1 → **DELETE**
 
 Stored quote: `Bmw is more comfortable... Really...`
 
@@ -590,7 +590,7 @@ Actual (u/brunoc2222, 2 pts, top-level, **0 replies**): the complete comment is 
 
 **Delete** — an ambiguous 6-word comment cannot carry a coded vote.
 
-### Row 46 — Mercedes GLE > BMW X5 · seats · owned_both · wt 3.0 · up 2 → **OK**
+### Row jv5t — Mercedes GLE > BMW X5 · seats · owned_both · wt 3.0 · up 2 → **OK**
 
 Stored quote: `I do miss the merc seats… Felt the Benz seats were buttery and plush`
 
@@ -602,7 +602,7 @@ Actual (u/773badger, 2 pts):
 
 Pair ✓, axis seats ✓, `owned_both` ✓. Suggest the fuller quote.
 
-### Row 47 — BMW X5 > Mercedes GLE · seats · test_drove_both · wt 2.0 · up 1 → **KEEP, fix evidence**
+### Row b98s — BMW X5 > Mercedes GLE · seats · test_drove_both · wt 2.0 · up 1 → **KEEP, fix evidence**
 
 Stored quote: `My seats are absolutely more comfortable than the GLE, even as a bigger dude`
 
@@ -616,10 +616,10 @@ Actual (u/x1tyrant1x, 2 pts):
 Pair ✓, axis ✓. But "My seats" = the author **owns** the X5; no test-drive claim →
 evidence `owned_one_td_other` (or plain opinion if the GLE exposure was a showroom sit).
 
-### Rows 48 & 49 — BMW X5 > Mercedes GLE / Porsche Cayenne · seats · test_drove_both · wt 2.0 · up 0 → **OK**
+### Rows y3yk & b6zb — BMW X5 > Mercedes GLE / Porsche Cayenne · seats · test_drove_both · wt 2.0 · up 0 → **OK**
 
-Stored quote (48): `with the inexpensive Multi contour seats option, the X5 seats are more comfortable… including the highest end Cayenne seats`
-Stored quote (49): `X5 seats are more comfortable and adjustable than anything else I tried, including the highest end Cayenne seats`
+Stored quote (y3yk): `with the inexpensive Multi contour seats option, the X5 seats are more comfortable… including the highest end Cayenne seats`
+Stored quote (b6zb): `X5 seats are more comfortable and adjustable than anything else I tried, including the highest end Cayenne seats`
 
 Actual (u/fiddly-bits, 1 pt):
 
@@ -634,9 +634,9 @@ SUVs"). Suggest one fuller quote for both rows.
 
 ---
 
-## Thread 7 — `1mbg5ci` "What is the most comfortable SUV or Sedan you drove/rode in your life?" (row 50)
+## Thread 7 — `1mbg5ci` "What is the most comfortable SUV or Sedan you drove/rode in your life?" (row bfa4)
 
-### Row 50 — BMW X5 > Mercedes GLE · ride · **test_drove_both (should be owned_both)** · wt 3.0 · up 21 → **KEEP, fix evidence**
+### Row bfa4 — BMW X5 > Mercedes GLE · ride · **test_drove_both (should be owned_both)** · wt 3.0 · up 21 → **KEEP, fix evidence**
 
 Stored quote: `X5 air suspension… We had a MB GLE350 for 3 years and it was too bouncy… traded… X5 M60i`
 
@@ -661,44 +661,44 @@ notes). Suggest the fuller quote.
 
 1. **`upvotes` column is unreliable for several rows (non-issue — planned for removal).**
    Current Reddit scores vs stored:
-   row 19 (stored 1, now 3), row 22 (3 → 1), row 32 (0 → 3), row 35 (4 → 6), row 50
-   (21 → 10). ±1 elsewhere (rows 1, 2, 3, 11, 12, 13–15, 16, 18, 20, 21, 23, 24, 25, 28,
-   31, 36, 37, 45, 47, 48, 49). Were the column still live, a 21-vs-10 error would
-   change row 50's karma multiplier by ~25%, and 0-vs-3 would change row 32 from no
+   row ex4q (stored 1, now 3), row v4ar (3 → 1), row ec3t (0 → 3), row ww3m (4 → 6), row bfa4
+   (21 → 10). ±1 elsewhere (rows w6cq, qur7, p42y, v24d, hk2s, vhc5–bg6j, b5p5, z4c2, zd4y, x453, jzk5, cv8b, yd7s, uh8k,
+   t4w2, ft57, m3cu, s787, b98s, y3yk, b6zb). Were the column still live, a 21-vs-10 error would
+   change row bfa4's karma multiplier by ~25%, and 0-vs-3 would change row ec3t from no
    boost to a 1.39× boost. **However, upvotes are planned to be removed from all data
    and calculations** (the `upvotes` column and the `log(1+upvotes)` karma multiplier),
    so these values are legacy — do not re-capture them.
 
-2. **Stored quotes contain coder editorial text in rows 16 and 19** ("(vs XC60 harsher;
+2. **Stored quotes contain coder editorial text in rows b5p5 and ex4q** ("(vs XC60 harsher;
    XT5 called lazy)" and the 😭 row). The `quote` column should be verbatim source text
-   only; editorial notes belong in a separate column. Row 34's "quote" is likewise an
+   only; editorial notes belong in a separate column. Row edp9's "quote" is likewise an
    editorial marker.
 
-3. **Row 33 quotes the post body**, not a comment — fine as a source, but note that
+3. **Row v8ax quotes the post body**, not a comment — fine as a source, but note that
    `upvotes` can't be a comment score there (post scores 32); decide a convention for
    OP-writeup rows.
 
 4. **Evidence-tag errors change weights in all three fits** (rank.py derives weight from
    the evidence tag: owned_both 3.0, test_drove_both 2.0, owned_*/opinion_plus_drive
-   1.2–1.5, opinion 0.7). Rows needing tag fixes: 2, 18, 25, 29, 36, 37, 38, 47, 50.
-   The owners-only fit additionally drops `test_drove_both`, so row 50 currently gets
+   1.2–1.5, opinion 0.7). Rows needing tag fixes: qur7, z4c2, yd7s, kz3s, ft57, m3cu, y452, b98s, bfa4.
+   The owners-only fit additionally drops `test_drove_both`, so row bfa4 currently gets
    dropped there despite being a genuine owned-both statement.
 
-5. **Row 41's `weight_base` (1.5) contradicts its `owned_both` evidence (3.0)** — and
-   row 24's `test_drove_both` (2.0) is arguably `owned_one_td_other` (1.5) since the
+5. **Row h8an's `weight_base` (1.5) contradicts its `owned_both` evidence (3.0)** — and
+   row cv8b's `test_drove_both` (2.0) is arguably `owned_one_td_other` (1.5) since the
    author bought the Q5. `weight_base` is not used by rank.py, but the column should be
    consistent for downstream readers.
 
-6. **Rows 34's pair (Cayenne > Cayenne) and row 9's "2026 out back" typo** (source's
+6. **Rows edp9's pair (Cayenne > Cayenne) and row w4g9's "2026 out back" typo** (source's
    own typo, fine) are noted for completeness.
 
 ### Bottom line
 
-- **Delete 7 rows:** 1, 10, 16, 19, 28, 31, 45 (pair not supported by any single
+- **Delete 7 rows:** w6cq, r9vk, b5p5, ex4q, uh8k, t4w2, s787 (pair not supported by any single
   comment, or model misidentified, or text ambiguous).
-- **Fix quotes on ~10 rows** (5/6 unify, 7/8 unify, 13–15 unify, 17, 24, 33, plus the
+- **Fix quotes on ~10 rows** (5/6 unify, 7/8 unify, 13–15 unify, s2qn, cv8b, v8ax, plus the
   full-quote suggestions in the OK rows).
-- **Fix evidence tags on 9 rows:** 2, 18, 25, 29, 36, 37, 38, 47, 50.
+- **Fix evidence tags on 9 rows:** qur7, z4c2, yd7s, kz3s, ft57, m3cu, y452, b98s, bfa4.
 - **Upvotes: no action.** The `upvotes` column and the `log(1+upvotes)` karma
   multiplier are planned to be removed from all data and calculations; the drift
-  seen in rows 19, 22, 32, 35, 50 is a non-issue and should not be re-captured.
+  seen in rows ex4q, v4ar, ec3t, ww3m, bfa4 is a non-issue and should not be re-captured.
