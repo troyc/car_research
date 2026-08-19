@@ -39,8 +39,8 @@ be checked against the live page before concluding.
    `owned_both` 3.0, `test_drove_both` 2.0, `owned_one_*` / `opinion_plus_drive`
    1.2–1.5, `opinion` 0.7. The tag must match first-person claims in the passage.
    `weight_base` in the CSV is informational.
-5. **Upvotes (legacy).** Planned for removal from all data and calculations.
-   Treat the column as informational; do not spend effort fixing drift.
+5. **Upvotes (unused).** The `upvotes` column is not used in any fit.
+   Treat it as leftover CSV; do not spend effort fixing drift.
 
 ## Verdicts
 

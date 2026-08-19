@@ -166,13 +166,12 @@ def row_weight(raw: dict, mode: str) -> float | None:
     base = EVIDENCE_WEIGHT.get(evidence, 0)
     if base <= 0:
         return None
-    upvotes = int(raw["upvotes"] or 0)
     home = int(raw["home_team"] or 0)
     source = raw["source"].strip()
     url = raw.get("url") or ""
 
     if mode == "default":
-        w = base * math.log1p(max(upvotes, 0) + 1)
+        w = base
         if home:
             w *= 0.6
         return w
@@ -180,9 +179,8 @@ def row_weight(raw: dict, mode: str) -> float | None:
     if mode == "bias":
         # Source-bias fit:
         # 1. drop thin opinion rows (hearsay-adjacent)
-        # 2. do not boost by Reddit karma (popularity ≠ independence)
-        # 3. heavier home-team and brand-sub penalties
-        # 4. slight lift for Edmunds/Cars.com owner reviews
+        # 2. heavier home-team and brand-sub penalties
+        # 3. slight lift for Edmunds/Cars.com owner reviews
         if evidence in THIN_EVIDENCE:
             return None
         w = base
@@ -196,18 +194,18 @@ def row_weight(raw: dict, mode: str) -> float | None:
     if mode == "no_home":
         if home:
             return None
-        return base * math.log1p(max(upvotes, 0) + 1)
+        return base
 
     if mode == "owned_both":
         if evidence != "owned_both":
             return None
-        return base  # no karma boost; lived-with-both only
+        return base
 
     if mode == "owners":
         # Same knobs as default, but drop test-drive-only / passenger / opinion.
         if evidence not in OWNER_EVIDENCE:
             return None
-        w = base * math.log1p(max(upvotes, 0) + 1)
+        w = base
         if home:
             w *= 0.6
         return w
@@ -400,7 +398,7 @@ def print_bias_comparison(default_rows: list[dict], default_scores: dict[str, fl
 
     bias_rows, bias_scores = variants["bias"]
     print_table(
-        "Bias-adjusted ranking (no karma boost; drop opinion; stronger home-team / brand-sub penalty; Edmunds/Cars.com lift)",
+        "Bias-adjusted ranking (drop opinion; stronger home-team / brand-sub penalty; Edmunds/Cars.com lift)",
         bias_scores,
         bias_rows,
         min_apps=3,

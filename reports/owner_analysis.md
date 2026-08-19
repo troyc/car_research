@@ -4,7 +4,7 @@ Same pairwise file as [`composite_ranking.md`](composite_ranking.md), but **test
 
 Default ranking (owners + testers): [`composite_ranking.md`](composite_ranking.md). Source-bias fit: [`bias_analysis.md`](bias_analysis.md). Method: [`methodology.md`](methodology.md). Machine table: [`../data/ranking_owners.csv`](../data/ranking_owners.csv).
 
-`python3 src/rank.py` writes this table. Weights match the default fit (`log(1+upvotes)`, home-team `×0.6`). The only change is who is allowed to vote.
+`python3 src/rank.py` writes this table. Weights match the default fit (evidence base, home-team `×0.6`; no Reddit / X score). The only change is who is allowed to vote.
 
 ## Who is in
 
@@ -20,7 +20,7 @@ Default ranking (owners + testers): [`composite_ranking.md`](composite_ranking.m
 
 **563 weighted votes** after the usual sedan drop (Lexus ES / Audi A7). **317** of those are lived-with-both. Testers are **176 / 786** of the default file (~22%). The audit recoded a large pile of `test_drove_both` to `owned_one_td_other` (owns one, sat in the other), so those rows now vote here instead of in the tester pile.
 
-`owned_one_td_other` stays because the author is an owner comparing to a car they sat in. If you want the stricter garage-vs-garage cut, the script also prints **owned_both only** (no karma boost). That sample is 317 votes and is thinner at the flagship end.
+`owned_one_td_other` stays because the author is an owner comparing to a car they sat in. If you want the stricter garage-vs-garage cut, the script also prints **owned_both only**. That sample is 317 votes and is thinner at the flagship end.
 
 ## The owner chain
 
@@ -28,7 +28,7 @@ Ignore raw global θ. GLS is 8–0 almost entirely vs X7. EQS SUV is 4–0 vs iX
 
 **Range Rover ≈ GLS > Range Rover Sport / iX / EQS SUV / Escalade IQ / Escalade / X7 / Yukon / Aviator / GLE / Q7 / MDX > XC90 / RX / GX 460 > XC60 / Nautilus / Palisade ≥ Pathfinder (seats vs Pilot) ≥ Telluride > Pilot / Ascent / Highlander / 2020–25 Outback / CR-V > X5 / Crosstrek / CX-5 / GX 550 > CX-50 / X3 / RAV4 / Forester / 4Runner / Model Y / X1**
 
-Owner-only Yukon is **17–3**. Same-garage air Yukon over R1S is still the owner-only truck result. Escalade IQ is **6–1** among owners. EQS SUV is **9–1** vs iX / R1S. QX80 is 4–0 on seats in a tiny sample. The Expedition owner rows split Suburban / Tahoe / Escalade / Navigator rather than lifting it into the luxury chain. Santa Fe has only Palisade owner comparisons and loses those four. Defender still loses to Range Rover among people who lived with both and now beats R1S / Cayenne in that cut. X5’s owner rank collapses (default 11 → owner 54) once same-day loops are out.
+Owner-only Yukon is **17–3**. Same-garage air Yukon over R1S is still the owner-only truck result. Escalade IQ is **6–1** among owners. EQS SUV is **9–1** vs iX / R1S. QX80 is 4–0 on seats in a tiny sample. The Expedition owner rows split Suburban / Tahoe / Escalade / Navigator rather than lifting it into the luxury chain. Santa Fe has only Palisade owner comparisons and loses those four. Defender still loses to Range Rover among people who lived with both and now beats R1S / Cayenne in that cut. X5’s owner rank drops further (default 28 → owner 36) once same-day loops are out.
 
 That is close to the full-sample shopping chain. The middle is not.
 
@@ -60,13 +60,13 @@ Every owner who named both and picked a comfort winner picked the Mercedes:
 - “GLE is better for road-trips ngl and the x5 better to daily.”
 - “I do miss the merc seats… Felt the Benz seats were buttery and plush.”
 
-The default fit still parks X5 near Escalade / Aviator (θ 2.98, rank 11) because testers on `r/whatcarshouldIbuy` and `r/BMWX5` keep handing it same-day wins. Owners who actually swapped or ran both do not — X5 is 28–34 here and global owner rank 54. **If the question is “which one after 10,000 miles,” use this file, not the composite θ for X5.**
+The default fit already parks X5 below GLE (θ 0.96, rank 28) once Reddit score is ignored. Testers on `r/whatcarshouldIbuy` and `r/BMWX5` still hand it some same-day wins. Owners who actually swapped or ran both do not — X5 is 28–34 here and global owner rank 36. **If the question is “which one after 10,000 miles,” use this file, not the composite θ for X5.**
 
 Two owned-both Q7 households said the same thing vs X5: Audi smoother and quieter with air; one switcher wanted the Q7 seats back.
 
 ### Ascent was a test-drive nameplate
 
-Default Ascent is 22–9, global rank 29, θ next to GX. Owners: **15–6**, rank 34. The audit moved most of the old same-day Ascent pile into `owned_one_td_other`, so those `r/SubaruAscent` shoppers who already own the car now vote here.
+Default Ascent is 22–9, global rank 30, θ next to X7 / GV80. Owners: **15–6**, rank 32. The audit moved most of the old same-day Ascent pile into `owned_one_td_other`, so those `r/SubaruAscent` shoppers who already own the car now vote here.
 
 What owners actually said:
 

@@ -554,12 +554,12 @@ def plot_robustness(
     )
     fig.text(
         0.24, 0.932,
-        "Same quotes, three weights. Bias-adjusted drops karma and thin opinions, tightens brand-sub penalties,",
+        "Same quotes, three weights. Bias-adjusted drops thin opinions, tightens brand-sub penalties,",
         fontsize=8.7, color=MUTED, ha="left", va="top",
     )
     fig.text(
         0.24, 0.910,
-        "lifts Edmunds/Cars.com. Owners only drops same-day testers. Palisade rises; Ascent falls. EQS stays high — it still only beat iX.",
+        "lifts Edmunds/Cars.com. Owners only drops same-day testers. X5 falls without testers. EQS stays high — it still only beat iX.",
         fontsize=8.7, color=MUTED, ha="left", va="top",
     )
 

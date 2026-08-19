@@ -13,6 +13,7 @@ For each row of data/comparisons.csv this prints:
   - the full source comment (never just the fragment) plus up to 3 levels of
     parent context, so pair / axis / evidence tags can be judged by a human
   - the current (frozen) score vs the stored upvotes, flagging drift > 1
+    (informational only; upvotes are unused in ranking)
   - per-thread deleted-comment coverage, and a same-comment summary (one
     comment backing several rows, e.g. b2mz/cfj8, m25u/j6ae, vhc5-bg6j)
 
@@ -402,8 +403,8 @@ def main():
             stored = int(row["upvotes"] or 0)
             if c["score"] is not None and abs(c["score"] - stored) > 1:
                 print(f">> UPVOTE DRIFT: stored {stored}, current frozen score "
-                      f"{c['score']} — informational only; upvotes are planned for "
-                      f"removal from all data and calculations, nothing to fix.")
+                      f"{c['score']} — informational only; upvotes are unused in "
+                      f"ranking, nothing to fix.")
 
         # ---- model-naming check: are the coded winner/loser actually named
         # in the passage the quote came from? (brand-level statements coded
