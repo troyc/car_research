@@ -116,6 +116,7 @@ audit/
 ├── fetch_pages.sh     ← downloads every cited page
 ├── parse_reddit.py    ← reddit extractor (HTML → comment tree)
 ├── audit_rows.py      ← source-agnostic CSV-row ↔ page verification
+├── old/               ← per-batch working notes that compiled.md summarizes
 └── raw/               ← fetched HTML, gitignored; re-create with fetch_pages.sh
                          reddit: <thread id>.html
                          others: <sha1(url.strip().rstrip("/"))[:10]>.html

@@ -14,7 +14,7 @@ Open `reports/composite_ranking.md` first. That file is the result: one composit
 - `src/rank.py` — Bradley–Terry fit (default + bias-adjusted + owners)
 - `data/ranking.csv` / `data/ranking_bias.csv` / `data/ranking_owners.csv` — machine-readable tables
 - `reports/figures/` — PNGs of the graph, segment ladders, rank robustness, and top matchups
-- `audit/` — verification kit (`fetch_pages.sh`, `parse_reddit.py`, `audit_rows.py`) and `compiled.md`, the applied full-file audit
+- `audit/` — verification kit (`fetch_pages.sh`, `parse_reddit.py`, `audit_rows.py`), `compiled.md` (applied full-file audit), and `old/` (per-batch working notes)
 - `reports/methodology.md` — inclusion rules, weighting, generation coding, limits, and how to read Edmunds/Cars.com when the live review page is blocked
 
 ```bash
