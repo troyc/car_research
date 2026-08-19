@@ -1,0 +1,2 @@
+id,source_record_id,published_at,winner_model_year,loser_model_year,winner_trim,loser_trim,generation_notes,wheel_tire_suspension,ownership_context,road_context,extraction_method,snapshot_path,audit_status
+4510,bitog:401965#28,2025-11-24,,,,,2025-era Crosstrek and CX-5 shopping; exact trims/model years not stated,Thread does not state wheels or suspension,Author purchased Crosstrek after several CX-5 test drives,Dealer test drives and normal driving,public browser HTML lines 262-275; post #28,,included

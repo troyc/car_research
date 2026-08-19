@@ -1,0 +1,9 @@
+source,domain,round,community_type,engine,access_method,automation_status,min_delay_seconds,last_checked,notes
+mbworld,mbworld.org,round_01_vbulletin,brand,vbulletin,direct_public_html,targeted_only,1,2026-08-19,"Ordinary thread pages only; avoid search, login, member, profile, and print endpoints"
+clublexus,clublexus.com,round_01_vbulletin,brand,vbulletin,direct_public_html,targeted_only,1,2026-08-19,"Ordinary thread pages only; re-check robots and terms before collection"
+genesisowners,genesisowners.com,round_02_owner_forums,brand,xenforo,direct_public_html,targeted_only,1,2026-08-19,"Public thread pages expose post and author metadata"
+rivianforums,rivianforums.com,round_02_owner_forums,brand,xenforo,direct_public_html,targeted_only,1,2026-08-19,"Public thread pages only; preserve generation, wheel, and software context"
+audizine,audizine.com,round_02_owner_forums,brand,xenforo,direct_public_html,targeted_only,1,2026-08-19,"Avoid disallowed search, login, member, and post endpoints"
+subaruforums,thesubaruforums.com,round_02_owner_forums,brand,xenforo,direct_public_html,targeted_only,1,2026-08-19,"Respect crawl delay and avoid disallowed search, member, and login paths"
+bobistheoilguy,bobistheoilguy.com,round_03_neutral_forums,general,xenforo,browser_reader,browser_only,1,2026-08-19,"Direct requests may return 403; do not bypass the block"
+edmunds_forum,forums.edmunds.com,round_03_neutral_forums,general,custom,browser_reader,browser_only,1,2026-08-19,"Use public browser-readable discussions only; direct requests may return 403"
