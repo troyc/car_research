@@ -202,6 +202,7 @@ def build_observations(
     evidence: set[str] = FIRST_HAND_EVIDENCE,
     axis: str | None = None,
     neutral_only: bool = False,
+    exclude_home_team_wins: bool = False,
     sources: set[str] | None = None,
     legacy_weights: bool = False,
 ) -> list[Observation]:
@@ -217,6 +218,8 @@ def build_observations(
             continue
         statement, respondent, thread, affinity = _metadata(row)
         if neutral_only and affinity != "neutral":
+            continue
+        if exclude_home_team_wins and row.get("home_team", "0").strip() == "1":
             continue
         source = row.get("source", "").strip()
         if sources is not None and source not in sources:
@@ -611,6 +614,9 @@ def _scenario_observations(raw_rows: Sequence[dict[str, str]]) -> dict[str, list
         "owners_only": build_observations(raw_rows, evidence=OWNER_EVIDENCE),
         "lived_with_both": build_observations(raw_rows, evidence={"owned_both"}),
         "neutral_forums": build_observations(raw_rows, neutral_only=True),
+        "exclude_home_team_wins": build_observations(
+            raw_rows, exclude_home_team_wins=True
+        ),
         "reddit_only": build_observations(raw_rows, sources={"reddit"}),
         "consumer_reviews_only": build_observations(raw_rows, sources={"edmunds", "cars.com"}),
         "legacy_weights": build_observations(
@@ -984,7 +990,7 @@ def rankings_markdown(
         "",
         "## Sensitivity and diagnostics",
         "",
-        "The machine-readable [sensitivity table](../data/ranking_sensitivity.csv) contains owners-only, lived-with-both, neutral-forum, source, prior, comfort-axis, collection-batch, legacy-weight, and thread-cluster scenarios. Use [model diagnostics](model_diagnostics.md) for connectivity, grouped predictive performance, influential threads, and pair residuals.",
+        "The machine-readable [sensitivity table](../data/ranking_sensitivity.csv) contains owners-only, lived-with-both, neutral-forum, same-team-win exclusion, source, prior, comfort-axis, collection-batch, legacy-weight, and thread-cluster scenarios. Use [model diagnostics](model_diagnostics.md) for connectivity, grouped predictive performance, influential threads, and pair residuals.",
         "",
     ])
     return "\n".join(lines)

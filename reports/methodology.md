@@ -92,6 +92,7 @@ An additional 1,000 refits resample whole threads. These measure sensitivity to 
 
 - owners only and lived-with-both only;
 - neutral/non-brand communities only;
+- `home_team=1` observations excluded (same-team wins);
 - Reddit only and consumer-review sites only;
 - the former evidence/home-team weights, labeled `legacy_weights`;
 - prior scales 1.5 and 5.0;

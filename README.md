@@ -73,7 +73,7 @@ Reddit supplies 668 of the 781 retained observations; Edmunds, Cars.com, owner f
 
 The primary fit gives statements equal influence. Former evidence-quality and home-team multipliers are retained only as a `legacy_weights` sensitivity scenario; they are not described as a bias correction.
 
-[Source sensitivity](reports/figures/sensitivity.png) compares probabilities under the primary, owners-only, and neutral-forum samples. The [coverage graph](reports/figures/coverage_graph.png) shows which direct pairings hold the global scale together.
+[Source sensitivity](reports/figures/sensitivity.png) compares probabilities under the primary, owners-only, and neutral-forum samples. The machine-readable sensitivity results also include a run excluding `home_team=1` observations (same-team wins). The [coverage graph](reports/figures/coverage_graph.png) shows which direct pairings hold the global scale together.
 
 Read the [methodology](reports/methodology.md), [model diagnostics](reports/model_diagnostics.md), and [machine-readable sensitivity table](data/ranking_sensitivity.csv) for the full specification.
 

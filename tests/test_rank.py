@@ -45,6 +45,8 @@ def raw_row(
     statement: str,
     respondent: str,
     axis: str = "overall",
+    affinity: str = "neutral",
+    home_team: str = "0",
 ) -> dict[str, str]:
     """Create a valid comparison row for preprocessing tests."""
     return {
@@ -59,9 +61,9 @@ def raw_row(
         "statement_id": statement,
         "respondent_id": respondent,
         "thread_id": "thread-1",
-        "community_affinity": "neutral",
+        "community_affinity": affinity,
         "collection_batch": "test-fixture",
-        "home_team": "0",
+        "home_team": home_team,
     }
 
 
@@ -195,6 +197,22 @@ def test_conflicting_directions_from_one_respondent_cancel() -> None:
     observations = rank.build_observations(rows)
 
     assert [(item.winner, item.loser) for item in observations] == [("C", "D")]
+
+
+def test_excluding_home_team_wins_keeps_all_non_home_observations() -> None:
+    rows = [
+        raw_row(1, "A", "B", statement="statement-1", respondent="person-a", affinity="winner", home_team="1"),
+        raw_row(2, "C", "D", statement="statement-2", respondent="person-b", affinity="neutral"),
+        raw_row(3, "E", "F", statement="statement-3", respondent="person-c", affinity="loser"),
+        raw_row(4, "G", "H", statement="statement-4", respondent="person-d", affinity="other"),
+        raw_row(5, "I", "J", statement="statement-5", respondent="person-e", affinity="other", home_team="1"),
+    ]
+
+    observations = rank.build_observations(rows, exclude_home_team_wins=True)
+
+    assert [(item.winner, item.loser) for item in observations] == [
+        ("C", "D"), ("E", "F"), ("G", "H")
+    ]
 
 
 def test_coverage_rules_gate_rank_and_distinguish_failure_reasons() -> None:
