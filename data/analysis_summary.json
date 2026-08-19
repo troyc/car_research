@@ -5,31 +5,38 @@
     "min_respondents": 5
   },
   "cross_validation": {
-    "brier": 0.183760031703678,
+    "brier": 0.180301336057485,
     "even_odds_brier": 0.25,
     "even_odds_log_loss": 0.6931471805599453,
     "folds": 5,
-    "log_loss": 0.5536081912168095
+    "log_loss": 0.5452318373970422
   },
   "estimand": "preferences expressed in the collected online corpus",
   "generated_by": "src/rank.py",
   "influential_threads": [
     {
-      "max_rank_change": 15,
+      "max_rank_change": 16,
       "most_affected_model": "Cadillac XT6",
       "rows": 3,
       "statement_mass": 3.0,
       "thread_id": "thread_efe1909aeb4fda5a"
     },
     {
-      "max_rank_change": 14,
+      "max_rank_change": 12,
+      "most_affected_model": "Cadillac Escalade IQ",
+      "rows": 3,
+      "statement_mass": 3.0,
+      "thread_id": "reddit_1q4ycd0"
+    },
+    {
+      "max_rank_change": 12,
       "most_affected_model": "Volkswagen Tiguan",
       "rows": 2,
       "statement_mass": 2.0,
       "thread_id": "reddit_1qm6ioh"
     },
     {
-      "max_rank_change": 14,
+      "max_rank_change": 12,
       "most_affected_model": "Mercedes GLE AMG",
       "rows": 2,
       "statement_mass": 2.0,
@@ -37,24 +44,24 @@
     },
     {
       "max_rank_change": 12,
+      "most_affected_model": "Mazda CX-9",
+      "rows": 3,
+      "statement_mass": 2.0,
+      "thread_id": "thread_786d396e746aebb2"
+    },
+    {
+      "max_rank_change": 11,
+      "most_affected_model": "Range Rover Sport",
+      "rows": 8,
+      "statement_mass": 6.0,
+      "thread_id": "reddit_1tvpsc8"
+    },
+    {
+      "max_rank_change": 11,
       "most_affected_model": "Porsche Macan",
       "rows": 2,
       "statement_mass": 2.0,
       "thread_id": "reddit_10j5q4y"
-    },
-    {
-      "max_rank_change": 11,
-      "most_affected_model": "Volvo XC90",
-      "rows": 9,
-      "statement_mass": 8.0,
-      "thread_id": "reddit_1k10oqw"
-    },
-    {
-      "max_rank_change": 11,
-      "most_affected_model": "Cadillac Escalade IQ",
-      "rows": 3,
-      "statement_mass": 3.0,
-      "thread_id": "reddit_1q4ycd0"
     },
     {
       "max_rank_change": 11,
@@ -65,17 +72,17 @@
     },
     {
       "max_rank_change": 11,
-      "most_affected_model": "Mazda CX-9",
+      "most_affected_model": "Jeep Grand Wagoneer",
       "rows": 3,
       "statement_mass": 2.0,
-      "thread_id": "thread_786d396e746aebb2"
+      "thread_id": "reddit_1eqta1w"
     },
     {
       "max_rank_change": 10,
-      "most_affected_model": "Mazda CX-50",
-      "rows": 8,
-      "statement_mass": 7.0,
-      "thread_id": "reddit_1ig8mju"
+      "most_affected_model": "Volvo XC90",
+      "rows": 9,
+      "statement_mass": 8.0,
+      "thread_id": "reddit_1k10oqw"
     },
     {
       "max_rank_change": 10,
@@ -86,27 +93,13 @@
     },
     {
       "max_rank_change": 10,
-      "most_affected_model": "Lexus LX",
-      "rows": 4,
-      "statement_mass": 3.0,
-      "thread_id": "reddit_1mbg5ci"
-    },
-    {
-      "max_rank_change": 9,
-      "most_affected_model": "Range Rover Sport",
-      "rows": 8,
-      "statement_mass": 6.0,
-      "thread_id": "reddit_1tvpsc8"
-    },
-    {
-      "max_rank_change": 9,
       "most_affected_model": "Mercedes GLE AMG",
       "rows": 5,
       "statement_mass": 5.0,
       "thread_id": "reddit_1nl126k"
     },
     {
-      "max_rank_change": 9,
+      "max_rank_change": 10,
       "most_affected_model": "Subaru Outback 2026",
       "rows": 4,
       "statement_mass": 4.0,
@@ -114,186 +107,193 @@
     },
     {
       "max_rank_change": 9,
-      "most_affected_model": "Genesis GV80",
+      "most_affected_model": "Lexus LX",
+      "rows": 4,
+      "statement_mass": 3.0,
+      "thread_id": "reddit_1mbg5ci"
+    },
+    {
+      "max_rank_change": 9,
+      "most_affected_model": "Cadillac Escalade",
       "rows": 3,
       "statement_mass": 3.0,
-      "thread_id": "reddit_1hleau4"
+      "thread_id": "reddit_1qff0ms"
     }
   ],
   "largest_pair_residuals": [
     {
-      "absolute_residual": 0.5013611622725525,
-      "observed_a_share": 0.8421052631578947,
-      "pair": [
-        "BMW X5",
-        "Lexus RX"
-      ],
-      "predicted_a_share": 0.3407441008853423,
-      "respondents": 3,
-      "rows": 3
-    },
-    {
-      "absolute_residual": 0.37855561378698155,
+      "absolute_residual": 0.3756153865314864,
       "observed_a_share": 0.0,
       "pair": [
         "Land Rover Defender",
         "Volvo XC90"
       ],
-      "predicted_a_share": 0.37855561378698155,
+      "predicted_a_share": 0.3756153865314864,
       "respondents": 3,
       "rows": 3
     },
     {
-      "absolute_residual": 0.3647690420115019,
-      "observed_a_share": 0.0,
-      "pair": [
-        "BMW X5",
-        "Genesis GV80"
-      ],
-      "predicted_a_share": 0.3647690420115019,
-      "respondents": 3,
-      "rows": 3
-    },
-    {
-      "absolute_residual": 0.3436694324274938,
+      "absolute_residual": 0.3393771677151094,
       "observed_a_share": 1.0,
       "pair": [
         "Hyundai Palisade",
         "Nissan Pathfinder"
       ],
-      "predicted_a_share": 0.6563305675725062,
+      "predicted_a_share": 0.6606228322848906,
       "respondents": 4,
       "rows": 4
     },
     {
-      "absolute_residual": 0.3412930434938848,
-      "observed_a_share": 1.0,
-      "pair": [
-        "Genesis GV70",
-        "Porsche Macan"
-      ],
-      "predicted_a_share": 0.6587069565061152,
-      "respondents": 3,
-      "rows": 3
-    },
-    {
-      "absolute_residual": 0.3213259481586137,
-      "observed_a_share": 1.0,
-      "pair": [
-        "Lexus GX 550",
-        "Toyota Land Cruiser"
-      ],
-      "predicted_a_share": 0.6786740518413863,
-      "respondents": 3,
-      "rows": 3
-    },
-    {
-      "absolute_residual": 0.3207780797205555,
-      "observed_a_share": 0.6,
-      "pair": [
-        "Hyundai Palisade",
-        "Mazda CX-90"
-      ],
-      "predicted_a_share": 0.9207780797205555,
-      "respondents": 5,
-      "rows": 5
-    },
-    {
-      "absolute_residual": 0.3132265663138921,
+      "absolute_residual": 0.330725871881966,
       "observed_a_share": 0.5714285714285714,
       "pair": [
         "Hyundai Palisade",
         "Toyota Grand Highlander"
       ],
-      "predicted_a_share": 0.8846551377424635,
+      "predicted_a_share": 0.9021544433105374,
       "respondents": 4,
       "rows": 4
     },
     {
-      "absolute_residual": 0.29773827257584795,
-      "observed_a_share": 0.2857142857142857,
+      "absolute_residual": 0.32209569806461247,
+      "observed_a_share": 0.6,
       "pair": [
-        "Buick Enclave",
-        "Hyundai Palisade"
+        "Hyundai Palisade",
+        "Mazda CX-90"
       ],
-      "predicted_a_share": 0.5834525582901336,
-      "respondents": 4,
+      "predicted_a_share": 0.9220956980646124,
+      "respondents": 5,
       "rows": 5
     },
     {
-      "absolute_residual": 0.2890486405926111,
+      "absolute_residual": 0.3000367500180722,
       "observed_a_share": 0.6666666666666666,
       "pair": [
         "Toyota Highlander",
         "Toyota Venza"
       ],
-      "predicted_a_share": 0.37761802607405554,
+      "predicted_a_share": 0.36662991664859446,
       "respondents": 3,
       "rows": 3
     },
     {
-      "absolute_residual": 0.2817720605143406,
+      "absolute_residual": 0.2976999562914584,
+      "observed_a_share": 0.2857142857142857,
+      "pair": [
+        "Buick Enclave",
+        "Hyundai Palisade"
+      ],
+      "predicted_a_share": 0.5834142420057441,
+      "respondents": 4,
+      "rows": 5
+    },
+    {
+      "absolute_residual": 0.28347325967377845,
+      "observed_a_share": 1.0,
+      "pair": [
+        "Genesis GV70",
+        "Porsche Macan"
+      ],
+      "predicted_a_share": 0.7165267403262215,
+      "respondents": 4,
+      "rows": 4
+    },
+    {
+      "absolute_residual": 0.28305231647190854,
       "observed_a_share": 0.0,
       "pair": [
         "Lincoln Corsair",
         "Lincoln Nautilus"
       ],
-      "predicted_a_share": 0.2817720605143406,
+      "predicted_a_share": 0.28305231647190854,
       "respondents": 3,
       "rows": 3
     },
     {
-      "absolute_residual": 0.2749393955761087,
-      "observed_a_share": 0.0,
+      "absolute_residual": 0.2747708084156767,
+      "observed_a_share": 1.0,
       "pair": [
-        "BMW X5",
-        "BMW X7"
+        "Lexus RX",
+        "Toyota Highlander"
       ],
-      "predicted_a_share": 0.2749393955761087,
+      "predicted_a_share": 0.7252291915843233,
       "respondents": 4,
-      "rows": 4
+      "rows": 5
     },
     {
-      "absolute_residual": 0.2689898563038406,
+      "absolute_residual": 0.2731216055938055,
       "observed_a_share": 0.0,
       "pair": [
         "Lexus NX",
         "Lincoln Corsair"
       ],
-      "predicted_a_share": 0.2689898563038406,
+      "predicted_a_share": 0.2731216055938055,
       "respondents": 3,
       "rows": 3
     },
     {
-      "absolute_residual": 0.2581165868758234,
+      "absolute_residual": 0.26118287352731984,
+      "observed_a_share": 1.0,
+      "pair": [
+        "Lexus GX 550",
+        "Toyota Land Cruiser"
+      ],
+      "predicted_a_share": 0.7388171264726802,
+      "respondents": 4,
+      "rows": 4
+    },
+    {
+      "absolute_residual": 0.25900026079356686,
       "observed_a_share": 0.11764705882352941,
       "pair": [
         "Honda Pilot",
         "Nissan Pathfinder"
       ],
-      "predicted_a_share": 0.3757636456993528,
+      "predicted_a_share": 0.37664731961709624,
       "respondents": 9,
       "rows": 9
     },
     {
-      "absolute_residual": 0.22395658561655224,
+      "absolute_residual": 0.25777256885036187,
+      "observed_a_share": 0.3333333333333333,
+      "pair": [
+        "Audi Q5",
+        "Porsche Macan"
+      ],
+      "predicted_a_share": 0.5911059021836952,
+      "respondents": 3,
+      "rows": 3
+    },
+    {
+      "absolute_residual": 0.25765594996041113,
       "observed_a_share": 0.0,
       "pair": [
         "Lexus TX",
         "Lincoln Aviator"
       ],
-      "predicted_a_share": 0.22395658561655224,
+      "predicted_a_share": 0.25765594996041113,
+      "respondents": 3,
+      "rows": 3
+    },
+    {
+      "absolute_residual": 0.24326084523717456,
+      "observed_a_share": 0.3333333333333333,
+      "pair": [
+        "Subaru Crosstrek",
+        "Subaru Forester"
+      ],
+      "predicted_a_share": 0.5765941785705079,
       "respondents": 3,
       "rows": 3
     }
   ],
   "primary": {
     "axes": {
-      "long_trip": 16,
-      "nvh": 136,
-      "overall": 95,
-      "ride": 343,
-      "seats": 141
+      "long_trip": 18,
+      "nvh": 144,
+      "overall": 99,
+      "ride": 370,
+      "seats": 150
     },
     "collection_batches": {
       "audit_or_unresolved": 4,
@@ -303,20 +303,30 @@
       "pass_6": 75,
       "pass_7": 89,
       "pass_8": 65,
-      "pass_9": 10
+      "pass_9": 10,
+      "round_01_vbulletin": 11,
+      "round_02_owner_forums": 10,
+      "round_03_neutral_forums": 2,
+      "round_04_reddit_brand": 15,
+      "round_04_x": 12
     },
-    "observations": 731,
-    "raw_rows": 790,
-    "respondents": 628,
+    "observations": 781,
+    "raw_rows": 840,
+    "respondents": 665,
     "sources": {
+      "bobistheoilguy": 2,
       "cars.com": 29,
+      "clublexus": 5,
       "edmunds": 48,
-      "reddit": 653,
-      "x": 1
+      "genesisowners": 5,
+      "mbworld": 6,
+      "reddit": 668,
+      "rivianforums": 5,
+      "x": 13
     },
-    "statement_mass": 651.0,
-    "statements": 651,
-    "threads": 391
+    "statement_mass": 688.0,
+    "statements": 688,
+    "threads": 422
   },
   "scopes": {
     "compact": {
@@ -348,28 +358,19 @@
       ],
       "cross_segment_observations": 0,
       "cross_segment_statement_mass": 0,
-      "max_abs_gradient": 1.3186395608766333e-07,
+      "max_abs_gradient": 2.9248178767815602e-08,
       "models": 21,
-      "objective": 53.225629896299665,
-      "observations": 151,
+      "objective": 53.882431680342634,
+      "observations": 152,
       "ranked_models": 19,
-      "respondents": 135,
+      "respondents": 136,
       "scope": "compact",
-      "statement_mass": 140.4,
-      "statements": 141,
-      "unique_pairs": 57
+      "statement_mass": 141.4,
+      "statements": 142,
+      "unique_pairs": 58
     },
     "family_3row": {
-      "bridges": [
-        [
-          "Hyundai Palisade",
-          "Hyundai Santa Fe"
-        ],
-        [
-          "Kia Sorento",
-          "Kia Telluride"
-        ]
-      ],
+      "bridges": [],
       "components": [
         [
           "Buick Enclave",
@@ -392,16 +393,16 @@
       ],
       "cross_segment_observations": 0,
       "cross_segment_statement_mass": 0,
-      "max_abs_gradient": 1.5155843924308243e-07,
+      "max_abs_gradient": 1.0876475275978237e-08,
       "models": 16,
-      "objective": 76.56370958936567,
-      "observations": 163,
-      "ranked_models": 11,
-      "respondents": 137,
+      "objective": 78.07172884523999,
+      "observations": 169,
+      "ranked_models": 12,
+      "respondents": 141,
       "scope": "family_3row",
-      "statement_mass": 140.0,
-      "statements": 140,
-      "unique_pairs": 39
+      "statement_mass": 144.0,
+      "statements": 144,
+      "unique_pairs": 41
     },
     "flagship": {
       "bridges": [],
@@ -425,28 +426,19 @@
       ],
       "cross_segment_observations": 0,
       "cross_segment_statement_mass": 0,
-      "max_abs_gradient": 3.485507082956474e-08,
+      "max_abs_gradient": 1.6136451723436362e-08,
       "models": 14,
-      "objective": 34.28456084328894,
-      "observations": 82,
-      "ranked_models": 11,
-      "respondents": 71,
+      "objective": 36.53555130380439,
+      "observations": 87,
+      "ranked_models": 13,
+      "respondents": 75,
       "scope": "flagship",
-      "statement_mass": 71.5,
-      "statements": 72,
-      "unique_pairs": 33
+      "statement_mass": 75.5,
+      "statements": 76,
+      "unique_pairs": 34
     },
     "global": {
-      "bridges": [
-        [
-          "Hyundai Palisade",
-          "Hyundai Santa Fe"
-        ],
-        [
-          "Kia Sorento",
-          "Kia Telluride"
-        ]
-      ],
+      "bridges": [],
       "components": [
         [
           "Acura MDX",
@@ -528,18 +520,18 @@
           "Volvo XC90"
         ]
       ],
-      "cross_segment_observations": 139,
-      "cross_segment_statement_mass": 123.43333333333334,
-      "max_abs_gradient": 3.4692073574982274e-07,
+      "cross_segment_observations": 160,
+      "cross_segment_statement_mass": 138.43333333333334,
+      "max_abs_gradient": 1.7069679003611782e-14,
       "models": 77,
-      "objective": 295.4370419783955,
-      "observations": 731,
-      "ranked_models": 73,
-      "respondents": 628,
+      "objective": 313.22606426388666,
+      "observations": 781,
+      "ranked_models": 74,
+      "respondents": 665,
       "scope": "global",
-      "statement_mass": 651.0,
-      "statements": 651,
-      "unique_pairs": 280
+      "statement_mass": 688.0,
+      "statements": 688,
+      "unique_pairs": 294
     },
     "mid_luxury": {
       "bridges": [
@@ -578,15 +570,15 @@
       ],
       "cross_segment_observations": 0,
       "cross_segment_statement_mass": 0,
-      "max_abs_gradient": 2.8963646064861237e-08,
+      "max_abs_gradient": 2.1441245484643545e-07,
       "models": 24,
-      "objective": 78.8353017022249,
-      "observations": 196,
+      "objective": 85.53312152137413,
+      "observations": 213,
       "ranked_models": 20,
-      "respondents": 172,
+      "respondents": 185,
       "scope": "mid_luxury",
-      "statement_mass": 175.66666666666666,
-      "statements": 178,
+      "statement_mass": 188.66666666666666,
+      "statements": 191,
       "unique_pairs": 67
     }
   },

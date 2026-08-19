@@ -10,8 +10,8 @@ Each panel is a separate fit using only comparisons inside that segment. Scores 
 
 | Segment | Point-estimate leaders | Main caution |
 |---|---|---|
-| Flagship / large | Yukon, Grand Wagoneer, Navigator, Escalade, GLS, Range Rover | Only 72 within-segment statements; most intervals span several ranks. |
-| Midsize luxury | Aviator, Q7, MDX, iX, Range Rover Sport, GLE, GV80 | Comfort remains multidimensional; direct X5–RX and X5–GV80 residuals are large. |
+| Flagship / large | QX80, Yukon, Grand Wagoneer, Navigator, Escalade, Range Rover | Only 76 within-segment statements; QX80's lead rests on a thin LX sample. |
+| Midsize luxury | Q7, Aviator, MDX, Range Rover Sport, iX, GLE, XC90 | Comfort remains multidimensional; Defender–XC90 and several Palisade residuals are large. |
 | Three-row family | Atlas, Palisade, Enclave, Pathfinder, Ascent, Pilot, Telluride | Palisade has far more support than the other point leaders. |
 | Compact / small-mid | Nautilus, 2026 Outback, Q5, Macan, Venza, XC60, Corsair | CX-9 lacks enough within-segment coverage despite its global point rank. |
 
@@ -23,30 +23,30 @@ The chart below uses only the filtered primary observations—never model-implie
 
 ![Best-supported direct SUV comfort matchups split into ride, seat, NVH, long-trip, and overall judgments](reports/figures/direct_matchups.png)
 
-Among the best-supported pairs, GLS is 11–0 in normalized statement mass against X7, Venza is 9–0 against RAV4, GX 460 is 8–0 against 4Runner, and Palisade is 7.2–1 against Pilot. The axis breakdown matters—Escalade versus Navigator, for example, splits ride from seats.
+Among the best-supported pairs, GLS is 12–1 in normalized statement mass against X7, Venza is 9–0 against RAV4, GX 460 is 8–0 against 4Runner, and Palisade is 7.2–1 against Pilot. The axis breakdown matters—Escalade versus Navigator, for example, splits ride from seats.
 
 ## Global ranking
 
-Dots are regularized Bradley–Terry point estimates. Lines are 90% respondent-cluster resampling intervals. The right annotation is `respondents · opponents`; four models below the minimum coverage rule are not assigned a rank.
+Dots are regularized Bradley–Terry point estimates. Lines are 90% respondent-cluster resampling intervals. The right annotation is `respondents · opponents`; three models below the minimum coverage rule are not assigned a rank.
 
 ![Global SUV comfort point rankings with wide 90% stability intervals](reports/figures/global_rank_stability.png)
 
-The first ten point ranks show why the interval belongs next to the number. Range Rover and GLS sit at the top, but their 90% rank ranges still run into the mid-teens. CX-9 is the clearest warning against reading point rank as a podium: six respondent clusters compared it with five mostly mainstream opponents, and its stability range is 2–21.
+The first ten point ranks show why the interval belongs next to the number. Infiniti QX80 now sits at the top after two ClubLexus first-hand comparisons with LX crossed the coverage threshold, but its 90% rank range still runs to 20. Range Rover and GLS remain near the top with wider samples. CX-9 is still a warning against reading point rank as a podium: six respondent clusters compared it with five mostly mainstream opponents, and its stability range is 2–24.
 
 | Rank | Model | Modeled P vs average | 90% rank range | Respondents | Opponents |
 |---:|---|---:|---:|---:|---:|
-| 1 | Range Rover | 92% | 1–16 | 16 | 8 |
-| 2 | Mercedes GLS | 92% | 1–15 | 19 | 9 |
-| 3 | Mercedes EQS SUV | 91% | 1–26 | 8 | 3 |
-| 4 | Mazda CX-9 | 91% | 2–21 | 6 | 5 |
-| 5 | Cadillac Escalade IQ | 90% | 1–27 | 6 | 4 |
-| 6 | GMC Yukon | 88% | 2–24 | 24 | 11 |
-| 7 | Lincoln Nautilus | 87% | 1–24 | 16 | 9 |
-| 8 | Buick Enclave | 86% | 2–31 | 8 | 5 |
-| 9 | Cadillac XT6 | 86% | 2–33 | 9 | 6 |
-| 10 | Volkswagen Atlas | 85% | 2–29 | 15 | 5 |
+| 1 | Infiniti QX80 | 94% | 1–20 | 6 | 5 |
+| 2 | Range Rover | 91% | 1–19 | 16 | 8 |
+| 3 | Mazda CX-9 | 91% | 2–24 | 6 | 5 |
+| 4 | Mercedes EQS SUV | 90% | 1–26 | 8 | 3 |
+| 5 | Cadillac Escalade IQ | 90% | 1–28 | 6 | 4 |
+| 6 | Mercedes GLS | 89% | 1–20 | 21 | 9 |
+| 7 | Lincoln Nautilus | 88% | 1–23 | 16 | 9 |
+| 8 | GMC Yukon | 87% | 2–25 | 24 | 11 |
+| 9 | Buick Enclave | 86% | 2–32 | 8 | 5 |
+| 10 | Cadillac XT6 | 86% | 2–34 | 9 | 6 |
 
-`P vs average` is the model's estimate of how often this vehicle would be preferred to an average vehicle **in this corpus**. See the [complete generated global table](reports/rankings.md#global-ranking), including the four models whose coverage was withheld.
+`P vs average` is the model's estimate of how often this vehicle would be preferred to an average vehicle **in this corpus**. See the [complete generated global table](reports/rankings.md#global-ranking), including the three models whose coverage was withheld.
 
 ## What this can and cannot answer
 
@@ -54,14 +54,14 @@ The estimand is the ordering implied by the collected statements in which someon
 
 | Primary analysis | Count |
 |---|---:|
-| Coded source rows | 790 |
-| Retained pair-axis judgments | 731 |
-| Source statements | 651 |
-| Respondent clusters | 628 |
+| Coded source rows | 840 |
+| Retained pair-axis judgments | 781 |
+| Source statements | 688 |
+| Respondent clusters | 665 |
 | Models in the connected global graph | 77 |
 | Respondent bootstrap refits | 2,000 |
 
-Reddit supplies 653 of the 731 retained observations; Edmunds and Cars.com consumer reviews supply most of the rest. Ride is the most common axis (343), then seats (141), NVH (136), overall (95), and explicit long-trip fatigue (16).
+Reddit supplies 668 of the 781 retained observations; Edmunds, Cars.com, owner forums (MBWorld, ClubLexus, Genesis Owners, Rivian Forums), BITOG, and X supply the rest. Ride is the most common axis (370), then seats (150), NVH (144), overall (99), and explicit long-trip fatigue (18).
 
 ## How the analysis works
 

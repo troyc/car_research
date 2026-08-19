@@ -2,6 +2,8 @@
 
 > **Archive:** This file preserves the hand-authored interpretation and the nine-pass collection record that preceded the uncertainty-aware analysis. Its ranks and counts are historical, not current. See [`rankings.md`](rankings.md) for generated results.
 
+> **Later expansion:** On 19 August 2026, fifty first-hand rows from five staged collection rounds were merged into [`../data/comparisons.csv`](../data/comparisons.csv). No parent IDs, source statements, or respondent/pair/axis judgments were duplicated. Current generated results are in [`rankings.md`](rankings.md).
+
 **Collected 18 August 2026; expanded nine times the same day** — Edmunds/Cars.com and three-row family SUVs; then **2020–2025 / 2026 Subaru Outback**, **Ascent**, **2020–2022 RX / RX L**, and **2014–2023 GX 460**; then thin luxury / missing three-row / trucks; then remaining thin flagship, mid-luxury, compact-luxury, three-row, and truck nodes; then Yukon / Tahoe / Suburban / QX80 / Escalade IQ, EQS SUV / Defender / R1S / Cayenne / Macan, Crosstrek / Corsair / X1 / Model Y, and CX-90 / Pathfinder / Murano / Passport; then a seventh pass on Yukon / R1S / Sequoia / QX80 / Tahoe, Defender / Cayenne / Grand Cherokee, Crosstrek / Corsair / X1 / Murano / Model Y, and CX-90 / Explorer / Enclave / GCL; then an **eighth pass** on Escalade IQ / EQS SUV / LX / Yukon / Land Cruiser, Defender / Grand Cherokee / Cayenne / R1S / Model Y, Venza / Tiguan / Corsair / X1 / Crosstrek, and leftover GCL / XT5 / Enclave owner-review lines; then a **ninth pass** on Expedition / Suburban / Tahoe / Escalade / Navigator, 2026 Santa Fe / Palisade, and fresh RR / GLS / Q7 / X5 / GV80 links. Then a full-file **audit** removed 19 unsupported rows and recoded evidence / quotes / `home_team`. A second Bradley–Terry fit down-weights brand-sub home cooking: [`bias_analysis.md`](bias_analysis.md).
 
 Only comments that name two or more SUVs and pick a winner on comfort (ride, seats, quiet, long-trip fatigue). Isolated praise is not used.
@@ -588,3 +590,19 @@ If you only care about (1), buy air suspension and the smallest legal wheels. If
 - Comfort is not reliability. Range Rover, Palisade, Ascent, and Pathfinder all win comfort arguments in threads that immediately warn you about service.
 
 Current re-run instructions and outputs: [`../README.md`](../README.md#reproduce-it). The former bias table has been replaced by [`../data/ranking_sensitivity.csv`](../data/ranking_sensitivity.csv).
+
+---
+
+## What the 19 August 2026 staged merge changed
+
+Fifty first-hand rows collected in five independent rounds were appended to `data/comparisons.csv` after checking for ID collisions, already-coded source statements, and respondent/unordered-pair/axis duplicates. Same-statement multi-axis and multi-pair rows were kept. The primary corpus is now **840 coded rows / 781 retained observations / 688 statements / 665 respondent clusters**.
+
+| Round | Source | Rows added |
+|---|---|---:|
+| `round_01_vbulletin` | MBWorld, ClubLexus | 11 |
+| `round_02_owner_forums` | Genesis Owners, Rivian Forums | 10 |
+| `round_03_neutral_forums` | Bob Is The Oil Guy | 2 |
+| `round_04_reddit_brand` | brand subreddits | 15 |
+| `round_04_x` | X | 12 |
+
+The merge filled previously thin coverage rather than rewriting the shopping chain. Infiniti QX80 crossed the five-respondent / three-opponent gate (mostly via ClubLexus LX comparisons) and now receives a global rank, though its interval is still wide. Hyundai Santa Fe and Kia Sorento gained respondents but still lack three distinct opponents. Jeep Grand Cherokee remains below the respondent threshold. New owner-forum sources are `mbworld`, `clublexus`, `genesisowners`, `rivianforums`, and `bobistheoilguy`.

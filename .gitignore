@@ -61,6 +61,3 @@ Thumbs.db
 
 # audit: fetched page HTML (re-create with audit/fetch_pages.sh)
 audit/raw/
-
-# staged collection snapshots (re-create from round manifests)
-more-data/raw/

@@ -1,78 +1,78 @@
 rank,model,theta,wins,losses,appearances,segment,p_vs_average,theta_lo,theta_hi,p_lo,p_hi,rank_lo,rank_hi,n_statements,n_respondents,n_opponents,status
-1,Mercedes GLS,2.925055,11,1,12,flagship,0.949071,,,,,,,12,12,6,ranked
-2,Subaru Outback 2026,2.759943,10,0,10,compact,0.940472,,,,,,,10,10,6,ranked
-3,Range Rover,2.587175,14,2,16,flagship,0.930032,,,,,,,16,16,8,ranked
-,Infiniti QX80,2.348234,4,0,4,flagship,0.912794,,,,,,,3,3,3,insufficient_respondents
-4,Mercedes EQS SUV,2.303940,8,1,9,flagship,0.909203,,,,,,,9,8,3,ranked
-5,Mazda CX-9,2.288808,7,0,7,compact,0.907946,,,,,,,6,6,5,ranked
-6,Cadillac XT6,2.271237,7,1,8,family_3row,0.906467,,,,,,,8,8,6,ranked
-7,Volkswagen Atlas,2.256767,8,2,10,family_3row,0.905233,,,,,,,10,10,5,ranked
-8,GMC Yukon,2.171357,17,3,20,flagship,0.897648,,,,,,,20,20,10,ranked
-9,Cadillac Escalade IQ,2.048740,6,1,7,flagship,0.885820,,,,,,,7,6,4,ranked
-10,Nissan Murano,1.995072,4,1,5,compact,0.880279,,,,,,,5,5,3,ranked
-11,Lincoln Nautilus,1.900877,10,2,12,compact,0.869991,,,,,,,12,12,8,ranked
-12,Buick Enclave,1.708773,6,3,9,family_3row,0.846677,,,,,,,7,7,5,ranked
-13,Hyundai Palisade,1.679834,30,11,41,family_3row,0.842883,,,,,,,40,40,17,ranked
-14,Audi Q7,1.654275,6,1,7,mid_luxury,0.839468,,,,,,,6,6,3,ranked
-15,Range Rover Sport,1.525938,7,2,9,mid_luxury,0.821411,,,,,,,8,8,5,ranked
-16,Lincoln Aviator,1.462900,7,2,9,mid_luxury,0.811976,,,,,,,9,9,6,ranked
-,Jeep Grand Wagoneer,1.358307,3,2,5,flagship,0.795484,,,,,,,4,4,2,insufficient_respondents
-17,Lexus LX,1.224168,6,1,7,flagship,0.772796,,,,,,,7,7,3,ranked
-18,Cadillac Escalade,1.011794,12,11,23,flagship,0.733371,,,,,,,21,21,9,ranked
-19,Acura MDX,0.991060,4,2,6,mid_luxury,0.729297,,,,,,,6,6,4,ranked
-20,BMW iX,0.984909,9,6,15,mid_luxury,0.728081,,,,,,,15,14,5,ranked
-21,BMW X7,0.972785,8,12,20,flagship,0.725674,,,,,,,20,19,6,ranked
-22,Volvo XC60,0.905013,12,4,16,compact,0.711979,,,,,,,16,16,10,ranked
-23,Subaru Ascent,0.885622,15,6,21,family_3row,0.707986,,,,,,,16,16,9,ranked
-24,Nissan Pathfinder,0.861498,12,10,22,family_3row,0.702973,,,,,,,21,21,7,ranked
-25,Lincoln Corsair,0.843075,3,3,6,compact,0.699112,,,,,,,6,6,4,ranked
-26,Mercedes GLE,0.772734,15,9,24,mid_luxury,0.684112,,,,,,,24,24,9,ranked
-27,Lincoln Navigator,0.701794,6,9,15,flagship,0.668585,,,,,,,12,12,5,ranked
-28,Lexus RX,0.627287,14,9,23,mid_luxury,0.651874,,,,,,,21,21,13,ranked
-29,Genesis GV70,0.571420,7,4,11,mid_luxury,0.639091,,,,,,,10,10,6,ranked
-,Jeep Grand Cherokee,0.545293,3,2,5,mid_luxury,0.633043,,,,,,,4,4,4,insufficient_respondents
-,Audi Q8,0.504610,2,2,4,mid_luxury,0.623542,,,,,,,3,3,2,insufficient_respondents
-30,Volvo XC90,0.465343,9,10,19,mid_luxury,0.614281,,,,,,,18,18,12,ranked
-31,Lexus TX,0.350834,5,4,9,mid_luxury,0.586820,,,,,,,7,7,6,ranked
-32,Honda Pilot,0.304678,24,26,50,family_3row,0.575586,,,,,,,49,48,12,ranked
-33,Lexus NX,0.257237,6,6,12,compact,0.563957,,,,,,,12,12,7,ranked
-34,Lexus GX,0.244110,20,13,33,mid_luxury,0.560726,,,,,,,31,31,10,ranked
-35,Subaru Outback,0.134137,21,13,34,compact,0.533484,,,,,,,34,34,7,ranked
-36,Land Rover Defender,0.099763,10,12,22,mid_luxury,0.524920,,,,,,,22,21,6,ranked
-37,Toyota Venza,-0.006842,13,3,16,compact,0.498290,,,,,,,15,14,4,ranked
-38,Honda Passport,-0.043380,6,6,12,family_3row,0.489157,,,,,,,12,12,4,ranked
-39,Genesis GV80,-0.070344,2,5,7,mid_luxury,0.482421,,,,,,,7,7,4,ranked
-40,Toyota Highlander,-0.098056,7,15,22,family_3row,0.475506,,,,,,,22,21,10,ranked
-41,Kia Telluride,-0.101671,18,14,32,family_3row,0.474604,,,,,,,31,31,12,ranked
-42,BMW X5,-0.133073,28,34,62,mid_luxury,0.466781,,,,,,,58,56,24,ranked
-43,Volkswagen Tiguan,-0.301410,9,4,13,compact,0.425213,,,,,,,13,13,4,ranked
-44,Audi Q5,-0.368088,7,7,14,compact,0.409003,,,,,,,12,12,7,ranked
-45,Porsche Macan,-0.427156,2,4,6,compact,0.394806,,,,,,,6,6,3,ranked
-46,Honda CR-V,-0.463902,16,14,30,compact,0.386061,,,,,,,30,29,11,ranked
-47,Toyota Sequoia,-0.478368,2,10,12,flagship,0.382638,,,,,,,12,12,6,ranked
-48,Cadillac XT5,-0.749744,1,5,6,compact,0.320877,,,,,,,6,6,3,ranked
-,Ford Expedition,-0.767966,2,2,4,flagship,0.316919,,,,,,,4,4,3,insufficient_respondents
-49,Mercedes GLE AMG,-0.783749,1,4,5,mid_luxury,0.313512,,,,,,,5,5,4,ranked
-50,Ford Explorer,-0.833090,4,6,10,family_3row,0.302992,,,,,,,10,10,5,ranked
-51,Mercedes GLC,-0.836134,4,4,8,compact,0.302350,,,,,,,8,8,5,ranked
-,Jeep Grand Cherokee L,-0.887724,2,2,4,family_3row,0.291580,,,,,,,3,3,4,insufficient_respondents
-52,Porsche Cayenne,-1.098295,3,11,14,mid_luxury,0.250059,,,,,,,14,13,6,ranked
-,Hyundai Santa Fe,-1.257939,0,4,4,family_3row,0.221329,,,,,,,4,4,1,insufficient_respondents
-53,Toyota Grand Highlander,-1.344461,1,8,9,family_3row,0.206777,,,,,,,9,9,3,ranked
-54,Subaru Forester,-1.549232,2,10,12,compact,0.175197,,,,,,,12,12,6,ranked
-55,Mazda CX-90,-1.549279,2,11,13,family_3row,0.175190,,,,,,,13,12,4,ranked
-56,Tesla Model X,-1.725273,11,14,25,mid_luxury,0.151193,,,,,,,24,23,8,ranked
-57,Rivian R1S,-1.749153,5,18,23,mid_luxury,0.148154,,,,,,,23,23,9,ranked
-58,Subaru Crosstrek,-1.757451,3,10,13,compact,0.147110,,,,,,,13,13,4,ranked
-,Chevrolet Tahoe,-1.813626,0,4,4,flagship,0.140201,,,,,,,4,4,4,insufficient_respondents
-59,Lexus GX 550,-1.817698,6,11,17,mid_luxury,0.139710,,,,,,,17,16,7,ranked
-60,Mazda CX-5,-1.893367,3,7,10,compact,0.130861,,,,,,,10,10,7,ranked
-61,Toyota Land Cruiser,-2.135827,3,5,8,mid_luxury,0.105663,,,,,,,8,8,4,ranked
-62,Mazda CX-50,-2.447120,1,10,11,compact,0.079649,,,,,,,11,11,5,ranked
-63,BMW X3,-2.473379,3,10,13,compact,0.077746,,,,,,,13,13,8,ranked
-,Kia Sorento,-2.530731,0,5,5,family_3row,0.073732,,,,,,,5,5,1,insufficient_opponents
-64,Toyota 4Runner,-2.886844,3,21,24,mid_luxury,0.052808,,,,,,,24,24,7,ranked
-,Chevrolet Suburban,-2.919172,0,4,4,flagship,0.051214,,,,,,,4,4,3,insufficient_respondents
-65,Toyota RAV4,-3.023788,1,28,29,compact,0.046363,,,,,,,29,28,13,ranked
-66,BMW X1,-4.022187,0,6,6,compact,0.017598,,,,,,,6,6,4,ranked
-67,Tesla Model Y,-4.160878,0,14,14,mid_luxury,0.015354,,,,,,,14,14,4,ranked
+1,Subaru Outback 2026,2.807545,10,0,10,compact,0.943082,,,,,,,10,10,6,ranked
+,Infiniti QX80,2.709335,5,0,5,flagship,0.937575,,,,,,,4,4,4,insufficient_respondents
+2,Range Rover,2.453071,14,2,16,flagship,0.920786,,,,,,,16,16,8,ranked
+3,Mercedes GLS,2.378055,13,2,15,flagship,0.915138,,,,,,,14,14,6,ranked
+4,Volkswagen Atlas,2.282603,8,2,10,family_3row,0.907426,,,,,,,10,10,5,ranked
+5,Mazda CX-9,2.278387,7,0,7,compact,0.907071,,,,,,,6,6,5,ranked
+6,Cadillac XT6,2.246042,7,1,8,family_3row,0.904309,,,,,,,8,8,6,ranked
+7,Mercedes EQS SUV,2.219725,8,1,9,flagship,0.902007,,,,,,,9,8,3,ranked
+8,GMC Yukon,2.121772,17,3,20,flagship,0.893001,,,,,,,20,20,10,ranked
+9,Nissan Murano,2.000697,4,1,5,compact,0.880870,,,,,,,5,5,3,ranked
+10,Cadillac Escalade IQ,1.992347,6,1,7,flagship,0.879991,,,,,,,7,6,4,ranked
+11,Lincoln Nautilus,1.958680,10,2,12,compact,0.876390,,,,,,,12,12,8,ranked
+12,Buick Enclave,1.734450,6,3,9,family_3row,0.849981,,,,,,,7,7,5,ranked
+13,Hyundai Palisade,1.710560,30,11,41,family_3row,0.846909,,,,,,,40,40,17,ranked
+14,Audi Q7,1.706463,7,1,8,mid_luxury,0.846377,,,,,,,7,7,3,ranked
+15,Range Rover Sport,1.471933,7,2,9,mid_luxury,0.813351,,,,,,,8,8,5,ranked
+16,Lincoln Aviator,1.431804,7,2,9,mid_luxury,0.807182,,,,,,,9,9,6,ranked
+,Jeep Grand Wagoneer,1.323788,3,2,5,flagship,0.789811,,,,,,,4,4,2,insufficient_respondents
+17,Lexus LX,1.091372,6,2,8,flagship,0.748640,,,,,,,8,8,4,ranked
+18,Volvo XC60,1.001423,12,4,16,compact,0.731338,,,,,,,16,16,10,ranked
+19,Cadillac Escalade,0.974302,12,11,23,flagship,0.725976,,,,,,,21,21,9,ranked
+20,Subaru Ascent,0.931723,15,6,21,family_3row,0.717425,,,,,,,16,16,9,ranked
+21,Lincoln Corsair,0.913688,3,3,6,compact,0.713754,,,,,,,6,6,4,ranked
+22,BMW iX,0.895350,9,6,15,mid_luxury,0.709993,,,,,,,15,14,5,ranked
+23,Acura MDX,0.877268,4,2,6,mid_luxury,0.706256,,,,,,,6,6,4,ranked
+24,Nissan Pathfinder,0.874898,12,10,22,family_3row,0.705764,,,,,,,21,21,7,ranked
+25,BMW X7,0.835658,11,15,26,flagship,0.697550,,,,,,,25,24,7,ranked
+26,Lexus RX,0.775497,18,9,27,mid_luxury,0.684709,,,,,,,23,23,14,ranked
+27,Genesis GV70,0.671068,7,4,11,mid_luxury,0.661742,,,,,,,10,10,6,ranked
+28,Lincoln Navigator,0.663853,6,9,15,flagship,0.660125,,,,,,,12,12,5,ranked
+29,Mercedes GLE,0.627821,17,10,27,mid_luxury,0.651995,,,,,,,26,26,10,ranked
+,Jeep Grand Cherokee,0.516176,3,2,5,mid_luxury,0.626253,,,,,,,4,4,4,insufficient_respondents
+30,Lexus TX,0.463226,7,4,11,mid_luxury,0.613779,,,,,,,8,8,6,ranked
+,Audi Q8,0.449316,2,2,4,mid_luxury,0.610477,,,,,,,3,3,2,insufficient_respondents
+31,Volvo XC90,0.428213,12,10,22,mid_luxury,0.605447,,,,,,,20,20,12,ranked
+32,Lexus NX,0.364918,6,6,12,compact,0.590230,,,,,,,12,12,7,ranked
+33,Honda Pilot,0.327861,25,26,51,family_3row,0.581239,,,,,,,50,49,13,ranked
+34,Lexus GX,0.320794,20,13,33,mid_luxury,0.579518,,,,,,,31,31,10,ranked
+35,Subaru Outback,0.209194,21,13,34,compact,0.552109,,,,,,,34,34,7,ranked
+36,Land Rover Defender,0.057603,10,12,22,mid_luxury,0.514397,,,,,,,22,21,6,ranked
+37,Kia Telluride,0.028534,19,14,33,family_3row,0.507133,,,,,,,32,32,13,ranked
+38,Honda Passport,-0.012678,6,6,12,family_3row,0.496831,,,,,,,12,12,4,ranked
+39,Toyota Venza,-0.018615,13,3,16,compact,0.495346,,,,,,,15,14,4,ranked
+40,Toyota Highlander,-0.160380,8,18,26,family_3row,0.459991,,,,,,,25,24,11,ranked
+41,BMW X5,-0.190226,34,39,73,mid_luxury,0.452586,,,,,,,67,65,25,ranked
+42,Audi Q5,-0.247322,7,7,14,compact,0.438483,,,,,,,12,12,7,ranked
+43,Porsche Macan,-0.327990,2,4,6,compact,0.418730,,,,,,,6,6,3,ranked
+44,Volkswagen Tiguan,-0.335010,9,4,13,compact,0.417022,,,,,,,13,13,4,ranked
+45,Genesis GV80,-0.383057,4,7,11,mid_luxury,0.405390,,,,,,,10,10,4,ranked
+46,Mercedes GLC,-0.433311,5,6,11,compact,0.393336,,,,,,,10,10,6,ranked
+47,Honda CR-V,-0.446170,16,14,30,compact,0.390272,,,,,,,30,29,11,ranked
+48,Toyota Sequoia,-0.521391,2,10,12,flagship,0.372527,,,,,,,12,12,6,ranked
+49,Cadillac XT5,-0.701044,1,5,6,compact,0.331581,,,,,,,6,6,3,ranked
+50,Ford Explorer,-0.769539,4,6,10,family_3row,0.316579,,,,,,,10,10,5,ranked
+,Jeep Grand Cherokee L,-0.789628,2,2,4,family_3row,0.312249,,,,,,,3,3,4,insufficient_respondents
+,Ford Expedition,-0.840248,2,2,4,flagship,0.301483,,,,,,,4,4,3,insufficient_respondents
+51,Mercedes GLE AMG,-0.848641,1,4,5,mid_luxury,0.299718,,,,,,,5,5,4,ranked
+,Hyundai Santa Fe,-1.080606,4,5,9,family_3row,0.253391,,,,,,,7,7,2,insufficient_opponents
+52,Porsche Cayenne,-1.161762,3,11,14,mid_luxury,0.238347,,,,,,,14,13,6,ranked
+53,Subaru Forester,-1.448156,2,10,12,compact,0.190285,,,,,,,12,12,6,ranked
+54,Toyota Grand Highlander,-1.468325,1,11,12,family_3row,0.187197,,,,,,,11,11,4,ranked
+55,Mazda CX-90,-1.506094,2,11,13,family_3row,0.181518,,,,,,,13,12,4,ranked
+56,Subaru Crosstrek,-1.517837,4,10,14,compact,0.179780,,,,,,,14,14,5,ranked
+57,Lexus GX 550,-1.584439,7,11,18,mid_luxury,0.170168,,,,,,,18,17,8,ranked
+58,Chevrolet Tahoe,-1.872794,2,5,7,flagship,0.133219,,,,,,,6,6,6,ranked
+59,Toyota Land Cruiser,-2.021592,3,5,8,mid_luxury,0.116954,,,,,,,8,8,4,ranked
+60,Mazda CX-5,-2.116945,3,8,11,compact,0.107461,,,,,,,11,11,8,ranked
+61,Tesla Model X,-2.164661,11,16,27,mid_luxury,0.102969,,,,,,,26,25,8,ranked
+62,Rivian R1S,-2.226932,5,23,28,mid_luxury,0.097358,,,,,,,26,26,10,ranked
+63,BMW X3,-2.299193,3,10,13,compact,0.091190,,,,,,,13,13,8,ranked
+64,Mazda CX-50,-2.525223,1,10,11,compact,0.074109,,,,,,,11,11,5,ranked
+,Kia Sorento,-2.556122,1,9,10,family_3row,0.072016,,,,,,,8,8,2,insufficient_opponents
+65,Toyota 4Runner,-2.767464,3,22,25,mid_luxury,0.059108,,,,,,,25,25,8,ranked
+66,Toyota RAV4,-3.066073,1,29,30,compact,0.044529,,,,,,,30,29,14,ranked
+,Chevrolet Suburban,-3.109142,0,4,4,flagship,0.042732,,,,,,,4,4,3,insufficient_respondents
+67,Tesla Model Y,-3.723079,1,17,18,mid_luxury,0.023590,,,,,,,17,17,5,ranked
+68,BMW X1,-3.885327,0,6,6,compact,0.020128,,,,,,,6,6,4,ranked
