@@ -1,5 +1,5 @@
-# audit_compiled — one line per suggested change
-Each line: `<id> <TAG>: <winner> > <loser> — <action>`; id = brief random id from the CSV `id` column (stable across row deletes). Tags: OK keep / QUOTE_FIX replace quote / RECODE change field / DELETE remove row / UNVERIFIED re-audit when fetchable. Upvotes intentionally untouched (planned for removal).
+# Compiled audit — one line per verdict (applied to `data/comparisons.csv`)
+Each line: `<id> <TAG>: <winner> > <loser> — <action>`; id = brief random id from the CSV `id` column (stable across row deletes). Tags: OK keep / QUOTE_FIX replace quote / RECODE change field / DELETE remove row / UNVERIFIED re-audit when fetchable. Upvotes intentionally untouched (planned for removal). DELETE / QUOTE_FIX / RECODE lines have been applied.
 w6cq DELETE: Lincoln Aviator > Lexus RX — remove row
 qur7 QUOTE_FIX: Lincoln Aviator > Lincoln Corsair — add parent/thread context: "I have one- they're huge. I think one of the smaller cheaper Lincolns would be better for a single person. They don't ride as nice, and aren't built as well though."
 qur7 RECODE: Lincoln Aviator > Lincoln Corsair — evidence owned_one_td_other → opinion
