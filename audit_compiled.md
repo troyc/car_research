@@ -245,15 +245,15 @@ Each line: `<id> <TAG>: <winner> > <loser> — <action>`; id = report number = C
 204 OK: Genesis GV70 > Volvo XC60 — keep as-is
 205 OK: Lexus RX > Volvo XC60 — keep as-is
 206 RECODE: Honda Pilot > Kia Telluride — evidence test_drove_both → owned_one_td_other
-207 UNVERIFIED: Toyota Highlander > Toyota Venza — page unreachable; keep as-is; re-audit when fetchable; quote contains coder-editorial bracket
+207 QUOTE_FIX: Toyota Highlander > Toyota Venza — replace quote with: "The Venza was too small, rides a bit stiff and road noise was irritating… It's a solid vehicle, feels much more substantial and drives much smoother than the Venza"
 208 OK: Toyota Venza > Toyota Highlander — keep as-is
-209 UNVERIFIED: Hyundai Palisade > Honda CR-V — page unreachable; keep as-is; re-audit when fetchable
-210 UNVERIFIED: Hyundai Palisade > Kia Telluride — page unreachable; keep as-is; re-audit when fetchable
+209 OK: Hyundai Palisade > Honda CR-V — keep as-is
+210 RECODE: Hyundai Palisade > Kia Telluride — evidence owned_both → owned_one_td_other
 211 OK: Subaru Outback > Honda CR-V — keep as-is
-212 UNVERIFIED: Mazda CX-5 > Toyota RAV4 — page unreachable; keep as-is; re-audit when fetchable
-213 UNVERIFIED: Honda CR-V > Mazda CX-50 — page unreachable; keep as-is; re-audit when fetchable
-214 UNVERIFIED: Mazda CX-5 > Mazda CX-50 — page unreachable; keep as-is; re-audit when fetchable
-215 UNVERIFIED: Mazda CX-50 > Mazda CX-5 — page unreachable; keep as-is; re-audit when fetchable
+212 OK: Mazda CX-5 > Toyota RAV4 — keep as-is
+213 OK: Honda CR-V > Mazda CX-50 — keep as-is
+214 QUOTE_FIX: Mazda CX-5 > Mazda CX-50 — replace quote with: "The driver seat is the most uncomfortable seat I have ever sat in. Total miss from the cx5"
+214 RECODE: Mazda CX-5 > Mazda CX-50 — evidence owned_both → opinion
 216 OK: Honda Pilot > Honda CR-V — keep as-is
 217 OK: Lincoln Aviator > Lexus RX — keep as-is
 218 OK: Lexus NX > Lexus RX — keep as-is
@@ -501,23 +501,26 @@ Each line: `<id> <TAG>: <winner> > <loser> — <action>`; id = report number = C
 456 OK: Toyota Land Cruiser > Toyota 4Runner — keep as-is
 457 OK: Toyota Land Cruiser > Toyota 4Runner — keep as-is
 458 OK: GMC Yukon > Cadillac Escalade IQ — keep as-is
-459 UNVERIFIED: Lincoln Nautilus > Jeep Grand Cherokee — page unreachable; keep as-is; re-audit when fetchable
-460 UNVERIFIED: Mercedes GLC > Cadillac XT5 — page unreachable; keep as-is; re-audit when fetchable
-461 UNVERIFIED: BMW X5 > Lexus RX — page unreachable; keep as-is; re-audit when fetchable
-462 UNVERIFIED: Audi Q5 > BMW X3 — page unreachable; keep as-is; re-audit when fetchable
+459 OK: Lincoln Nautilus > Jeep Grand Cherokee — keep as-is
+460 RECODE: Mercedes GLC > Cadillac XT5 — evidence owned_one_td_other → opinion
+461 OK: BMW X5 > Lexus RX — keep as-is
+462 RECODE: Audi Q5 > BMW X3 — evidence owned_one_td_other → opinion
 463 QUOTE_FIX: Lincoln Navigator > Cadillac Escalade — replace quote with: "I moved from the Cadillac Escalade to the Lincoln Navigator and I am so happy I did. The seats are so amazingly comfortable… It drives so smooth and has so many wonderful features!"
-464 UNVERIFIED: Audi Q5 > BMW X3 — page unreachable; keep as-is; re-audit when fetchable; quote names SQ5 not Q5 — confirm coding at re-audit
-465 UNVERIFIED: Mercedes GLE > Audi Q5 — page unreachable; keep as-is; re-audit when fetchable
-466 UNVERIFIED: Volvo XC60 > Mercedes GLC — page unreachable; keep as-is; re-audit when fetchable
-467 UNVERIFIED: Mercedes GLE > BMW X5 — page unreachable; keep as-is; re-audit when fetchable
-468 UNVERIFIED: Range Rover Sport > Mercedes GLE — page unreachable; keep as-is; re-audit when fetchable
-469 UNVERIFIED: Audi Q5 > Volvo XC60 — page unreachable; keep as-is; re-audit when fetchable; quote never names "Audi Q5"; seats axis not directly stated — recheck at re-audit
-470 UNVERIFIED: Audi Q5 > Mercedes GLC — page unreachable; keep as-is; re-audit when fetchable
-471 UNVERIFIED: Audi Q5 > BMW X3 — page unreachable; keep as-is; re-audit when fetchable
+464 OK: Audi Q5 > BMW X3 — keep as-is; SQ5 coded as Q5 (dataset convention)
+465 OK: Mercedes GLE > Audi Q5 — keep as-is
+466 RECODE: Volvo XC60 > Mercedes GLC — evidence test_drove_both → owned_one_td_other
+467 RECODE: Mercedes GLE > BMW X5 — evidence test_drove_both → owned_one_td_other
+468 RECODE: Range Rover Sport > Mercedes GLE — loser Mercedes GLE → Mercedes GLE AMG
+469 RECODE: Audi Q5 > Volvo XC60 — axis seats → overall
+469 RECODE: Audi Q5 > Volvo XC60 — evidence test_drove_both → owned_one_td_other
+470 RECODE: Audi Q5 > Mercedes GLC — axis seats → overall
+470 RECODE: Audi Q5 > Mercedes GLC — evidence test_drove_both → owned_one_td_other
+471 RECODE: Audi Q5 > BMW X3 — axis seats → overall
+471 RECODE: Audi Q5 > BMW X3 — evidence test_drove_both → owned_one_td_other
 472 OK: Cadillac XT6 > Acura MDX — keep as-is
 473 OK: Buick Enclave > Cadillac XT6 — keep as-is
-474 UNVERIFIED: Volkswagen Atlas > Nissan Murano — page unreachable; keep as-is; re-audit when fetchable
-475 UNVERIFIED: Nissan Pathfinder > Honda Pilot — page unreachable; keep as-is; re-audit when fetchable
+474 OK: Volkswagen Atlas > Nissan Murano — keep as-is
+475 OK: Nissan Pathfinder > Honda Pilot — keep as-is
 476 OK: Mercedes GLC > Tesla Model X — keep as-is
 477 OK: Mercedes GLS > BMW X7 — keep as-is
 478 RECODE: Mercedes GLS > BMW X7 — evidence test_drove_both → owned_one_td_other
@@ -625,7 +628,7 @@ Each line: `<id> <TAG>: <winner> > <loser> — <action>`; id = report number = C
 572 RECODE: Lexus GX 550 > Jeep Grand Cherokee L — evidence owned_one_td_other → owned_one_rode_other
 573 RECODE: Lexus LX > Lexus GX 550 — home_team 1 → 0
 574 OK: Mercedes GLS > Lexus GX 550 — keep as-is
-575 UNVERIFIED: Lexus GX > Toyota Land Cruiser — page unreachable; keep as-is; re-audit when fetchable
+575 OK: Lexus GX > Toyota Land Cruiser — keep as-is
 576 OK: Volkswagen Tiguan > Toyota RAV4 — keep as-is
 577 OK: Lexus GX > Acura MDX — keep as-is
 578 OK: Cadillac Escalade > GMC Yukon — keep as-is
@@ -704,10 +707,10 @@ Each line: `<id> <TAG>: <winner> > <loser> — <action>`; id = report number = C
 649 OK: Cadillac XT6 > GMC Yukon — keep as-is
 650 OK: Cadillac XT6 > Cadillac XT5 — keep as-is
 651 OK: Subaru Crosstrek > BMW X1 — keep as-is
-652 UNVERIFIED: GMC Yukon > Cadillac Escalade — page unreachable; keep as-is; re-audit when fetchable
-653 UNVERIFIED: Toyota Venza > Toyota RAV4 — page unreachable; keep as-is; re-audit when fetchable
-654 UNVERIFIED: Toyota Highlander > Toyota Venza — page unreachable; keep as-is; re-audit when fetchable
-655 UNVERIFIED: Subaru Crosstrek > Honda CR-V — page unreachable; keep as-is; re-audit when fetchable
+652 OK: GMC Yukon > Cadillac Escalade — keep as-is
+653 OK: Toyota Venza > Toyota RAV4 — keep as-is
+654 OK: Toyota Highlander > Toyota Venza — keep as-is
+655 OK: Subaru Crosstrek > Honda CR-V — keep as-is
 656 OK: Mazda CX-9 > Toyota RAV4 — keep as-is
 657 OK: GMC Yukon > Rivian R1S — keep as-is
 658 OK: GMC Yukon > Rivian R1S — keep as-is
@@ -722,12 +725,12 @@ Each line: `<id> <TAG>: <winner> > <loser> — <action>`; id = report number = C
 667 OK: GMC Yukon > Range Rover — keep as-is
 668 OK: GMC Yukon > Toyota Sequoia — keep as-is
 669 RECODE: GMC Yukon > Lexus GX — home_team 0 → 1
-670 UNVERIFIED: Cadillac Escalade > Chevrolet Tahoe — page unreachable; keep as-is; re-audit when fetchable
-671 UNVERIFIED: Chevrolet Tahoe > Toyota Sequoia — page unreachable; keep as-is; re-audit when fetchable
+670 OK: Cadillac Escalade > Chevrolet Tahoe — keep as-is
+671 OK: Chevrolet Tahoe > Toyota Sequoia — keep as-is
 672 OK: Range Rover > Toyota Sequoia — keep as-is
 673 OK: GMC Yukon > Lexus GX — keep as-is
 674 QUOTE_FIX: Lexus RX > Lexus GX 550 — replace quote with: "I've test drive both twice. I enjoy both. The GX does ride a little rougher on the same road but that is too be expected."
-675 UNVERIFIED: GMC Yukon > Cadillac Escalade — page unreachable; keep as-is; re-audit when fetchable
+675 OK: GMC Yukon > Cadillac Escalade — keep as-is
 676 OK: Rivian R1S > Tesla Model X — keep as-is
 677 OK: Rivian R1S > Tesla Model X — keep as-is
 678 OK: Range Rover Sport > Land Rover Defender — keep as-is
@@ -797,13 +800,13 @@ Each line: `<id> <TAG>: <winner> > <loser> — <action>`; id = report number = C
 739 RECODE: Honda Pilot > Hyundai Palisade — evidence test_drove_both → owned_one_td_other
 740 OK: Mazda CX-5 > Mazda CX-90 — keep as-is
 741 OK: Honda Passport > Honda Pilot — keep as-is
-742 UNVERIFIED: Ford Explorer > Toyota Highlander — page unreachable; keep as-is; re-audit when fetchable
-743 UNVERIFIED: Toyota Highlander > Ford Explorer — page unreachable; keep as-is; re-audit when fetchable
-744 UNVERIFIED: Buick Enclave > Kia Telluride — page unreachable; keep as-is; re-audit when fetchable
-745 UNVERIFIED: Buick Enclave > Hyundai Palisade — page unreachable; keep as-is; re-audit when fetchable
-746 UNVERIFIED: Mazda CX-9 > Honda Pilot — page unreachable; keep as-is; re-audit when fetchable
-747 UNVERIFIED: Mazda CX-9 > Toyota Highlander — page unreachable; keep as-is; re-audit when fetchable
-748 UNVERIFIED: Mazda CX-9 > Nissan Pathfinder — page unreachable; keep as-is; re-audit when fetchable
+742 RECODE: Ford Explorer > Toyota Highlander — evidence test_drove_both → owned_one_td_other
+743 RECODE: Toyota Highlander > Ford Explorer — evidence test_drove_both → owned_one_td_other
+744 RECODE: Buick Enclave > Kia Telluride — evidence test_drove_both → owned_one_td_other
+745 RECODE: Buick Enclave > Hyundai Palisade — evidence test_drove_both → owned_one_td_other
+746 OK: Mazda CX-9 > Honda Pilot — keep as-is
+747 RECODE: Mazda CX-9 > Toyota Highlander — evidence test_drove_both → owned_one_td_other
+748 RECODE: Mazda CX-9 > Nissan Pathfinder — evidence test_drove_both → owned_one_td_other
 749 OK: Cadillac Escalade IQ > Tesla Model X — keep as-is
 750 OK: Cadillac Escalade IQ > Tesla Model X — keep as-is
 750 RECODE: Cadillac Escalade IQ > Tesla Model X — home_team 0 → 1
@@ -867,10 +870,11 @@ Each line: `<id> <TAG>: <winner> > <loser> — <action>`; id = report number = C
 790 RECODE: Subaru Outback > Subaru Forester — home_team 0 → 1
 791 OK: Nissan Murano > Tesla Model X — keep as-is
 791 RECODE: Nissan Murano > Tesla Model X — home_team 0 → 1
-792 UNVERIFIED: Buick Enclave > BMW X5 — page unreachable; keep as-is; re-audit when fetchable
-793 UNVERIFIED: Jeep Grand Cherokee L > Hyundai Palisade — page unreachable; keep as-is; re-audit when fetchable
-794 UNVERIFIED: Jeep Grand Cherokee L > Kia Telluride — page unreachable; keep as-is; re-audit when fetchable
-795 UNVERIFIED: Cadillac XT5 > BMW X3 — page unreachable; keep as-is; re-audit when fetchable
+792 OK: Buick Enclave > BMW X5 — keep as-is
+793 RECODE: Jeep Grand Cherokee L > Hyundai Palisade — evidence test_drove_both → owned_one_td_other
+794 RECODE: Jeep Grand Cherokee L > Kia Telluride — evidence test_drove_both → owned_one_td_other
+795 RECODE: Cadillac XT5 > BMW X3 — axis seats → overall
+795 RECODE: Cadillac XT5 > BMW X3 — evidence owned_one_td_other → owned_both
 796 QUOTE_FIX: Mercedes EQS SUV > BMW iX — replace quote with: "We've had both-a 2023 EQS suv and our 2025 iX50. … Seats are legit terrible … Seats were incredible-massages, pillows etc"
 797 OK: Mercedes EQS SUV > Rivian R1S — keep as-is
 798 OK: Subaru Crosstrek > Subaru Outback — keep as-is
