@@ -1,23 +1,29 @@
 # SUV Comfort Ranking from Customer Comparisons
 
-A reproducible analysis of first-hand online comments that compare two or more SUVs and state a preference on ride, seats, cabin quietness, long-trip fatigue, or overall comfort.
+This repository ranks SUV comfort from first-hand online comments that name two or more vehicles and pick a winner on ride, seats, cabin quietness, long-trip fatigue, or overall comfort, by coding those pairwise judgments and fitting a regularized Bradley–Terry model.
 
-> **What this can answer:** which vehicles were more often preferred in this collected corpus, given the comparisons people actually made. It is not a representative survey of SUV owners, and wide stability ranges are part of the result.
+## Rankings within shopping segments
 
-## The result in 30 seconds
+Each panel is a separate fit using only comparisons inside that segment. Scores and ranks must not be compared across panels. Open `†` entries lack five respondents or three opponents and do not receive an ordinal rank.
 
-- The global point estimate starts with **Range Rover, GLS, EQS SUV, CX-9, and Escalade IQ**, but their 90% rank ranges overlap broadly. CX-9 is the clearest warning against reading point rank as a podium: six respondent clusters compared it with five mostly mainstream opponents, and its stability range is 2–21.
-- Within shopping segments, the point leaders are **Yukon** (flagship/large), **Aviator** (midsize luxury), **Atlas** (three-row family), and **Nautilus** (compact/small-mid). These are ordering estimates, not categorical winners; several neighboring intervals overlap heavily.
-- Direct evidence is often more useful: GLS is 11–0 in normalized statement mass against X7, Venza is 9–0 against RAV4, GX 460 is 8–0 against 4Runner, and Palisade is 7.2–1 against Pilot. The axis breakdown matters—Escalade versus Navigator, for example, splits ride from seats.
+![Four within-segment SUV comfort rankings with 90% stability intervals](reports/figures/segment_rankings.png)
 
-| Primary analysis | Count |
-|---|---:|
-| Coded source rows | 790 |
-| Retained pair-axis judgments | 731 |
-| Source statements | 651 |
-| Respondent clusters | 628 |
-| Models in the connected global graph | 77 |
-| Respondent bootstrap refits | 2,000 |
+| Segment | Point-estimate leaders | Main caution |
+|---|---|---|
+| Flagship / large | Yukon, Grand Wagoneer, Navigator, Escalade, GLS, Range Rover | Only 72 within-segment statements; most intervals span several ranks. |
+| Midsize luxury | Aviator, Q7, MDX, iX, Range Rover Sport, GLE, GV80 | Comfort remains multidimensional; direct X5–RX and X5–GV80 residuals are large. |
+| Three-row family | Atlas, Palisade, Enclave, Pathfinder, Ascent, Pilot, Telluride | Palisade has far more support than the other point leaders. |
+| Compact / small-mid | Nautilus, 2026 Outback, Q5, Macan, Venza, XC60, Corsair | CX-9 lacks enough within-segment coverage despite its global point rank. |
+
+The [full segment tables](reports/rankings.md#within-segment-rankings) include probability, rank ranges, support, and withheld models.
+
+## What people compared directly
+
+The chart below uses only the filtered primary observations—never model-implied wins. Each statement has total mass one, split across its coded judgments, so totals can be fractional.
+
+![Best-supported direct SUV comfort matchups split into ride, seat, NVH, long-trip, and overall judgments](reports/figures/direct_matchups.png)
+
+Among the best-supported pairs, GLS is 11–0 in normalized statement mass against X7, Venza is 9–0 against RAV4, GX 460 is 8–0 against 4Runner, and Palisade is 7.2–1 against Pilot. The axis breakdown matters—Escalade versus Navigator, for example, splits ride from seats.
 
 ## Global ranking
 
@@ -25,7 +31,7 @@ Dots are regularized Bradley–Terry point estimates. Lines are 90% respondent-c
 
 ![Global SUV comfort point rankings with wide 90% stability intervals](reports/figures/global_rank_stability.png)
 
-The first ten point ranks show why the interval belongs next to the number:
+The first ten point ranks show why the interval belongs next to the number. Range Rover and GLS sit at the top, but their 90% rank ranges still run into the mid-teens. CX-9 is the clearest warning against reading point rank as a podium: six respondent clusters compared it with five mostly mainstream opponents, and its stability range is 2–21.
 
 | Rank | Model | Modeled P vs average | 90% rank range | Respondents | Opponents |
 |---:|---|---:|---:|---:|---:|
@@ -40,30 +46,22 @@ The first ten point ranks show why the interval belongs next to the number:
 | 9 | Cadillac XT6 | 86% | 2–33 | 9 | 6 |
 | 10 | Volkswagen Atlas | 85% | 2–29 | 15 | 5 |
 
-See the [complete generated global table](reports/rankings.md#global-ranking), including the four models whose coverage was withheld.
+`P vs average` is the model's estimate of how often this vehicle would be preferred to an average vehicle **in this corpus**. See the [complete generated global table](reports/rankings.md#global-ranking), including the four models whose coverage was withheld.
 
-## Rankings within shopping segments
+## What this can and cannot answer
 
-Each panel is a separate fit using only comparisons inside that segment. Scores and ranks must not be compared across panels. Open `†` entries lack five respondents or three opponents and do not receive an ordinal rank.
+The estimand is the ordering implied by the collected statements in which someone compared at least two SUVs from first-hand experience and chose a comfort winner. It is not a representative survey of SUV owners. Statements with no preference or a tie were not collected, so every estimate is conditional on an expressed preference. Stability intervals describe this corpus under respondent resampling, not uncertainty for all owners.
 
-![Four within-segment SUV comfort rankings with 90% stability intervals](reports/figures/segment_rankings.png)
+| Primary analysis | Count |
+|---|---:|
+| Coded source rows | 790 |
+| Retained pair-axis judgments | 731 |
+| Source statements | 651 |
+| Respondent clusters | 628 |
+| Models in the connected global graph | 77 |
+| Respondent bootstrap refits | 2,000 |
 
-| Segment | Point-estimate leaders | Main caution |
-|---|---|---|
-| Flagship / large | Yukon, Grand Wagoneer, Navigator, Escalade, GLS, Range Rover, Expedition | Only 72 within-segment statements; most intervals span several ranks. |
-| Midsize luxury | Aviator, Q7, MDX, iX, Range Rover Sport, GLE, GV80 | Comfort remains multidimensional; direct X5–RX and X5–GV80 residuals are large. |
-| Three-row family | Atlas, Palisade, Enclave, Pathfinder, Ascent, Pilot, Telluride | Palisade has far more support than the other point leaders. |
-| Compact / small-mid | Nautilus, 2026 Outback, Q5, Macan, Venza, XC60, Corsair | CX-9 lacks enough within-segment coverage despite its global point rank. |
-
-The [full segment tables](reports/rankings.md#within-segment-rankings) include probability, rank ranges, support, and withheld models.
-
-## What people compared directly
-
-The chart below uses only the filtered primary observations—never model-implied wins. Each statement has total mass one, split across its coded judgments, so totals can be fractional.
-
-![Best-supported direct SUV comfort matchups split into ride, seat, NVH, long-trip, and overall judgments](reports/figures/direct_matchups.png)
-
-[Source sensitivity](reports/figures/sensitivity.png) compares probabilities under the primary, owners-only, and neutral-forum samples. The [coverage graph](reports/figures/coverage_graph.png) shows which direct pairings hold the global scale together.
+Reddit supplies 653 of the 731 retained observations; Edmunds and Cars.com consumer reviews supply most of the rest. Ride is the most common axis (343), then seats (141), NVH (136), overall (95), and explicit long-trip fatigue (16).
 
 ## How the analysis works
 
@@ -74,6 +72,8 @@ The chart below uses only the filtered primary observations—never model-implie
 5. Withhold ordinal rank unless a model has five respondent clusters, three opponents, and membership in the scope's main connected component.
 
 The primary fit gives statements equal influence. Former evidence-quality and home-team multipliers are retained only as a `legacy_weights` sensitivity scenario; they are not described as a bias correction.
+
+[Source sensitivity](reports/figures/sensitivity.png) compares probabilities under the primary, owners-only, and neutral-forum samples. The [coverage graph](reports/figures/coverage_graph.png) shows which direct pairings hold the global scale together.
 
 Read the [methodology](reports/methodology.md), [model diagnostics](reports/model_diagnostics.md), and [machine-readable sensitivity table](data/ranking_sensitivity.csv) for the full specification.
 
