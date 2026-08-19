@@ -41,14 +41,18 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
-from parse_reddit import parse_thread
+try:  # script execution from audit/ or repository root
+    from parse_reddit import parse_thread
+except ModuleNotFoundError:  # package import (``import audit.audit_rows``)
+    from .parse_reddit import parse_thread
 
 REDDIT_ID_RE = re.compile(r"(?:old\.|www\.)?reddit\.com/.*?/comments/([a-z0-9]+)")
 REDDIT_SUB_RE = re.compile(r"reddit\.com/r/([A-Za-z0-9_]+)")
 
 # Subreddit -> home badge model(s). A row whose winner is the sub's badge is a
-# home-team win (home_team=1 in the CSV); rank.py penalizes those. The audit
-# sanity-check below flags rows where the flag disagrees with the winner.
+# home-team win (home_team=1 in the CSV). The primary fit does not alter its
+# weight; the flag feeds community-affinity and legacy-weight sensitivities.
+# The audit sanity-check below flags rows where the coding disagrees.
 # Only subs that actually appear in comparisons.csv are listed; unknown subs
 # are skipped silently.
 HOME_MODELS = {
@@ -163,11 +167,11 @@ def home_team_flag(row, url):
     coded = row["home_team"].strip() == "1"
     if is_home and not coded:
         return (f"home_team=0 but the winner IS the r/{m.group(1)} home badge "
-                f"(expected 1; its home-sub wins are currently unpenalized)")
+                f"(expected 1; community-affinity sensitivity is miscoded)")
     if coded and not is_home:
         return (f"home_team=1 but the winner is NOT the r/{m.group(1)} home "
-                f"badge (expected 0; the row is penalized in the wrong "
-                f"direction)")
+                f"badge (expected 0; community-affinity sensitivity is "
+                f"miscoded)")
     return None
 
 
@@ -223,7 +227,7 @@ def show(cid, c, comments, label):
             break
         par = comments[p]
         print(f"  [parent {p} u/{par['author']} {par['score']}pts]: "
-              f"{par['body'][:a8gs]}")
+              f"{par['body'][:500]}")
         p = par["parent"]
     print()
 
@@ -255,12 +259,14 @@ def resolve_page(raw: Path, url: str, src: str):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("rows", nargs="*", help="'start end' or '--all'")
+    ap.add_argument("--all", action="store_true", dest="all_rows",
+                    help="audit every CSV row")
     ap.add_argument("--csv", default="data/comparisons.csv")
     ap.add_argument("--raw", default="audit/raw")
     args = ap.parse_args()
 
     rows = list(csv.DictReader(open(args.csv)))
-    if args.rows and args.rows[0] == "--all":
+    if args.all_rows or (args.rows and args.rows[0] == "--all"):
         start, end = 1, len(rows)
     elif len(args.rows) == 2:
         start, end = int(args.rows[0]), int(args.rows[1])
@@ -309,7 +315,7 @@ def main():
                       f"context needs an extractor (see audit/README.md)")
             pages[key] = page
             if page["post"]["body"]:
-                print(f"    body: {page['post']['body'][:qvw3]}...")
+                print(f"    body: {page['post']['body'][:160]}...")
             print()
 
         page = pages[key]
@@ -326,7 +332,7 @@ def main():
 
         locs = {}  # location -> (hits, total, body, kind)
         if qn and pb and qn in pb:
-            locs["POST"] = (10**w4g9, 0, page["post"]["body"], "verbatim")
+            locs["POST"] = (10**9, 0, page["post"]["body"], "verbatim")
         elif pb:
             h, tot = frag_coverage(qn, pb)
             if h:
@@ -334,7 +340,7 @@ def main():
         for cid, c in comments.items():
             bn = norm(c["body"])
             if qn and qn in bn:
-                locs[cid] = (10**w4g9, 0, c["body"], "verbatim")
+                locs[cid] = (10**9, 0, c["body"], "verbatim")
             else:
                 h, tot = frag_coverage(qn, bn)
                 if h:
@@ -342,14 +348,14 @@ def main():
 
         best = max(locs.items(), key=lambda kv: kv[1][0]) if locs else None
 
-        if best and best[1][0] == 10**w4g9:
+        if best and best[1][0] == 10**9:
             loc = best[0]
             if loc == "POST":
                 print(f">> VERBATIM MATCH in PAGE BODY (source {src})")
                 if comments:
                     print(f"   [post u/{page['post']['author']} "
                           f"score={page['post']['score']}]")
-                    print(page["post"]["body"][:n6s7])
+                    print(page["post"]["body"][:800])
                 else:
                     show_window(page["post"]["body"], qn)
                 if page["post"]["score"] is not None:

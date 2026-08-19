@@ -1,141 +1,124 @@
 # SUV Comfort Ranking from Customer Comparisons
 
-Research project that ranks SUV comfort from **customer comments that compare two or more SUVs and state a preference**. Isolated praise ("the X5 is comfy") is not used. Only relative statements are.
+A reproducible analysis of first-hand online comments that compare two or more SUVs and state a preference on ride, seats, cabin quietness, long-trip fatigue, or overall comfort.
 
-## What this is
+> **What this can answer:** which vehicles were more often preferred in this collected corpus, given the comparisons people actually made. It is not a representative survey of SUV owners, and wide stability ranges are part of the result.
 
-A Bradley–Terry ranking of current-generation SUVs on ride comfort, seats, cabin quiet, and long-trip fatigue, built from first-hand owner and test-drive comments on Reddit, X, and Edmunds/Cars.com consumer reviews. Collected 18 August 2026; expanded the same day through nine research passes, then audited (19 unsupported rows removed; evidence tags, quotes, and `home_team` recoded). A second fit down-weights source bias. A third fit keeps only owners (no same-day testers). Reddit / X scores are not used in any fit.
+## The result in 30 seconds
 
-## How to read it
+- The global point estimate starts with **Range Rover, GLS, EQS SUV, CX-9, and Escalade IQ**, but their 90% rank ranges overlap broadly. CX-9 is the clearest warning against reading point rank as a podium: six respondent clusters compared it with five mostly mainstream opponents, and its stability range is 2–21.
+- Within shopping segments, the point leaders are **Yukon** (flagship/large), **Aviator** (midsize luxury), **Atlas** (three-row family), and **Nautilus** (compact/small-mid). These are ordering estimates, not categorical winners; several neighboring intervals overlap heavily.
+- Direct evidence is often more useful: GLS is 11–0 in normalized statement mass against X7, Venza is 9–0 against RAV4, GX 460 is 8–0 against 4Runner, and Palisade is 7.2–1 against Pilot. The axis breakdown matters—Escalade versus Navigator, for example, splits ride from seats.
 
-Open `reports/composite_ranking.md` first. That file is the result: one composite chain plus segment rankings. `reports/bias_analysis.md` is the second reading — same quotes, less brand-sub weight. `reports/owner_analysis.md` is the third — same quotes, **no test drivers**.
+| Primary analysis | Count |
+|---|---:|
+| Coded source rows | 790 |
+| Retained pair-axis judgments | 731 |
+| Source statements | 651 |
+| Respondent clusters | 628 |
+| Models in the connected global graph | 77 |
+| Respondent bootstrap refits | 2,000 |
 
-- `data/comparisons.csv` — coded pairwise votes (each row has a stable 4-character `id`)
-- `src/rank.py` — Bradley–Terry fit (default + bias-adjusted + owners)
-- `data/ranking.csv` / `data/ranking_bias.csv` / `data/ranking_owners.csv` — machine-readable tables
-- `reports/figures/` — PNGs of the graph, segment ladders, rank robustness, and top matchups
-- `audit/` — verification kit (`fetch_pages.sh`, `parse_reddit.py`, `audit_rows.py`), `compiled.md` (applied full-file audit), and `old/` (per-batch working notes)
-- `reports/methodology.md` — inclusion rules, weighting, generation coding, limits, and how to read Edmunds/Cars.com when the live review page is blocked
+## Global ranking
+
+Dots are regularized Bradley–Terry point estimates. Lines are 90% respondent-cluster resampling intervals. The right annotation is `respondents · opponents`; four models below the minimum coverage rule are not assigned a rank.
+
+![Global SUV comfort point rankings with wide 90% stability intervals](reports/figures/global_rank_stability.png)
+
+The first ten point ranks show why the interval belongs next to the number:
+
+| Rank | Model | Modeled P vs average | 90% rank range | Respondents | Opponents |
+|---:|---|---:|---:|---:|---:|
+| 1 | Range Rover | 92% | 1–16 | 16 | 8 |
+| 2 | Mercedes GLS | 92% | 1–15 | 19 | 9 |
+| 3 | Mercedes EQS SUV | 91% | 1–26 | 8 | 3 |
+| 4 | Mazda CX-9 | 91% | 2–21 | 6 | 5 |
+| 5 | Cadillac Escalade IQ | 90% | 1–27 | 6 | 4 |
+| 6 | GMC Yukon | 88% | 2–24 | 24 | 11 |
+| 7 | Lincoln Nautilus | 87% | 1–24 | 16 | 9 |
+| 8 | Buick Enclave | 86% | 2–31 | 8 | 5 |
+| 9 | Cadillac XT6 | 86% | 2–33 | 9 | 6 |
+| 10 | Volkswagen Atlas | 85% | 2–29 | 15 | 5 |
+
+See the [complete generated global table](reports/rankings.md#global-ranking), including the four models whose coverage was withheld.
+
+## Rankings within shopping segments
+
+Each panel is a separate fit using only comparisons inside that segment. Scores and ranks must not be compared across panels. Open `†` entries lack five respondents or three opponents and do not receive an ordinal rank.
+
+![Four within-segment SUV comfort rankings with 90% stability intervals](reports/figures/segment_rankings.png)
+
+| Segment | Point-estimate leaders | Main caution |
+|---|---|---|
+| Flagship / large | Yukon, Grand Wagoneer, Navigator, Escalade, GLS, Range Rover, Expedition | Only 72 within-segment statements; most intervals span several ranks. |
+| Midsize luxury | Aviator, Q7, MDX, iX, Range Rover Sport, GLE, GV80 | Comfort remains multidimensional; direct X5–RX and X5–GV80 residuals are large. |
+| Three-row family | Atlas, Palisade, Enclave, Pathfinder, Ascent, Pilot, Telluride | Palisade has far more support than the other point leaders. |
+| Compact / small-mid | Nautilus, 2026 Outback, Q5, Macan, Venza, XC60, Corsair | CX-9 lacks enough within-segment coverage despite its global point rank. |
+
+The [full segment tables](reports/rankings.md#within-segment-rankings) include probability, rank ranges, support, and withheld models.
+
+## What people compared directly
+
+The chart below uses only the filtered primary observations—never model-implied wins. Each statement has total mass one, split across its coded judgments, so totals can be fractional.
+
+![Best-supported direct SUV comfort matchups split into ride, seat, NVH, long-trip, and overall judgments](reports/figures/direct_matchups.png)
+
+[Source sensitivity](reports/figures/sensitivity.png) compares probabilities under the primary, owners-only, and neutral-forum samples. The [coverage graph](reports/figures/coverage_graph.png) shows which direct pairings hold the global scale together.
+
+## How the analysis works
+
+1. Keep first-hand owner, family-car, rental/loaner, passenger, and test-drive comparisons; exclude thin opinion, journalist, non-SUV, and unsupported-axis rows.
+2. Match rows back to source statements and privacy-preserving respondent clusters. A multi-car comment receives total mass one rather than counting like several independent people.
+3. Fit regularized global and within-segment Bradley–Terry models with a weak `Normal(0, 2.5²)` score prior and a converged SciPy optimizer.
+4. Resample respondents 2,000 times for the displayed 90% stability intervals, and resample threads 1,000 times as a discussion-clustering sensitivity check.
+5. Withhold ordinal rank unless a model has five respondent clusters, three opponents, and membership in the scope's main connected component.
+
+The primary fit gives statements equal influence. Former evidence-quality and home-team multipliers are retained only as a `legacy_weights` sensitivity scenario; they are not described as a bias correction.
+
+Read the [methodology](reports/methodology.md), [model diagnostics](reports/model_diagnostics.md), and [machine-readable sensitivity table](data/ranking_sensitivity.csv) for the full specification.
+
+## Reproduce it
 
 ```bash
+# numpy + scipy; writes rankings, intervals, diagnostics, and generated reports
 python3 src/rank.py
-```
 
-Then rebuild the figures from those CSVs (does not re-fit):
-
-```bash
-# matplotlib + numpy
+# matplotlib + numpy; reads only the generated analysis outputs
 python3 src/plot.py
 
-# this machine (Nix):
+# fast statistical tests
+pytest -q
+```
+
+On Nix:
+
+```bash
+nix-shell -p python3Packages.numpy python3Packages.scipy --run "python3 src/rank.py"
 nix-shell -p python3Packages.matplotlib python3Packages.numpy --run "python3 src/plot.py"
 ```
 
-Writes `reports/figures/comfort_ladders.png`, `comparison_graph.png`, `rank_robustness.png`, and `top_matchups.png`.
+Useful options:
 
-## Who met whom
+```bash
+python3 src/rank.py --bootstrap-reps 2000 --seed 20260819
+python3 src/rank.py --check
+python3 src/plot.py --only segment_rankings direct_matchups
+```
 
-Each line is a pair with 3+ coded votes. Height is global θ; columns are shopping segments. Most comparisons stay inside a column — that is why EQS SUV / XT6 / CX-9 sit near flagships on raw θ. Amber = the lower car won the head-to-head. Full-size image and the other charts: [`reports/figures/`](reports/figures/).
+## Repository map
 
-![Who actually sat in whom — pairwise SUV comfort comparisons](reports/figures/comparison_graph.png)
+- [`data/comparisons.csv`](data/comparisons.csv) — audited coded rows with statement/respondent/thread/batch metadata
+- [`data/analysis_observations.csv`](data/analysis_observations.csv) — generated primary observations and normalized analysis weights
+- [`data/ranking.csv`](data/ranking.csv) / [`data/ranking_segments.csv`](data/ranking_segments.csv) — global and within-segment results
+- [`src/rank.py`](src/rank.py) / [`src/plot.py`](src/plot.py) — analysis and visualization pipeline
+- [`audit/`](audit/) — source snapshots, verification, and metadata backfill tools
+- [`reports/collection_history.md`](reports/collection_history.md) — archived nine-pass narrative and retired hand-authored chain
 
-## Composite chain
+## Limits worth keeping in view
 
-Shopping order from who actually beat whom. Later bands are generally less comfortable. `≈` is a split; `/` is “about this neighborhood.” Caveats and who-met-whom: [`reports/composite_ranking.md`](reports/composite_ranking.md).
-
-| | Band | Models |
-|---:|---|---|
-| 1 | Magic carpet | **Range Rover** ≈ **GLS** ≈ **LX** |
-| 2 | Flagship / comfort-first luxury | Range Rover Sport ≈ Escalade / Escalade IQ / Navigator / Grand Wagoneer / Yukon / X7 / BMW iX / Lincoln Aviator / EQS SUV |
-| 3 | Dual-purpose luxury | Mercedes GLE / Audi Q7 / Acura MDX / Genesis GV80 / **BMW X5** ≈ **Lexus RX** / Audi Q8 |
-| 4 | Compact luxury | Audi Q5 / Lincoln Nautilus / Mercedes GLC / Volvo XC60 / Genesis GV70 / Lincoln Corsair |
-| 5 | Comfortable three-row / near-luxury compact | **Palisade** ≥ Ascent (ride) ≥ Pathfinder (seats vs Pilot) ≥ Telluride ≥ Atlas ≥ Expedition (split) ≥ 2026 Outback / Murano / Venza / Santa Fe |
-| 6 | Mainstream three-row | Honda Pilot / Toyota Highlander / Toyota Grand Highlander / Mazda CX-90 |
-| 7 | Comfortable compact | Honda CR-V ≈ 2020–25 Subaru Outback |
-| 8 | Firm / fatiguing | RAV4 / CX-5 / CX-50 / BMW X3 / Crosstrek / Model Y / 4Runner / Forester / R1S / BMW X1 |
-
-Off the ladder: **GX 460** beats 4Runner and splits RX (not an X5). **GX 550** beats Land Cruiser / usually 4Runner; loses to the 460 and air Defender. **Sequoia** loses ride/NVH to LX / Yukon / Range Rover / Navigator. **Defender** loses to Range Rover; beats Cayenne / R1S / GX 550. **Escalade IQ** is 6–1 vs Model X and gas Escalade — not a Range Rover.
-
-## Mechanical ranking
-
-Core models with **three or more** coded appearances. Bradley–Terry θ and win–loss from the default fit (`python3 src/rank.py`). Raw θ still inflates cars that only beat same-class rivals (EQS SUV 9–1 vs iX/R1S, Escalade IQ 6–1 vs Model X, XT6 7–2, CX-9 7–0 vs Highlander/Pilot/RAV4). Use the chain above, not this numeric list, as a shopping order.
-
-| Rank | Model | θ | W–L |
-|---:|---|---:|---:|
-| 1 | Mercedes EQS SUV | 3.87 | 9–1 |
-| 2 | Range Rover | 2.98 | 15–2 |
-| 3 | Mazda CX-9 | 2.93 | 7–0 |
-| 4 | Buick Enclave | 2.89 | 7–3 |
-| 5 | Cadillac Escalade IQ | 2.71 | 6–1 |
-| 6 | Mercedes GLS | 2.46 | 17–4 |
-| 7 | Cadillac XT6 | 2.44 | 7–2 |
-| 8 | Lexus LX | 2.35 | 10–2 |
-| 9 | GMC Yukon | 2.17 | 21–5 |
-| 10 | Lincoln Nautilus | 2.09 | 14–3 |
-| 11 | Audi Q8 | 1.70 | 5–3 |
-| 12 | Jeep Grand Wagoneer | 1.66 | 7–6 |
-| 13 | Hyundai Palisade | 1.61 | 54–22 |
-| 14 | Lincoln Aviator | 1.59 | 14–4 |
-| 15 | Cadillac Escalade | 1.58 | 18–15 |
-| 16 | Range Rover Sport | 1.57 | 12–3 |
-| 17 | Lincoln Navigator | 1.55 | 13–11 |
-| 18 | Volkswagen Atlas | 1.47 | 11–5 |
-| 19 | Infiniti QX80 | 1.42 | 4–1 |
-| 20 | Nissan Murano | 1.38 | 4–2 |
-| 21 | BMW iX | 1.37 | 11–7 |
-| 22 | Subaru Outback 2026 | 1.30 | 12–1 |
-| 23 | Audi Q7 | 1.23 | 9–5 |
-| 24 | Acura MDX | 1.17 | 8–4 |
-| 25 | Genesis GV70 | 1.12 | 14–4 |
-| 26 | Mercedes GLE | 1.06 | 21–14 |
-| 27 | BMW X5 | 0.96 | 35–50 |
-| 28 | BMW X7 | 0.89 | 10–20 |
-| 29 | Subaru Ascent | 0.88 | 22–9 |
-| 30 | Genesis GV80 | 0.87 | 8–7 |
-| 31 | Lexus GX | 0.78 | 25–14 |
-| 32 | Lexus RX | 0.73 | 19–14 |
-| 33 | Lexus TX | 0.70 | 6–6 |
-| 34 | Nissan Pathfinder | 0.57 | 15–11 |
-| 35 | Jeep Grand Cherokee | 0.52 | 3–2 |
-| 36 | Lincoln Corsair | 0.42 | 6–5 |
-| 37 | Audi Q5 | 0.31 | 15–9 |
-| 38 | Volvo XC60 | 0.28 | 17–12 |
-| 39 | Kia Telluride | 0.23 | 28–26 |
-| 40 | Volvo XC90 | 0.22 | 15–13 |
-| 41 | Honda Pilot | 0.17 | 33–37 |
-| 42 | Toyota Grand Highlander | 0.00 | 5–12 |
-| 43 | Volkswagen Tiguan | −0.03 | 11–4 |
-| 44 | Subaru Outback (2020–25) | −0.12 | 31–16 |
-| 45 | Toyota Venza | −0.12 | 14–3 |
-| 46 | Porsche Macan | −0.22 | 5–6 |
-| 47 | Toyota Highlander | −0.22 | 8–23 |
-| 48 | Land Rover Defender | −0.27 | 10–13 |
-| 49 | Lexus NX | −0.40 | 8–11 |
-| 50 | Honda CR-V | −0.43 | 21–18 |
-| 51 | Jeep Grand Cherokee L | −0.49 | 2–4 |
-| 52 | Honda Passport | −0.62 | 6–8 |
-| 53 | Mercedes GLE AMG | −0.66 | 1–4 |
-| 54 | Toyota Sequoia | −0.79 | 3–13 |
-| 55 | Ford Explorer | −0.84 | 4–6 |
-| 56 | Ford Expedition | −1.10 | 3–3 |
-| 57 | Mercedes GLC | −1.25 | 6–6 |
-| 58 | Hyundai Santa Fe | −1.42 | 0–4 |
-| 59 | Mazda CX-90 | −1.43 | 3–15 |
-| 60 | Chevrolet Tahoe | −1.65 | 2–7 |
-| 61 | Cadillac XT5 | −1.71 | 1–8 |
-| 62 | Porsche Cayenne | −1.85 | 4–17 |
-| 63 | Tesla Model X | −1.97 | 11–16 |
-| 64 | Mazda CX-5 | −2.03 | 5–8 |
-| 65 | Subaru Crosstrek | −2.11 | 4–14 |
-| 66 | Lexus GX 550 | −2.27 | 9–15 |
-| 67 | Rivian R1S | −2.30 | 5–21 |
-| 68 | Chevrolet Suburban | −2.30 | 1–8 |
-| 69 | Mazda CX-50 | −2.36 | 1–13 |
-| 70 | Subaru Forester | −2.41 | 2–14 |
-| 71 | Kia Sorento | −2.77 | 0–6 |
-| 72 | Toyota Land Cruiser | −3.15 | 4–7 |
-| 73 | Toyota 4Runner | −3.59 | 3–24 |
-| 74 | Toyota RAV4 | −3.63 | 1–31 |
-| 75 | BMW X3 | −3.84 | 3–20 |
-| 76 | BMW X1 | −4.46 | 1–7 |
-| 77 | Tesla Model Y | −5.00 | 0–16 |
+- This was purposive collection, expanded around thin models; sampling probabilities are unknown.
+- Reddit supplies most observations, and brand communities shape what gets discussed.
+- Statements without a winner are absent. The model estimates preferences conditional on someone expressing one.
+- Wheel size, tires, air suspension, trim, generation, road, and body shape can flip a nameplate comparison.
+- “Comfort” combines ride, seats, NVH, fatigue, and overall judgments; one latent score cannot capture every tradeoff.
+- Stability intervals describe this corpus under respondent resampling, not uncertainty for all SUV owners.

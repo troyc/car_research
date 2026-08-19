@@ -33,12 +33,12 @@ be checked against the live page before concluding.
    reply chain must supply the other *and* the row should say so. If no single
    passage supports the pair, delete the row — do not stitch two strangers'
    statements together.
-3. **Axis.** `comfort_axis` (ride / seats / nvh / overall) must be stated or
-   directly implied.
-4. **Evidence tag = weight.** `rank.py` derives weight from the evidence tag:
-   `owned_both` 3.0, `test_drove_both` 2.0, `owned_one_*` / `opinion_plus_drive`
-   1.2–1.5, `opinion` 0.7. The tag must match first-person claims in the passage.
-   `weight_base` in the CSV is informational.
+3. **Axis.** `comfort_axis` (ride / seats / nvh / long_trip / overall) must be
+   stated or directly implied.
+4. **Evidence tag.** The tag must match first-person claims in the passage.
+   Primary analysis uses it as an inclusion rule, then gives each retained
+   statement total mass one. The old evidence multipliers are reported only as
+   the `legacy_weights` sensitivity. `weight_base` in the CSV is informational.
 5. **Upvotes (unused).** The `upvotes` column is not used in any fit.
    Treat it as leftover CSV; do not spend effort fixing drift.
 
@@ -73,9 +73,10 @@ that full text — never from the fragment alone.
 
 Two advisory checks run per row:
 
-- **HOME_TEAM CHECK** — winner vs the subreddit's home badge. `rank.py`
-  penalizes home wins. Unknown brand subs are skipped; add them to
-  `HOME_MODELS` when a new one shows up.
+- **HOME_TEAM CHECK** — winner vs the subreddit's home badge. The primary fit
+  does not downweight these rows; this coding supports the neutral-community
+  and legacy-weight sensitivity analyses. Unknown brand subs are skipped; add
+  them to `HOME_MODELS` when a new one shows up.
 - **MODEL CHECK** — a coded winner/loser never named in the matched passage.
   Brand-only mentions are printed softer than a total absence. Plurals
   ("Palisades") and spaced codes ("XC 90") count as named; source misspellings
@@ -125,3 +126,33 @@ audit/
 `raw/` is a local snapshot. Re-fetch with `fetch_pages.sh` if missing; the
 script prints the exact filename it expects. Hash non-reddit URLs the same way
 the tool does (trailing slash stripped) or the filename will not match.
+
+## Provenance metadata
+
+`backfill_metadata.py` appends five audit columns to every row in
+`data/comparisons.csv`:
+
+- `thread_id` is the Reddit `/comments/<id>` thread (or a stable URL hash for
+  malformed Reddit and non-Reddit URLs).
+- `statement_id` identifies the matched Reddit post/comment as
+  `<thread_id>_<comment-id>` or `<thread_id>_post`. If the snapshot is missing,
+  the quote is deleted/unrecoverable, or the source is non-Reddit, it is a
+  deterministic source/URL/quote hash (`stmt_<sha256>`), so several pair rows
+  backed by the same passage remain one statement.
+- `respondent_id` is a truncated SHA-256 digest of the Reddit author, never the
+  username itself. Deleted, unavailable, and non-Reddit respondents use a
+  deterministic source/URL/quote digest.
+- `community_affinity` is `winner`, `loser`, or `other` for a brand subreddit
+  according to `HOME_MODELS`; general/unknown communities and non-Reddit rows
+  are `neutral`.
+- `collection_batch` matches the row against the growing historical CSV
+  snapshots (`pass_1_to_3`, then `pass_4` through `pass_9`). Rows changed too
+  much by the audit to match a historical pair/URL are labeled
+  `audit_or_unresolved`; outside a git checkout they receive a stable batch
+  hash.
+
+Re-run after changing quotes or snapshots:
+
+```bash
+python3 audit/backfill_metadata.py
+```
