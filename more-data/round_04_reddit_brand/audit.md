@@ -8,10 +8,12 @@ Reddit's current `robots.txt` allows ordinary page HTML under `User-agent: *` wh
 
 ## Inclusion and deduplication
 
-Nine rows from seven first-person statements were retained. They add three respondents comparing Santa Fe and Sorento, including a useful split: Santa Fe wins third-row comfort and NVH, while one same-day shopper preferred the Sorento's 19-inch-wheel ride. Two new X5-X7 owners disagree on ride direction. The round also adds direct GX 550-Land Cruiser ride evidence and another GV80-X5 overall-comfort judgment.
+Fifteen rows from eleven first-person statements were retained. They add three respondents comparing Santa Fe and Sorento, including a useful split: Santa Fe wins third-row comfort and NVH, while one same-day shopper preferred the Sorento's 19-inch-wheel ride. Two new X5-X7 owners disagree on ride direction. The round also adds direct GX 550-Land Cruiser ride evidence and another GV80-X5 overall-comfort judgment.
+
+The cross-segment pass added six rows from four household owners or buyers: Telluride over X5 on front- and second-row seats; RX over Highlander on ride and NVH; Highlander Hybrid over a traded 4Runner on ride; and TX over Grand Highlander on ride and NVH after both were test-driven. The TX comment's author identity was taken from the visible comment heading rather than the adjacent reply below it. Every new statement is distinct by respondent, unordered pair, and axis from the parent and earlier staged rows.
 
 Every candidate thread was checked against the 790-row parent file and all earlier staged rounds. Strong Defender-XC90, Corsair-Nautilus, TX-Aviator, GV70-Macan, and Pilot-Pathfinder passages were rejected as existing parent statements rather than counted again. A week-long rental of both GX and Land Cruiser was not forced into the `test_drove_both` category because the current evidence taxonomy has no rental-both value. A Gulf-market Santa Fe-Sorento passage was excluded to avoid regional powertrain/generation drift.
 
 ## Coverage and limits
 
-The round increases evidence for two withheld models (Santa Fe and Sorento) and three named priority pairs (GX 550-Land Cruiser, X5-X7, and X5-GV80). Exact dates or model years remain blank where the public page exposed only a relative timestamp; the context file records every stated trim, wheel, and generation qualifier. No parent data or generated ranking output was changed.
+The round increases evidence for two withheld models (Santa Fe and Sorento), three named priority pairs (GX 550-Land Cruiser, X5-X7, and X5-GV80), and six additional cross-segment observations. Exact dates or model years remain blank where the public page exposed only a relative timestamp; the context file records every stated trim, wheel, and generation qualifier. No parent data or generated ranking output was changed.
