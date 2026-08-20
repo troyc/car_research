@@ -2,7 +2,7 @@
 
 These are generated results for preferences expressed in the collected online corpus. They are not a survey of SUV owners. Each source statement has total mass one, and the intervals show stability when respondent clusters are resampled.
 
-**Primary corpus:** 781 pair-axis judgments from 688 statements and 665 respondent clusters. See [methodology.md](methodology.md) and [model_diagnostics.md](model_diagnostics.md).
+**Primary corpus:** 781 pair-axis judgments from 688 statements and 665 respondent clusters. See [comparisons.md](comparisons.md), [methodology.md](methodology.md), and [model_diagnostics.md](model_diagnostics.md).
 
 ## Global ranking
 

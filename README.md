@@ -23,7 +23,7 @@ The chart below uses only the filtered primary observations—never model-implie
 
 ![Best-supported direct SUV comfort matchups split into ride, seat, NVH, long-trip, and overall judgments](reports/figures/direct_matchups.png)
 
-Among the best-supported pairs, GLS is 12–1 in normalized statement mass against X7, Venza is 9–0 against RAV4, GX 460 is 8–0 against 4Runner, and Palisade is 7.2–1 against Pilot. The axis breakdown matters—Escalade versus Navigator, for example, splits ride from seats.
+Among the best-supported pairs, GLS is 12–1 in normalized statement mass against X7, Venza is 9–0 against RAV4, GX 460 is 8–0 against 4Runner, and Palisade is 7.2–1 against Pilot. The axis breakdown matters—Escalade versus Navigator, for example, splits ride from seats. The [complete comparisons catalog](reports/comparisons.md) lists all 781 primary judgments and customer quotes organized alphabetically by vehicle.
 
 ## Global ranking
 
@@ -75,7 +75,7 @@ The primary fit gives statements equal influence. Former evidence-quality and ho
 
 [Source sensitivity](reports/figures/sensitivity.png) compares probabilities under the primary, owners-only, and neutral-forum samples. The machine-readable sensitivity results also include a run excluding `home_team=1` observations: wins for a community's home brand over a different brand. Same-brand matchups are retained. The [coverage graph](reports/figures/coverage_graph.png) shows which direct pairings hold the global scale together.
 
-Read the [methodology](reports/methodology.md), [model diagnostics](reports/model_diagnostics.md), and [machine-readable sensitivity table](data/ranking_sensitivity.csv) for the full specification.
+Read the [methodology](reports/methodology.md), [comparisons catalog](reports/comparisons.md), [model diagnostics](reports/model_diagnostics.md), and [machine-readable sensitivity table](data/ranking_sensitivity.csv) for the full specification.
 
 ## Reproduce it
 
@@ -110,6 +110,7 @@ python3 src/plot.py --only segment_rankings direct_matchups
 - [`data/comparisons.csv`](data/comparisons.csv) — audited coded rows with statement/respondent/thread/batch metadata
 - [`data/analysis_observations.csv`](data/analysis_observations.csv) — generated primary observations and normalized analysis weights
 - [`data/ranking.csv`](data/ranking.csv) / [`data/ranking_segments.csv`](data/ranking_segments.csv) — global and within-segment results
+- [`reports/comparisons.md`](reports/comparisons.md) — complete catalog of pairwise comparisons and quotes for each vehicle, in alphabetical order
 - [`src/rank.py`](src/rank.py) / [`src/plot.py`](src/plot.py) — analysis and visualization pipeline
 - [`audit/`](audit/) — source snapshots, verification, and metadata backfill tools
 - [`reports/collection_history.md`](reports/collection_history.md) — archived nine-pass narrative and retired hand-authored chain

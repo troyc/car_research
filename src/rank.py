@@ -15,6 +15,7 @@ import hashlib
 import io
 import json
 import math
+import re
 import sys
 from collections import Counter, defaultdict
 from dataclasses import dataclass, replace
@@ -110,6 +111,21 @@ SEGMENTS = {
 }
 
 SEGMENT_OF = {model: segment for segment, models in SEGMENTS.items() for model in models}
+
+AXIS_TITLES = {
+    "ride": "Ride",
+    "seats": "Seats",
+    "nvh": "Quiet / NVH",
+    "long_trip": "Long-trip",
+    "overall": "Overall",
+}
+
+SEGMENT_TITLES = {
+    "compact": "Compact / small-mid",
+    "mid_luxury": "Midsize luxury",
+    "family_3row": "Three-row family",
+    "flagship": "Flagship / large",
+}
 
 
 @dataclass(frozen=True)
@@ -915,7 +931,7 @@ def rankings_markdown(
         "These are generated results for preferences expressed in the collected online corpus. They are not a survey of SUV owners. Each source statement has total mass one, and the intervals show stability when respondent clusters are resampled.",
         "",
         f"**Primary corpus:** {primary['observations']} pair-axis judgments from {primary['statements']} statements and {primary['respondents']} respondent clusters. "
-        f"See [methodology.md](methodology.md) and [model_diagnostics.md](model_diagnostics.md).",
+        f"See [comparisons.md](comparisons.md), [methodology.md](methodology.md), and [model_diagnostics.md](model_diagnostics.md).",
         "",
         "## Global ranking",
         "",
@@ -958,16 +974,10 @@ def rankings_markdown(
     by_scope: dict[str, list[dict[str, object]]] = defaultdict(list)
     for row in segment_records:
         by_scope[str(row["scope"])].append(row)
-    titles = {
-        "compact": "Compact / small-mid",
-        "mid_luxury": "Midsize luxury",
-        "family_3row": "Three-row family",
-        "flagship": "Flagship / large",
-    }
     for scope in ("flagship", "mid_luxury", "family_3row", "compact"):
         lines.extend([
             "",
-            f"### {titles[scope]}",
+            f"### {SEGMENT_TITLES[scope]}",
             "",
             "| Rank | Model | P vs segment avg | 90% P range | 90% rank range | Respondents | Opponents |",
             "|---:|---|---:|---:|---:|---:|---:|",
@@ -993,6 +1003,125 @@ def rankings_markdown(
         "The machine-readable [sensitivity table](../data/ranking_sensitivity.csv) contains owners-only, lived-with-both, neutral-forum, home-team wins over a different brand excluded (same-brand matchups retained), source, prior, comfort-axis, collection-batch, legacy-weight, and thread-cluster scenarios. Use [model diagnostics](model_diagnostics.md) for connectivity, grouped predictive performance, influential threads, and pair residuals.",
         "",
     ])
+    return "\n".join(lines)
+
+
+def _clean_quote(quote: str) -> str:
+    cleaned = quote.replace("|", "&#124;").replace("\r", " ").replace("\n", " ").strip()
+    while "  " in cleaned:
+        cleaned = cleaned.replace("  ", " ")
+    return cleaned
+
+
+def _slug(name: str) -> str:
+    return re.sub(r"[^\w\s-]", "", name.lower()).strip().replace(" ", "-")
+
+
+def comparisons_markdown(
+    observations: Sequence[Observation],
+    raw_rows: Sequence[dict[str, str]],
+    global_records: Sequence[dict[str, object]],
+) -> str:
+    raw_by_id = {r["id"]: r for r in raw_rows}
+    global_by_model = {str(r["model"]): r for r in global_records}
+
+    by_car: dict[str, list[tuple[str, Observation]]] = defaultdict(list)
+    for obs in observations:
+        by_car[obs.winner].append(("win", obs))
+        by_car[obs.loser].append(("loss", obs))
+
+    models = sorted(by_car.keys())
+    total_obs = len(observations)
+
+    lines = [
+        "# SUV Comfort Comparisons by Vehicle",
+        "",
+        f"This catalog lists all {total_obs} primary pairwise comfort comparisons used to judge each of the {len(models)} vehicles in the Bradley–Terry comfort ranking, organized alphabetically by vehicle.",
+        "",
+        "Each entry details the head-to-head outcome, opponent, comfort axis, evidence classification, normalized statement weight, verbatim customer quote, and source link. In the primary analysis, each source statement has total mass one, split equally across its distinct pair-axis judgments.",
+        "",
+        "See [rankings.md](rankings.md) for modeled scores and stability intervals, [methodology.md](methodology.md) for inclusion rules, and [model_diagnostics.md](model_diagnostics.md) for connectivity checks.",
+        "",
+        "## Vehicle index",
+        "",
+    ]
+
+    by_letter: dict[str, list[str]] = defaultdict(list)
+    for m in models:
+        by_letter[m[0].upper()].append(m)
+
+    index_lines = []
+    for letter in sorted(by_letter.keys()):
+        links = [f"[{m}](#{_slug(m)})" for m in by_letter[letter]]
+        index_lines.append(f"**{letter}:** " + " · ".join(links))
+    lines.extend(index_lines)
+    lines.append("")
+
+    for m in models:
+        comps = by_car[m]
+        wins = [o for res, o in comps if res == "win"]
+        losses = [o for res, o in comps if res == "loss"]
+        w_mass = sum(o.weight for o in wins)
+        l_mass = sum(o.weight for o in losses)
+        opponents = sorted({o.loser if res == "win" else o.winner for res, o in comps})
+
+        g_info = global_by_model.get(m, {})
+        raw_seg = str(g_info.get("segment", ""))
+        seg_str = SEGMENT_TITLES.get(raw_seg, raw_seg or "—")
+        rank_val = g_info.get("rank", "")
+        p_val = g_info.get("p_vs_average", "")
+        status = g_info.get("status", "ranked")
+
+        lines.extend([
+            f"## {m}",
+            "",
+        ])
+
+        if rank_val != "" and status == "ranked":
+            p_str = _percent(p_val)
+            summary_header = (
+                f"**Global rank:** #{rank_val} (P vs avg: {p_str}) | "
+                f"**Segment:** {seg_str} | "
+                f"**Record:** {len(wins)} wins, {len(losses)} losses ({len(comps)} judgments) | "
+                f"**Statement mass:** {w_mass:.2f}W – {l_mass:.2f}L | "
+                f"**Opponents ({len(opponents)}):** {', '.join(opponents)}"
+            )
+        else:
+            summary_header = (
+                f"**Global status:** Coverage withheld (`{status}`) | "
+                f"**Segment:** {seg_str} | "
+                f"**Record:** {len(wins)} wins, {len(losses)} losses ({len(comps)} judgments) | "
+                f"**Statement mass:** {w_mass:.2f}W – {l_mass:.2f}L | "
+                f"**Opponents ({len(opponents)}):** {', '.join(opponents)}"
+            )
+        lines.extend([
+            summary_header,
+            "",
+            "| Result | Opponent | Axis | Evidence | Weight | Quote | Source |",
+            "|---|---|---|---|---:|---|---|",
+        ])
+
+        sorted_comps = sorted(
+            comps,
+            key=lambda item: (
+                item[1].loser if item[0] == "win" else item[1].winner,
+                item[0] != "win",
+                item[1].row_id,
+            ),
+        )
+
+        for res, o in sorted_comps:
+            opp = o.loser if res == "win" else o.winner
+            raw = raw_by_id.get(o.row_id, {})
+            quote = _clean_quote(raw.get("quote", ""))
+            res_str = "**Win**" if res == "win" else "Loss"
+            axis_str = AXIS_TITLES.get(o.axis, o.axis.title())
+            src_link = f"[{o.source}: {o.row_id}]({o.url})" if o.url else f"{o.source}: {o.row_id}"
+            lines.append(
+                f"| {res_str} | {opp} | {axis_str} | `{o.evidence}` | {o.weight:.2f} | {quote} | {src_link} |"
+            )
+        lines.append("")
+
     return "\n".join(lines)
 
 
@@ -1119,6 +1248,7 @@ def run_analysis(
         ROOT / "reports" / "model_diagnostics.md": diagnostics_markdown(summary),
         ROOT / "reports" / "rankings.md": rankings_markdown(global_records, segment_records, summary),
         ROOT / "reports" / "composite_ranking.md": composite_pointer_markdown(),
+        ROOT / "reports" / "comparisons.md": comparisons_markdown(primary, raw_rows, global_records),
     }
     for path, content in generated.items():
         _write_or_check(path, content, check)

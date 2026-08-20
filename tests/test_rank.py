@@ -296,3 +296,35 @@ def test_generated_file_write_and_check_use_only_requested_path(
 
     with pytest.raises(SystemExit, match=r"generated file is stale: data/result\.csv"):
         rank._write_or_check(destination, "model,theta\nA,0.000000\n", check=True)
+
+
+def test_comparisons_markdown_formats_models_alphabetically() -> None:
+    obs = [
+        observation("BMW X5", "Acura MDX", 1, weight=1.0),
+        observation("Acura MDX", "Audi Q7", 2, weight=0.5),
+    ]
+    raw_rows = [
+        {"id": "row-1", "quote": "X5 > MDX quote with | pipe and \n newline"},
+        {"id": "row-2", "quote": "MDX > Q7 quote"},
+    ]
+    global_records = [
+        {"model": "Acura MDX", "rank": 22, "p_vs_average": 0.75, "segment": "mid_luxury", "status": "ranked"},
+        {"model": "Audi Q7", "rank": 13, "p_vs_average": 0.84, "segment": "mid_luxury", "status": "ranked"},
+        {"model": "BMW X5", "rank": 47, "p_vs_average": 0.44, "segment": "mid_luxury", "status": "ranked"},
+    ]
+
+    md = rank.comparisons_markdown(obs, raw_rows, global_records)
+
+    # Models should appear in alphabetical order
+    pos_acura = md.find("## Acura MDX")
+    pos_audi = md.find("## Audi Q7")
+    pos_bmw = md.find("## BMW X5")
+
+    assert pos_acura != -1 and pos_audi != -1 and pos_bmw != -1
+    assert pos_acura < pos_audi < pos_bmw
+
+    # Table contains quote with escaped pipe
+    assert "X5 > MDX quote with &#124; pipe and newline" in md
+    assert "**Win**" in md
+    assert "Loss" in md
+

@@ -37,3 +37,28 @@ def test_readme_top_ten_match_generated_global_ranking() -> None:
             f'{row["n_respondents"]} | {row["n_opponents"]} |'
         )
         assert expected in readme
+
+
+def test_readme_links_to_comparisons_markdown() -> None:
+    readme = (ROOT / "README.md").read_text()
+    assert "reports/comparisons.md" in readme
+    assert "[`reports/comparisons.md`](reports/comparisons.md)" in readme
+
+
+def test_comparisons_catalog_contains_all_models_and_observations() -> None:
+    catalog_path = ROOT / "reports" / "comparisons.md"
+    assert catalog_path.exists(), "reports/comparisons.md should exist"
+    catalog = catalog_path.read_text(encoding="utf-8")
+
+    with (ROOT / "data" / "ranking.csv").open(newline="") as handle:
+        models = [row["model"] for row in csv.DictReader(handle)]
+
+    with (ROOT / "data" / "analysis_observations.csv").open(newline="") as handle:
+        obs_rows = list(csv.DictReader(handle))
+
+    for model in models:
+        assert f"## {model}" in catalog
+
+    for obs in obs_rows:
+        assert obs["id"] in catalog
+
